@@ -3,16 +3,15 @@ import Decimal from 'decimal.js'
 import db, { MarketSchema, MarketOption, MarketOptionSchema } from '@play-money/database'
 import { INITIAL_MARKET_LIQUIDITY_PRIMARY } from '@play-money/finance/economy'
 import { getBalance } from '@play-money/finance/lib/getBalances'
-import { createDailyMarketBonusTransaction } from '@play-money/quests/lib/createDailyMarketBonusTransaction'
-import { hasCreatedMarketToday } from '@play-money/quests/lib/helpers'
 import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
 import { createMarketLiquidityTransaction } from './createMarketLiquidityTransaction'
 import { getMarketTagsLLM } from './getMarketTagsLLM'
 import { slugifyTitle } from './helpers'
 
-type PartialOptions = Pick<MarketOption, 'name' | 'color'>
+type PartialOptions = Pick<MarketOption, 'name' | 'color'> & { id?: string }
 
 export async function createMarket({
+  id,
   question,
   description,
   closeDate,
@@ -21,7 +20,9 @@ export async function createMarket({
   tags,
   subsidyAmount = new Decimal(INITIAL_MARKET_LIQUIDITY_PRIMARY),
   parentListId,
+  eventId,
 }: {
+  id?: string
   question: string
   description: string
   closeDate: Date | null
@@ -30,13 +31,17 @@ export async function createMarket({
   tags?: Array<string>
   subsidyAmount?: Decimal
   parentListId?: string
+  eventId?: string
 }) {
   let slug = slugifyTitle(question)
 
   let parsedOptions: Array<PartialOptions>
 
   if (options?.length) {
-    parsedOptions = options.map((data) => MarketOptionSchema.pick({ name: true, color: true }).parse(data))
+    parsedOptions = options.map((data) => {
+      const parsed = MarketOptionSchema.pick({ name: true, color: true }).parse(data)
+      return { ...parsed, id: data.id }
+    })
   } else {
     parsedOptions = [
       {
@@ -57,7 +62,7 @@ export async function createMarket({
     assetId: 'PRIMARY',
   })
 
-  if (!userPrimaryBalance.total.gte(subsidyAmount)) {
+  if (!userPrimaryBalance.total.gte(subsidyAmount) && createdBy !== 'system-admin') {
     throw new Error('User does not have enough balance to create market')
   }
 
@@ -66,14 +71,23 @@ export async function createMarket({
   const now = new Date()
   const createdMarket = await db.market.create({
     data: {
+      ...(id ? { id } : {}),
       question,
       description,
       closeDate,
       slug,
       tags: generatedTags.map((tag) => slugifyTitle(tag)),
+      ...(eventId
+        ? {
+            event: {
+              connect: { id: eventId },
+            },
+          }
+        : {}),
       options: {
         createMany: {
           data: parsedOptions.map((option, i) => ({
+            ...(option.id ? { id: option.id } : {}),
             name: option.name,
             color: option.color || (i === 0 ? '#3B82F6' : '#EC4899'),
             liquidityProbability: new Decimal(1).div(parsedOptions.length),
@@ -121,7 +135,7 @@ export async function createMarket({
           id: createdBy,
         },
       } as unknown as undefined,
-    },
+    } as unknown as Prisma.MarketCreateInput,
     include: {
       options: true,
     },
@@ -155,14 +169,6 @@ export async function createMarket({
     amount: subsidyAmount,
     marketId: createdMarket.id,
   })
-
-  if (!(await hasCreatedMarketToday({ userId: createdMarket.createdBy }))) {
-    await createDailyMarketBonusTransaction({
-      accountId: userAccount.id,
-      marketId: createdMarket.id,
-      initiatorId: createdBy,
-    })
-  }
 
   return createdMarket
 }

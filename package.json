@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "dotenv -- turbo build",
-    "dev": "dotenv -- turbo dev",
+    "dev": "dotenv -- turbo dev --filter=api",
     "lint": "dotenv -- turbo lint",
     "format": "dotenv -- turbo format",
     "type-check": "dotenv -- turbo type-check",

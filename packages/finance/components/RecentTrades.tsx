@@ -36,7 +36,7 @@ export function RecentTrades() {
             ) : null}
             {transaction.type === 'TRADE_BUY' ? 'bought' : 'sold'}{' '}
             <span className="font-semibold">
-              <CurrencyDisplay value={Math.abs(primaryChange?.change ?? 0)} isShort />{' '}
+              <CurrencyDisplay value={Math.abs(Number(primaryChange?.change ?? 0))} isShort />{' '}
               {_.truncate(optionName, { length: 40 })}
             </span>{' '}
             {transaction.market ? (

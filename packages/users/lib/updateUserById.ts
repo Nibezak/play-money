@@ -1,3 +1,4 @@
+import { Prisma } from '@prisma/client'
 import db, { User } from '@play-money/database'
 import { checkUsername } from './checkUsername'
 import { getUserById } from './getUserById'
@@ -54,7 +55,7 @@ export async function updateUserById({
 
   const updatedUser = await db.user.update({
     where: { id },
-    data: { ...updatedData, updatedAt: new Date() },
+    data: { ...updatedData, updatedAt: new Date() } as Prisma.UserUpdateInput,
   })
 
   return updatedUser

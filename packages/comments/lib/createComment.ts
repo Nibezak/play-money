@@ -3,9 +3,6 @@ import { getList } from '@play-money/lists/lib/getList'
 import { getMarket } from '@play-money/markets/lib/getMarket'
 import { getUniqueLiquidityProviderIds } from '@play-money/markets/lib/getUniqueLiquidityProviderIds'
 import { createNotification } from '@play-money/notifications/lib/createNotification'
-import { createDailyCommentBonusTransaction } from '@play-money/quests/lib/createDailyCommentBonusTransaction'
-import { hasCommentedToday } from '@play-money/quests/lib/helpers'
-import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
 
 function extractUniqueMentionIds(htmlString: string): string[] {
   const mentionRegex = /<mention[^>]*data-id="([^"]*)"[^>]*>/g
@@ -21,6 +18,19 @@ function extractUniqueMentionIds(htmlString: string): string[] {
   return Array.from(uniqueIds)
 }
 
+export function sanitizeCommentContent(content: string): string {
+  return content
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .trim()
+}
+
 export async function createComment({
   content,
   authorId,
@@ -28,7 +38,10 @@ export async function createComment({
   entityType,
   entityId,
 }: Pick<Comment, 'content' | 'authorId' | 'parentId' | 'entityType' | 'entityId'>) {
-  const trimmedContent = content.replace(/<p><\/p>/g, '')
+  const trimmedContent = sanitizeCommentContent(content.replace(/<p><\/p>/g, ''))
+  if (!trimmedContent) {
+    throw new Error('Comment cannot be empty')
+  }
 
   const comment = await db.comment.create({
     data: {
@@ -133,15 +146,6 @@ export async function createComment({
         actionUrl: `/lists/${entity.id}/${entity.slug}#${comment.id}`,
       })
     }
-  }
-
-  if (!(await hasCommentedToday({ userId: authorId }))) {
-    const userAccount = await getUserPrimaryAccount({ userId: authorId })
-    await createDailyCommentBonusTransaction({
-      accountId: userAccount.id,
-      marketId: entityType === 'MARKET' ? entity.id : undefined,
-      initiatorId: authorId,
-    })
   }
 
   return comment

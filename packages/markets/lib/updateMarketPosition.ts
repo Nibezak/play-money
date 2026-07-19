@@ -38,9 +38,9 @@ export async function updateMarketPosition({
       },
     },
     update: {
-      quantity: quantity.isNegative() ? { decrement: quantity.abs().toNumber() } : { increment: quantity.toNumber() },
+      quantity: quantity.isNegative() ? { decrement: quantity.abs().toString() } : { increment: quantity.toString() },
       // cost in inverse since buying is negative
-      cost: cost.isNegative() ? { increment: cost.abs().toNumber() } : { decrement: cost.toNumber() },
+      cost: cost.isNegative() ? { increment: cost.abs().toString() } : { decrement: cost.toString() },
     },
     create: {
       accountId,

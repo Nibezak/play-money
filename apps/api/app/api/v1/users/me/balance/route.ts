@@ -28,3 +28,27 @@ export async function GET(req: Request): Promise<SchemaResponse<typeof schema.ge
     return NextResponse.json({ error: 'Failed to retrieve user session' }, { status: 500 })
   }
 }
+
+export async function POST(req: Request) {
+  try {
+    const userId = await getAuthUser(req)
+    if (!userId) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const { createHouseUserGiftTransaction } = await import('@play-money/finance/lib/createHouseUserGiftTransaction')
+    const Decimal = (await import('decimal.js')).default
+    
+    // Give the user 100 play money
+    await createHouseUserGiftTransaction({
+      userId: userId,
+      amount: new Decimal(100),
+      initiatorId: userId,
+    })
+
+    return NextResponse.json({ success: true })
+  } catch (error) {
+    console.log(error)
+    return NextResponse.json({ error: 'Failed to credit test money' }, { status: 500 })
+  }
+}

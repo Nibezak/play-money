@@ -1,17 +1,11 @@
 import Decimal from 'decimal.js'
 import db from '@play-money/database'
-import { DAILY_TRADE_BONUS_PRIMARY, UNIQUE_TRADER_LIQUIDITY_PRIMARY } from '@play-money/finance/economy'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
 import { getUniqueLiquidityProviderIds } from '@play-money/markets/lib/getUniqueLiquidityProviderIds'
 import { createNotification } from '@play-money/notifications/lib/createNotification'
-import { createDailyTradeBonusTransaction } from '@play-money/quests/lib/createDailyTradeBonusTransaction'
-import { hasPlacedMarketTradeToday } from '@play-money/quests/lib/helpers'
 import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
 import { isMarketTradable } from '../rules'
 import { createLiquidityVolumeBonusTransaction } from './createLiquidityVolumeBonusTransaction'
 import { createMarketBuyTransaction } from './createMarketBuyTransaction'
-import { createMarketLiquidityTransaction } from './createMarketLiquidityTransaction'
-import { createMarketTraderBonusTransactions } from './createMarketTraderBonusTransactions'
 import { getMarket } from './getMarket'
 
 export async function marketBuy({
@@ -19,12 +13,18 @@ export async function marketBuy({
   optionId,
   userId,
   amount,
+  idempotencyKey,
 }: {
   marketId: string
   optionId: string
   userId: string
   amount: Decimal
+  idempotencyKey?: string
 }) {
+  if (!amount.isFinite() || amount.lte(0) || amount.decimalPlaces() > 2) {
+    throw new Error('Trade amount must be a positive value with at most two decimal places')
+  }
+
   const [market, userAccount] = await Promise.all([getMarket({ id: marketId }), getUserPrimaryAccount({ userId })])
 
   if (!isMarketTradable({ market })) {
@@ -37,35 +37,20 @@ export async function marketBuy({
     marketId,
     amount,
     optionId,
+    idempotencyKey,
   })
 
   const existingTradeInMarket = await db.transaction.findFirst({
-    where: {
-      id: { not: transaction.id },
-      marketId,
-      type: 'TRADE_BUY',
-      initiatorId: userId,
-    },
+    where: { id: { not: transaction.id }, marketId, type: 'TRADE_BUY', initiatorId: userId },
   })
 
-  if (userId !== market.createdBy && !existingTradeInMarket) {
-    const houseAccount = await getHouseAccount()
+  if (transaction.replayed) return transaction
 
-    await Promise.all([
-      createMarketLiquidityTransaction({
-        accountId: houseAccount.id,
-        amount: new Decimal(UNIQUE_TRADER_LIQUIDITY_PRIMARY),
-        marketId,
-      }),
-      createMarketTraderBonusTransactions({ marketId }),
-      db.market.update({
-        where: { id: marketId },
-        data: {
-          uniqueTradersCount: { increment: 1 },
-          updatedAt: new Date(),
-        },
-      }),
-    ])
+  if (!existingTradeInMarket) {
+    await db.market.update({
+      where: { id: marketId },
+      data: { uniqueTradersCount: { increment: 1 }, updatedAt: new Date() },
+    })
   }
 
   await createLiquidityVolumeBonusTransaction({ marketId: market.id, amountTraded: amount })
@@ -87,8 +72,4 @@ export async function marketBuy({
     )
   )
 
-  // TODO: Look into returning multiple messages to let the user know toast of the bonus.
-  if (!(await hasPlacedMarketTradeToday({ userId }))) {
-    await createDailyTradeBonusTransaction({ accountId: userAccount.id, marketId, initiatorId: userId })
-  }
 }

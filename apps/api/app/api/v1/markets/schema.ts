@@ -34,10 +34,13 @@ export default {
       closeDate: true,
       tags: true,
     }).extend({
+      id: z.string().optional(),
       options: z.array(
         MarketOptionSchema.pick({
           name: true,
           color: true,
+        }).extend({
+          id: z.string().optional(),
         })
       ),
       type: z.enum(['binary', 'multi', 'list']),

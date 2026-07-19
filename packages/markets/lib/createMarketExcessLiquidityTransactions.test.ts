@@ -2,7 +2,7 @@ import Decimal from 'decimal.js'
 import db from '@play-money/database'
 import { mockAccount, mockBalance, mockTransactionEntry, mockTransactionWithEntries } from '@play-money/database/mocks'
 import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { getMarketBalances } from '@play-money/finance/lib/getBalances'
+import { getBalance, getMarketBalances } from '@play-money/finance/lib/getBalances'
 import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
 import { createMarketExcessLiquidityTransactions } from './createMarketExcessLiquidityTransactions'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
@@ -19,6 +19,7 @@ jest.mock('@play-money/database')
 describe('createMarketExcessLiquidityTransactions', () => {
   beforeEach(() => {
     jest.clearAllMocks()
+    jest.mocked(getBalance).mockResolvedValue(mockBalance({ assetType: 'CURRENCY', assetId: 'PRIMARY', total: new Decimal(1_000_000) }))
   })
 
   it('should handle remaining shares of zero', async () => {

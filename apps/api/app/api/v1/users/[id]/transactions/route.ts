@@ -14,15 +14,22 @@ export async function GET(
   try {
     const { id } = schema.get.parameters.parse(params)
 
-    await getUserById({ id })
+    const user = await getUserById({ id })
 
     const results = await getTransactions({
       userId: id,
-      transactionType: ['TRADE_BUY', 'TRADE_SELL'],
+      accountId: user.primaryAccountId,
+      transactionType: ['TRADE_BUY', 'TRADE_SELL', 'TRADE_WIN', 'TRADE_LOSS'],
       isReverse: null,
     })
 
-    return NextResponse.json(results)
+    return NextResponse.json({
+      ...results,
+      data: results.data.map(transaction => ({
+        ...transaction,
+        userAccountId: user.primaryAccountId,
+      })),
+    })
   } catch (error) {
     console.log(error) // eslint-disable-line no-console -- Log error for debugging
 

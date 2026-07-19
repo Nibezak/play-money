@@ -1,0 +1,738 @@
+error This project's package.json defines "packageManager": "yarn@npm@10.5.0". However the current global version of Yarn is 1.22.22.
+
+Presence of the "packageManager" field indicates that the project is meant to be used with Corepack, a tool included by default with all official Node.js distributions starting from 16.9 and 14.19.
+Corepack must currently be enabled by running corepack enable in your terminal. For more information, check out https://yarnpkg.com/corepack.
+ ⚠ ../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\database\zod\modelSchema\UserSchema.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\database\zod\modelSchema\UserSchema.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\database\zod\modelSchema\UserSchema.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\database\zod\modelSchema\UserSchema.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⨯ Failed to generate static paths for /api/v1/users/[id]/balance:
+SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at loadManifest (C:\projects\play-money\node_modules\next\dist\server\load-manifest.js:35:27)
+    at getMaybePagePath (C:\projects\play-money\node_modules\next\dist\server\require.js:57:59)
+    at getPagePath (C:\projects\play-money\node_modules\next\dist\server\require.js:92:22)
+    at requirePage (C:\projects\play-money\node_modules\next\dist\server\require.js:99:22)
+    at C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:84
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async loadComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:26)
+    at async Object.loadStaticPaths (C:\projects\play-money\node_modules\next\dist\server\dev\static-paths-worker.js:23:24) {
+  type: 'SyntaxError'
+}
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 3 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 3 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 3 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 3 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 4 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 4 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 4 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 4 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 5 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 5 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/users/lib/getUserStats.ts
+./app/api/v1/users/[id]/stats/route.ts
+
+../../node_modules/decimal.js/decimal.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\decimal.js\decimal.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\markets\[id]\buy\route.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\decimal.js\decimal.mjs|rsc
+    Used by 14 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\users\lib\getUserStats.ts|rsc
+
+Import trace for requested module:
+../../node_modules/decimal.js/decimal.mjs
+./app/api/v1/markets/[id]/buy/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 6 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\users\[id]\balance\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/users/[id]/balance/schema.ts
+./app/api/v1/users/[id]/balance/route.ts

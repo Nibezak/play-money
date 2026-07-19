@@ -1,8 +1,7 @@
-import db, { Transaction } from '@play-money/database'
+import db from '@play-money/database'
 import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
 import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
 import { calculateRealizedGainsTax } from '@play-money/finance/lib/helpers'
-import { getMarket } from './getMarket'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
 import { getMarketClearingAccount } from './getMarketClearingAccount'
 import { updateMarketBalances } from './updateMarketBalances'
@@ -16,7 +15,7 @@ export async function createMarketResolveWinTransactions({
   marketId: string
   winningOptionId: string
 }) {
-  const [ammAccount, clearingAccount, winningPositions, market, houseAccount] = await Promise.all([
+  const [ammAccount, clearingAccount, winningPositions, houseAccount] = await Promise.all([
     getMarketAmmAccount({ marketId }),
     getMarketClearingAccount({ marketId }),
     db.marketOptionPosition.findMany({
@@ -24,36 +23,30 @@ export async function createMarketResolveWinTransactions({
         marketId,
         optionId: winningOptionId,
       },
+      include: {
+        account: {
+          select: { userId: true },
+        },
+      },
     }),
-    getMarket({ id: marketId, extended: true }),
     getHouseAccount(),
   ])
 
-  const transactions: Array<Promise<Transaction>> = []
+  const transactions = []
 
   // Transfer winning shares back to the AMM and convert to primary currency
   for (const position of winningPositions) {
+    if (position.quantity.lte(0)) continue
     const tax = calculateRealizedGainsTax({ cost: position.cost, salePrice: position.quantity })
 
     const entries = [
       {
         fromAccountId: position.accountId,
-        toAccountId: clearingAccount.id,
+        toAccountId: ammAccount.id,
         assetType: 'MARKET_OPTION',
         assetId: winningOptionId,
         amount: position.quantity,
       } as const,
-      ...(market.options || [])
-        .filter(({ id }) => id !== winningOptionId)
-        .map((option) => {
-          return {
-            fromAccountId: ammAccount.id,
-            toAccountId: clearingAccount.id,
-            assetType: 'MARKET_OPTION',
-            assetId: option.id,
-            amount: position.quantity,
-          } as const
-        }),
       {
         fromAccountId: clearingAccount.id,
         toAccountId: position.accountId,
@@ -73,31 +66,38 @@ export async function createMarketResolveWinTransactions({
       })
     }
 
-    transactions.push(
-      executeTransaction({
+    const payout = tax.gt(0) ? position.quantity.sub(tax) : position.quantity
+    const transaction = await executeTransaction({
         type: 'TRADE_WIN',
+        initiatorId: position.account?.userId ?? initiatorId,
         entries,
         marketId,
+        optionIds: [winningOptionId],
         additionalLogic: async (txParams) => {
-          return Promise.all([
-            txParams.tx.marketOptionPosition.update({
+          await txParams.tx.marketOptionPosition.update({
               where: {
                 id: position.id,
               },
               data: {
                 quantity: {
-                  decrement: position.quantity.toNumber(),
+                    decrement: position.quantity.toString(),
                 },
                 value: 0,
                 updatedAt: new Date(),
               },
-            }),
-            updateMarketBalances({ ...txParams, marketId }),
-          ])
+            })
+          return updateMarketBalances({ ...txParams, marketId })
         },
       })
-    )
+
+    transactions.push({
+      transaction,
+      userId: position.account?.userId,
+      payout: payout.toDecimalPlaces(2).toString(),
+      shares: position.quantity.toString(),
+      optionId: winningOptionId,
+    })
   }
 
-  return Promise.all([...transactions])
+  return transactions
 }

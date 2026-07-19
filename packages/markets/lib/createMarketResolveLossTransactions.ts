@@ -1,5 +1,5 @@
 import Decimal from 'decimal.js'
-import db, { Transaction } from '@play-money/database'
+import db from '@play-money/database'
 import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
 import { updateMarketBalances } from './updateMarketBalances'
@@ -65,12 +65,12 @@ export async function createMarketResolveLossTransactions({
     type: 'TRADE_LOSS',
     entries,
     marketId,
+    optionIds: Array.from(new Set(entries.map(entry => entry.assetId))),
     additionalLogic: async (txParams) => {
-      return Promise.all([
-        // Batch update all positions in a single transaction
-        ...Object.entries(summedLosingQuantities).flatMap(([accountId, optionQuantity]) =>
-          Object.entries(optionQuantity).map(([optionId, quantity]) =>
-            txParams.tx.marketOptionPosition.update({
+      for (const [accountId, optionQuantity] of Object.entries(summedLosingQuantities)) {
+        for (const [optionId, quantity] of Object.entries(optionQuantity)) {
+          if (quantity.lte(0)) continue
+          await txParams.tx.marketOptionPosition.update({
               where: {
                 accountId_optionId: {
                   accountId,
@@ -79,16 +79,15 @@ export async function createMarketResolveLossTransactions({
               },
               data: {
                 quantity: {
-                  decrement: quantity.toNumber(),
+                  decrement: quantity.toString(),
                 },
                 value: 0,
                 updatedAt: new Date(),
               },
             })
-          )
-        ),
-        updateMarketBalances({ ...txParams, marketId }),
-      ])
+        }
+      }
+      return updateMarketBalances({ ...txParams, marketId })
     },
   })
 

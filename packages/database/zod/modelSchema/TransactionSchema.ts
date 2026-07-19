@@ -8,6 +8,7 @@ import { TransactionTypeSchema } from '../inputTypeSchemas/TransactionTypeSchema
 export const TransactionSchema = z.object({
   type: TransactionTypeSchema,
   id: z.string().cuid(),
+  externalId: z.string().nullable(),
   initiatorId: z.string().nullable(),
   isReverse: z.boolean().nullable(),
   reverseOfId: z.string().nullable(),

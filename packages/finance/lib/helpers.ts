@@ -10,7 +10,7 @@ export type BalanceChange = {
   accountId: string
   assetType: AssetTypeType
   assetId: string
-  change: number
+  change: Decimal.Value
 }
 
 export function calculateBalanceChanges({ entries }: { entries: Array<TransactionEntryInput> }): Array<BalanceChange> {
@@ -22,24 +22,24 @@ export function calculateBalanceChanges({ entries }: { entries: Array<Transactio
     const amount = new Decimal(entry.amount)
 
     if (fromKey in changes) {
-      changes[fromKey].change = new Decimal(changes[fromKey].change).minus(amount).toNumber()
+      changes[fromKey].change = new Decimal(changes[fromKey].change).minus(amount).toString()
     } else {
       changes[fromKey] = {
         accountId: entry.fromAccountId,
         assetType: entry.assetType,
         assetId: entry.assetId,
-        change: amount.negated().toNumber(),
+        change: amount.negated().toString(),
       }
     }
 
     if (toKey in changes) {
-      changes[toKey].change = new Decimal(changes[toKey].change).plus(amount).toNumber()
+      changes[toKey].change = new Decimal(changes[toKey].change).plus(amount).toString()
     } else {
       changes[toKey] = {
         accountId: entry.toAccountId,
         assetType: entry.assetType,
         assetId: entry.assetId,
-        change: amount.toNumber(),
+        change: amount.toString(),
       }
     }
   })

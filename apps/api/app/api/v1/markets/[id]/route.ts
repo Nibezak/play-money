@@ -31,6 +31,9 @@ export async function GET(
     return NextResponse.json({ data: market })
   } catch (error) {
     console.log(error) // eslint-disable-line no-console -- Log error for debugging
+    if (error && typeof error === 'object' && 'code' in error && error.code === 'P2025') {
+      return NextResponse.json({ error: 'Market not found' }, { status: 404 })
+    }
     return NextResponse.json({ error: 'Error processing request' }, { status: 500 })
   }
 }

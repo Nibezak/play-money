@@ -53,6 +53,13 @@ export function mockUser(overrides?: Partial<User>): User {
     role: 'USER',
     timezone: faker.helpers.arrayElement(Intl.supportedValuesOf('timeZone')),
     ...overrides,
+    address: overrides?.address ?? null,
+    depositWalletAddress: overrides?.depositWalletAddress ?? null,
+    depositWalletSignature: overrides?.depositWalletSignature ?? null,
+    depositWalletSignedAt: overrides?.depositWalletSignedAt ?? null,
+    depositWalletStatus: overrides?.depositWalletStatus ?? null,
+    depositWalletTxHash: overrides?.depositWalletTxHash ?? null,
+    settings: overrides?.settings ?? null,
   }
 }
 
@@ -81,6 +88,12 @@ export function mockMarket(overrides?: Partial<Market>): Market {
     uniqueTradersCount: parseInt(faker.string.numeric({ length: { min: 0, max: 1 } })),
     uniquePromotersCount: parseInt(faker.string.numeric({ length: { min: 0, max: 1 } })),
     ...overrides,
+    eventId: overrides?.eventId ?? null,
+    oracle: overrides?.oracle ?? null,
+    questionId: overrides?.questionId ?? null,
+    creatorAddress: overrides?.creatorAddress ?? null,
+    resolutionStatus: overrides?.resolutionStatus ?? null,
+    clobTokenIds: overrides?.clobTokenIds ?? null,
   }
 }
 
@@ -156,6 +169,7 @@ export function mockTransactionWithEntries(overrides?: Partial<TransactionWithEn
 
   return {
     id: transactionId,
+    externalId: null,
     type: faker.helpers.arrayElement(['TRADE_BUY', 'TRADE_SELL']),
     createdAt: faker.date.past(),
     updatedAt: faker.date.past(),
@@ -183,6 +197,7 @@ export function mockMarketOption(overrides?: Partial<MarketOption>): MarketOptio
     updatedAt: faker.date.past(),
     probability: 50,
     ...overrides,
+    tokenId: overrides?.tokenId ?? null,
   }
 }
 

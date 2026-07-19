@@ -5,7 +5,7 @@ import { UserSchema } from '@play-money/database'
 export default {
   get: {
     summary: 'Get the stats for a user',
-    parameters: UserSchema.pick({ id: true }),
+    parameters: z.object({ id: z.string() }),
     responses: {
       200: z.object({
         data: z.object({

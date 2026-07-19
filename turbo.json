@@ -5,7 +5,16 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^test", "^build", "^db:generate", "^docs:generate"],
-      "env": ["NEXT_PUBLIC_API_URL", "BLOB_READ_WRITE_TOKEN"],
+      "env": [
+        "NEXT_PUBLIC_API_URL",
+        "BLOB_READ_WRITE_TOKEN",
+        "NEXTAUTH_URL",
+        "NEXTAUTH_SECRET",
+        "PLAY_MONEY_SERVICE_API_KEY",
+        "TELLWISE_SERVICE_SECRET",
+        "TELLWISE_SECRET",
+        "NODE_ENV"
+      ],
       "inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,jsx,mdx}"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**", "storybook-static/**"]
     },

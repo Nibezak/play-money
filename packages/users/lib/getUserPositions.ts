@@ -42,7 +42,12 @@ export async function getUserPositions(filters: MarketPositionFilterOptions = {}
           user: true,
         },
       },
-      market: true,
+      market: {
+        include: {
+          event: true,
+          options: true,
+        },
+      },
       option: true,
     },
   })

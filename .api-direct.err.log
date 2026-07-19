@@ -1,0 +1,718 @@
+error This project's package.json defines "packageManager": "yarn@npm@10.5.0". However the current global version of Yarn is 1.22.22.
+
+Presence of the "packageManager" field indicates that the project is meant to be used with Corepack, a tool included by default with all official Node.js distributions starting from 16.9 and 14.19.
+Corepack must currently be enabled by running corepack enable in your terminal. For more information, check out https://yarnpkg.com/corepack.
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/markets/lib/createMarket.ts
+./app/api/v1/markets/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/markets/lib/createMarket.ts
+./app/api/v1/markets/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\markets\[id]\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\database\zod\modelSchema\UserSchema.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/markets/[id]/schema.ts
+./app/api/v1/markets/[id]/route.ts
+Error syncing user: PrismaClientInitializationError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+error: Environment variable not found: POSTGRES_PRISMA_URL.
+  -->  schema.prisma:17
+   | 
+16 |   provider  = "postgresql"
+17 |   url       = env("POSTGRES_PRISMA_URL")
+   | 
+
+Validation Error Count: 1
+    at _n.handleRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:7227)
+    at _n.handleAndLogRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:6235)
+    at _n.request (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:5919)
+    at async l (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:131:9061)
+    at async POST (webpack-internal:///(rsc)/./app/api/v1/users/sync/route.ts:29:20)
+    at async C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:55038
+    at async ek.execute (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:45808)
+    at async ek.handle (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:56292)
+    at async doRender (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1377:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1599:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1507:28)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1931:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  clientVersion: '5.16.2',
+  errorCode: undefined
+}
+Error syncing user: PrismaClientInitializationError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+error: Environment variable not found: POSTGRES_PRISMA_URL.
+  -->  schema.prisma:17
+   | 
+16 |   provider  = "postgresql"
+17 |   url       = env("POSTGRES_PRISMA_URL")
+   | 
+
+Validation Error Count: 1
+    at _n.handleRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:7227)
+    at _n.handleAndLogRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:6235)
+    at _n.request (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:5919)
+    at async l (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:131:9061)
+    at async POST (webpack-internal:///(rsc)/./app/api/v1/users/sync/route.ts:29:20)
+    at async C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:55038
+    at async ek.execute (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:45808)
+    at async ek.handle (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:56292)
+    at async doRender (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1377:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1599:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1507:28)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1931:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  clientVersion: '5.16.2',
+  errorCode: undefined
+}
+Error syncing user: PrismaClientInitializationError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+error: Environment variable not found: POSTGRES_PRISMA_URL.
+  -->  schema.prisma:17
+   | 
+16 |   provider  = "postgresql"
+17 |   url       = env("POSTGRES_PRISMA_URL")
+   | 
+
+Validation Error Count: 1
+    at _n.handleRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:7227)
+    at _n.handleAndLogRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:6235)
+    at _n.request (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:5919)
+    at async l (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:131:9061)
+    at async POST (webpack-internal:///(rsc)/./app/api/v1/users/sync/route.ts:29:20)
+    at async C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:55038
+    at async ek.execute (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:45808)
+    at async ek.handle (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:56292)
+    at async doRender (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1377:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1599:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1507:28)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1931:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  clientVersion: '5.16.2',
+  errorCode: undefined
+}
+Error syncing user: PrismaClientInitializationError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+error: Environment variable not found: POSTGRES_PRISMA_URL.
+  -->  schema.prisma:17
+   | 
+16 |   provider  = "postgresql"
+17 |   url       = env("POSTGRES_PRISMA_URL")
+   | 
+
+Validation Error Count: 1
+    at _n.handleRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:7227)
+    at _n.handleAndLogRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:6235)
+    at _n.request (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:5919)
+    at async l (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:131:9061)
+    at async POST (webpack-internal:///(rsc)/./app/api/v1/users/sync/route.ts:29:20)
+    at async C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:55038
+    at async ek.execute (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:45808)
+    at async ek.handle (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:56292)
+    at async doRender (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1377:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1599:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1507:28)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1931:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  clientVersion: '5.16.2',
+  errorCode: undefined
+}
+Error syncing user: PrismaClientInitializationError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+error: Environment variable not found: POSTGRES_PRISMA_URL.
+  -->  schema.prisma:17
+   | 
+16 |   provider  = "postgresql"
+17 |   url       = env("POSTGRES_PRISMA_URL")
+   | 
+
+Validation Error Count: 1
+    at _n.handleRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:7227)
+    at _n.handleAndLogRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:6235)
+    at _n.request (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:5919)
+    at async l (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:131:9061)
+    at async POST (webpack-internal:///(rsc)/./app/api/v1/users/sync/route.ts:29:20)
+    at async C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:55038
+    at async ek.execute (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:45808)
+    at async ek.handle (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:56292)
+    at async doRender (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1377:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1599:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1507:28)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1931:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  clientVersion: '5.16.2',
+  errorCode: undefined
+}
+Error syncing user: PrismaClientInitializationError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+error: Environment variable not found: POSTGRES_PRISMA_URL.
+  -->  schema.prisma:17
+   | 
+16 |   provider  = "postgresql"
+17 |   url       = env("POSTGRES_PRISMA_URL")
+   | 
+
+Validation Error Count: 1
+    at _n.handleRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:7227)
+    at _n.handleAndLogRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:6235)
+    at _n.request (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:5919)
+    at async l (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:131:9061)
+    at async POST (webpack-internal:///(rsc)/./app/api/v1/users/sync/route.ts:29:20)
+    at async C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:55038
+    at async ek.execute (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:45808)
+    at async ek.handle (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:56292)
+    at async doRender (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1377:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1599:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1507:28)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1931:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  clientVersion: '5.16.2',
+  errorCode: undefined
+}
+ ⨯ ..\packages\auth\lib\auth.ts (8:9) @ eval
+ ⨯ Error: NEXTAUTH_URL is not set
+    at eval (webpack-internal:///(rsc)/../../packages/auth/lib/auth.ts:17:11)
+    at (rsc)/../../packages/auth/lib/auth.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\route.js:452:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../packages/auth/index.ts:8:67)
+    at (rsc)/../../packages/auth/index.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\route.js:432:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../packages/auth/lib/getAuthUser.ts:5:74)
+    at (rsc)/../../packages/auth/lib/getAuthUser.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\route.js:462:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/./app/api/v1/markets/route.ts:9:90)
+    at (rsc)/./app/api/v1/markets/route.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\route.js:342:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fv1%2Fmarkets%2Froute&page=%2Fapi%2Fv1%2Fmarkets%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fv1%2Fmarkets%2Froute.ts&appDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!:15:116)
+    at (rsc)/../../node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fv1%2Fmarkets%2Froute&page=%2Fapi%2Fv1%2Fmarkets%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fv1%2Fmarkets%2Froute.ts&appDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D! (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\route.js:332:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at __webpack_exec__ (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\route.js:1582:39)
+    at C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\route.js:1583:1304
+    at __webpack_require__.X (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:168:21)
+    at C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\route.js:1583:47
+    at Object.<anonymous> (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\route.js:1586:3)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\projects\play-money\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\projects\play-money\node_modules\next\dist\server\require.js:109:84)
+    at C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\next-server.js:710:36)
+    at async DevServer.findPageComponents (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1917:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  page: '/api/v1/markets'
+}
+[0m [90m  6 |[39m[0m
+[0m [90m  7 |[39m [36mif[39m ([33m![39mprocess[33m.[39menv[33m.[39m[33mNEXTAUTH_URL[39m) {[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m   [36mthrow[39m [36mnew[39m [33mError[39m([32m'NEXTAUTH_URL is not set'[39m)[0m
+[0m [90m    |[39m         [31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m }[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mif[39m ([33m![39mprocess[33m.[39menv[33m.[39m[33mAUTH_RESEND_EMAIL[39m) {[0m
+ ⨯ ..\packages\auth\lib\auth.ts (8:9) @ eval
+ ⨯ Error: NEXTAUTH_URL is not set
+    at eval (webpack-internal:///(rsc)/../../packages/auth/lib/auth.ts:17:11)
+    at (rsc)/../../packages/auth/lib/auth.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:372:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../packages/auth/index.ts:8:67)
+    at (rsc)/../../packages/auth/index.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:352:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../packages/auth/lib/getAuthUser.ts:5:74)
+    at (rsc)/../../packages/auth/lib/getAuthUser.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:382:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/./app/api/v1/markets/[id]/route.ts:9:90)
+    at (rsc)/./app/api/v1/markets/[id]/route.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:262:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&page=%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute.ts&appDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!:15:119)
+    at (rsc)/../../node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&page=%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute.ts&appDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D! (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:252:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at __webpack_exec__ (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1382:39)
+    at C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1383:828
+    at __webpack_require__.X (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:168:21)
+    at C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1383:47
+    at Object.<anonymous> (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1386:3)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\projects\play-money\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\projects\play-money\node_modules\next\dist\server\require.js:109:84)
+    at C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\next-server.js:710:36)
+    at async DevServer.findPageComponents (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1917:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  page: '/api/v1/markets/cond_1783872753853_199'
+}
+[0m [90m  6 |[39m[0m
+[0m [90m  7 |[39m [36mif[39m ([33m![39mprocess[33m.[39menv[33m.[39m[33mNEXTAUTH_URL[39m) {[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m   [36mthrow[39m [36mnew[39m [33mError[39m([32m'NEXTAUTH_URL is not set'[39m)[0m
+[0m [90m    |[39m         [31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m }[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mif[39m ([33m![39mprocess[33m.[39menv[33m.[39m[33mAUTH_RESEND_EMAIL[39m) {[0m
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/markets/lib/createMarket.ts
+./app/api/v1/markets/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/markets/lib/createMarket.ts
+./app/api/v1/markets/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\markets\[id]\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\database\zod\modelSchema\UserSchema.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/markets/[id]/schema.ts
+./app/api/v1/markets/[id]/route.ts
+ ⚠ ../../node_modules/date-fns/startOfDay.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-barrel-loader.js??next-barrel-loader:?names=endOfDay,startOfDay!C:\projects\play-money\node_modules\date-fns\index.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\startOfDay.mjs|rsc
+    Used by 1 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\differenceInCalendarDays.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/startOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/markets/lib/createMarket.ts
+./app/api/v1/markets/route.ts
+
+../../node_modules/date-fns/toDate.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 2 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\date-fns\endOfDay.mjs|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\toDate.mjs|rsc
+    Used by 11 module(s), i. e.
+    javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\date-fns\format.mjs|rsc
+
+Import trace for requested module:
+../../node_modules/date-fns/toDate.mjs
+../../node_modules/date-fns/endOfDay.mjs
+__barrel_optimize__?names=endOfDay,startOfDay!=!../../node_modules/date-fns/index.mjs
+../../packages/quests/lib/helpers.ts
+../../packages/markets/lib/createMarket.ts
+./app/api/v1/markets/route.ts
+
+../../node_modules/zod/lib/index.mjs
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 4 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!C:\projects\play-money\apps\api\app\api\v1\markets\schema.ts|rsc
+* javascript/esm|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\node_modules\zod\lib\index.mjs|rsc
+    Used by 78 module(s), i. e.
+    javascript/auto|C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js!C:\projects\play-money\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js??ruleSet[1].rules[16].oneOf[3].use[0]!c:\projects\play-money\packages\api-helpers\lib\ServerError.ts|rsc
+
+Import trace for requested module:
+../../node_modules/zod/lib/index.mjs
+./app/api/v1/markets/schema.ts
+./app/api/v1/markets/route.ts
+ ⨯ ..\packages\auth\lib\auth.ts (8:9) @ eval
+ ⨯ Error: NEXTAUTH_URL is not set
+    at eval (webpack-internal:///(rsc)/../../packages/auth/lib/auth.ts:17:11)
+    at (rsc)/../../packages/auth/lib/auth.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:372:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../packages/auth/index.ts:8:67)
+    at (rsc)/../../packages/auth/index.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:352:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../packages/auth/lib/getAuthUser.ts:5:74)
+    at (rsc)/../../packages/auth/lib/getAuthUser.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:382:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/./app/api/v1/markets/[id]/route.ts:9:90)
+    at (rsc)/./app/api/v1/markets/[id]/route.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:262:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&page=%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute.ts&appDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!:15:119)
+    at (rsc)/../../node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&page=%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute.ts&appDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D! (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:252:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at __webpack_exec__ (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1382:39)
+    at C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1383:828
+    at __webpack_require__.X (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:168:21)
+    at C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1383:47
+    at Object.<anonymous> (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1386:3)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\projects\play-money\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\projects\play-money\node_modules\next\dist\server\require.js:109:84)
+    at C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\next-server.js:710:36)
+    at async DevServer.findPageComponents (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1917:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  page: '/api/v1/markets/cond_1783872753849_198'
+}
+[0m [90m  6 |[39m[0m
+[0m [90m  7 |[39m [36mif[39m ([33m![39mprocess[33m.[39menv[33m.[39m[33mNEXTAUTH_URL[39m) {[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m   [36mthrow[39m [36mnew[39m [33mError[39m([32m'NEXTAUTH_URL is not set'[39m)[0m
+[0m [90m    |[39m         [31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m }[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mif[39m ([33m![39mprocess[33m.[39menv[33m.[39m[33mAUTH_RESEND_EMAIL[39m) {[0m
+ ⨯ ..\packages\auth\lib\auth.ts (8:9) @ eval
+ ⨯ Error: NEXTAUTH_URL is not set
+    at eval (webpack-internal:///(rsc)/../../packages/auth/lib/auth.ts:17:11)
+    at (rsc)/../../packages/auth/lib/auth.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:372:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../packages/auth/index.ts:8:67)
+    at (rsc)/../../packages/auth/index.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:352:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../packages/auth/lib/getAuthUser.ts:5:74)
+    at (rsc)/../../packages/auth/lib/getAuthUser.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:382:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/./app/api/v1/markets/[id]/route.ts:9:90)
+    at (rsc)/./app/api/v1/markets/[id]/route.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:262:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&page=%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute.ts&appDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!:15:119)
+    at (rsc)/../../node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&page=%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute.ts&appDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D! (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:252:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at __webpack_exec__ (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1382:39)
+    at C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1383:828
+    at __webpack_require__.X (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:168:21)
+    at C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1383:47
+    at Object.<anonymous> (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1386:3)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\projects\play-money\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\projects\play-money\node_modules\next\dist\server\require.js:109:84)
+    at C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\next-server.js:710:36)
+    at async DevServer.findPageComponents (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1917:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  page: '/api/v1/markets/cond_1783872753845_197'
+}
+[0m [90m  6 |[39m[0m
+[0m [90m  7 |[39m [36mif[39m ([33m![39mprocess[33m.[39menv[33m.[39m[33mNEXTAUTH_URL[39m) {[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m   [36mthrow[39m [36mnew[39m [33mError[39m([32m'NEXTAUTH_URL is not set'[39m)[0m
+[0m [90m    |[39m         [31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m }[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mif[39m ([33m![39mprocess[33m.[39menv[33m.[39m[33mAUTH_RESEND_EMAIL[39m) {[0m
+Error syncing user: PrismaClientInitializationError: 
+Invalid `prisma.user.findUnique()` invocation:
+
+
+error: Environment variable not found: POSTGRES_PRISMA_URL.
+  -->  schema.prisma:17
+   | 
+16 |   provider  = "postgresql"
+17 |   url       = env("POSTGRES_PRISMA_URL")
+   | 
+
+Validation Error Count: 1
+    at _n.handleRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:7227)
+    at _n.handleAndLogRequestError (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:6235)
+    at _n.request (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:122:5919)
+    at async l (webpack-internal:///(rsc)/../../node_modules/@prisma/client/runtime/library.js:131:9061)
+    at async POST (webpack-internal:///(rsc)/./app/api/v1/users/sync/route.ts:29:20)
+    at async C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:55038
+    at async ek.execute (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:45808)
+    at async ek.handle (C:\projects\play-money\node_modules\next\dist\compiled\next-server\app-route.runtime.dev.js:6:56292)
+    at async doRender (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1377:42)
+    at async cacheEntry.responseCache.get.routeKind (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1599:28)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1507:28)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1931:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  clientVersion: '5.16.2',
+  errorCode: undefined
+}
+ ⨯ ..\packages\auth\lib\auth.ts (8:9) @ eval
+ ⨯ Error: NEXTAUTH_URL is not set
+    at eval (webpack-internal:///(rsc)/../../packages/auth/lib/auth.ts:17:11)
+    at (rsc)/../../packages/auth/lib/auth.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:372:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../packages/auth/index.ts:8:67)
+    at (rsc)/../../packages/auth/index.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:352:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../packages/auth/lib/getAuthUser.ts:5:74)
+    at (rsc)/../../packages/auth/lib/getAuthUser.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:382:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/./app/api/v1/markets/[id]/route.ts:9:90)
+    at (rsc)/./app/api/v1/markets/[id]/route.ts (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:262:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at eval (webpack-internal:///(rsc)/../../node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&page=%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute.ts&appDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!:15:119)
+    at (rsc)/../../node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&page=%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fv1%2Fmarkets%2F%5Bid%5D%2Froute.ts&appDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5Cprojects%5Cplay-money%5Capps%5Capi&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D! (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:252:1)
+    at __webpack_require__ (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:33:43)
+    at __webpack_exec__ (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1382:39)
+    at C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1383:828
+    at __webpack_require__.X (C:\projects\play-money\apps\api\.next\server\webpack-runtime.js:168:21)
+    at C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1383:47
+    at Object.<anonymous> (C:\projects\play-money\apps\api\.next\server\app\api\v1\markets\[id]\route.js:1386:3)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (C:\projects\play-money\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (C:\projects\play-money\node_modules\next\dist\server\require.js:109:84)
+    at C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:84
+    at async loadComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (C:\projects\play-money\node_modules\next\dist\server\next-server.js:710:36)
+    at async DevServer.findPageComponents (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1917:24)
+    at async DevServer.renderToResponseImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:1969:32)
+    at async DevServer.pipeImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:920:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\projects\play-money\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\projects\play-money\node_modules\next\dist\server\base-server.js:816:17)
+    at async C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\projects\play-money\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\projects\play-money\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:174:21)
+    at async handleRequest (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:353:24)
+    at async requestHandlerImpl (C:\projects\play-money\node_modules\next\dist\server\lib\router-server.js:377:13)
+    at async Server.requestListener (C:\projects\play-money\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  page: '/api/v1/markets/cond_1783872753841_196'
+}
+[0m [90m  6 |[39m[0m
+[0m [90m  7 |[39m [36mif[39m ([33m![39mprocess[33m.[39menv[33m.[39m[33mNEXTAUTH_URL[39m) {[0m
+[0m[31m[1m>[22m[39m[90m  8 |[39m   [36mthrow[39m [36mnew[39m [33mError[39m([32m'NEXTAUTH_URL is not set'[39m)[0m
+[0m [90m    |[39m         [31m[1m^[22m[39m[0m
+[0m [90m  9 |[39m }[0m
+[0m [90m 10 |[39m[0m
+[0m [90m 11 |[39m [36mif[39m ([33m![39mprocess[33m.[39menv[33m.[39m[33mAUTH_RESEND_EMAIL[39m) {[0m
+npm error Lifecycle script `dev` failed with error:
+npm error code 4294967295
+npm error path C:\projects\play-money\apps\api
+npm error workspace api@1.0.0
+npm error location C:\projects\play-money\apps\api
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c next dev --port 8000

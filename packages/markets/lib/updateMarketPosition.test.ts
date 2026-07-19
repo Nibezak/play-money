@@ -47,8 +47,8 @@ describe('updateMarketPosition', () => {
         },
       },
       update: {
-        quantity: { increment: 10 },
-        cost: { increment: 100 },
+        quantity: { increment: '10' },
+        cost: { increment: '100' },
       },
       create: {
         accountId: 'acc1',
@@ -89,8 +89,8 @@ describe('updateMarketPosition', () => {
         },
       },
       update: {
-        quantity: { decrement: 5 },
-        cost: { decrement: 50 },
+        quantity: { decrement: '5' },
+        cost: { decrement: '50' },
       },
       create: {
         accountId: 'acc1',
@@ -131,8 +131,8 @@ describe('updateMarketPosition', () => {
         },
       },
       update: {
-        quantity: { increment: 0 },
-        cost: { decrement: 0 },
+        quantity: { increment: '0' },
+        cost: { decrement: '0' },
       },
       create: {
         accountId: 'acc1',

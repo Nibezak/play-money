@@ -26,7 +26,7 @@ export async function getBalance({
   assetId: string
   marketId?: string
 }): Promise<NetBalance> {
-  const balance = db.balance.findFirst({
+  const balance = await db.balance.findFirst({
     where: {
       accountId,
       assetType,
@@ -52,12 +52,12 @@ export async function getMarketBalances({
   const market = marketId ? await getMarket({ id: marketId, extended: true }) : undefined
   const balances = await Promise.all([
     ...(market?.options || []).map((option) => {
-      return getBalance({ accountId, assetType: 'MARKET_OPTION', assetId: option.id, marketId })
+      return getBalance({ accountId, assetType: 'MARKET_OPTION', assetId: option.id, marketId }).catch(() => null)
     }),
-    getBalance({ accountId, assetType: 'CURRENCY', assetId: 'PRIMARY', marketId }),
+    getBalance({ accountId, assetType: 'CURRENCY', assetId: 'PRIMARY', marketId }).catch(() => null),
   ])
 
-  return balances.filter((x) => x !== null)
+  return balances.filter((x): x is NetBalance => x !== null)
 }
 
 export async function getListBalances({

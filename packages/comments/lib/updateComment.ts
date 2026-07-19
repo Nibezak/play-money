@@ -1,10 +1,15 @@
 import db, { Comment } from '@play-money/database'
+import { sanitizeCommentContent } from './createComment'
 
 export async function updateComment({ id, content }: { id: string; content?: string }) {
   const updatedData: Partial<Comment> = {}
 
   if (content) {
-    updatedData.content = content
+    const sanitizedContent = sanitizeCommentContent(content)
+    if (!sanitizedContent) {
+      throw new Error('Comment cannot be empty')
+    }
+    updatedData.content = sanitizedContent
     updatedData.edited = true
   }
 

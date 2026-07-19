@@ -1,3 +1,4 @@
+import { Prisma } from '@prisma/client'
 import db, { Market } from '@play-money/database'
 import { slugifyTitle } from './helpers'
 
@@ -41,7 +42,7 @@ export async function updateMarket({
 
   const updatedMarket = await db.market.update({
     where: { id },
-    data: { ...updatedData, updatedAt: new Date() },
+    data: { ...updatedData, updatedAt: new Date() } as Prisma.MarketUpdateInput,
   })
 
   return updatedMarket

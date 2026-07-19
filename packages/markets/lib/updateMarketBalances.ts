@@ -9,33 +9,39 @@ export async function updateMarketBalances({
   transactionType,
   balanceChanges,
   marketId,
+  updateSubtotals = true,
 }: {
   tx: TransactionClient
   transactionType: TransactionTypeType
   balanceChanges: Array<BalanceChange>
   marketId: string
+  updateSubtotals?: boolean
 }) {
-  return Promise.all(
-    balanceChanges.map(async ({ accountId, assetType, assetId, change }) => {
-      const subtotals = await calculateBalanceSubtotals({
-        tx,
-        accountId,
-        assetType,
-        assetId,
-        change: new Decimal(change),
-        transactionType,
-        marketId,
-      })
+  const balances = []
+  for (const { accountId, assetType, assetId, change } of balanceChanges) {
+    if (assetType !== 'MARKET_OPTION') continue
 
-      return updateBalance({
-        tx,
-        accountId,
-        assetType,
-        assetId,
-        subtotals,
-        change: new Decimal(change),
-        marketId,
-      })
-    })
-  )
+    const subtotals = updateSubtotals
+      ? await calculateBalanceSubtotals({
+          tx,
+          accountId,
+          assetType,
+          assetId,
+          change: new Decimal(change),
+          transactionType,
+          marketId,
+        })
+      : undefined
+
+    balances.push(await updateBalance({
+      tx,
+      accountId,
+      assetType,
+      assetId,
+      subtotals,
+      change: new Decimal(change),
+      marketId,
+    }))
+  }
+  return balances
 }

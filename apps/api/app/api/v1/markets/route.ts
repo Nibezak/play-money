@@ -4,6 +4,8 @@ import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
 import { createList } from '@play-money/lists/lib/createList'
 import { createMarket } from '@play-money/markets/lib/createMarket'
 import { getMarkets } from '@play-money/markets/lib/getMarkets'
+import { getUserById } from '@play-money/users/lib/getUserById'
+import { isAdmin } from '@play-money/users/rules'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'
@@ -36,6 +38,11 @@ export async function POST(req: Request): Promise<SchemaResponse<typeof schema.p
     const userId = await getAuthUser(req)
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const user = await getUserById({ id: userId })
+    if (!isAdmin({ user })) {
+      return NextResponse.json({ error: 'Unauthorized: Only admins can create markets' }, { status: 401 })
     }
 
     const body = (await req.json()) as unknown

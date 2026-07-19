@@ -20,6 +20,11 @@ datasource db {
 
 enum UserRole {
   USER
+  EDITOR
+  MODERATOR
+  RESOLVER
+  SUPPORT
+  FINANCE
   ADMIN
 }
 
@@ -54,6 +59,15 @@ model User {
 
   email         String    @unique /// @zod.custom.omit([model, input])
   emailVerified DateTime? /// @zod.custom.omit([model, input])
+
+  // Tellwise Wallet & Settings fields
+  address                String?   @unique
+  depositWalletAddress   String?
+  depositWalletSignature String?
+  depositWalletSignedAt  DateTime?
+  depositWalletStatus    String?
+  depositWalletTxHash    String?
+  settings               Json?
 
   // Unnecessary reverse relations
   recipientNotifications Notification[]      @relation("NotificationRecipient")
@@ -118,6 +132,15 @@ model Market {
   createdAt         DateTime               @default(now())
   updatedAt         DateTime               @updatedAt
 
+  // Tellwise additions
+  eventId          String?
+  event            Event?  @relation(fields: [eventId], references: [id])
+  oracle           String?
+  questionId       String?
+  creatorAddress   String?
+  resolutionStatus String?
+  clobTokenIds     Json?
+
   // Cached values
   commentCount         Int?
   uniqueTradersCount   Int?
@@ -167,6 +190,9 @@ model MarketOption {
 
   // Unnecessary reverse relations
   notifications Notification[] @relation()
+
+  // Tellwise additions
+  tokenId String?
 }
 
 model VerificationToken {
@@ -243,6 +269,7 @@ enum TransactionType {
 
 model Transaction {
   id          String             @id @default(cuid())
+  externalId  String?            @unique
   type        TransactionType
   entries     TransactionEntry[]
   initiatorId String?
@@ -469,4 +496,123 @@ model ApiKey {
 
   @@index([key])
   @@index([userId])
+}
+
+model Setting {
+  id        Int      @id @default(autoincrement())
+  group     String
+  key       String
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([group, key])
+}
+
+model AllowedMarketCreator {
+  walletAddress String   @id
+  displayName   String
+  sourceUrl     String?
+  sourceType    String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([sourceType])
+  @@index([sourceUrl])
+}
+
+model Event {
+  id                         String    @id @default(cuid())
+  slug                       String    @unique
+  title                      String
+  creator                    String?
+  iconUrl                    String?
+  isHidden                   Boolean   @default(false)
+  livestreamUrl              String?
+  additionalContext          String?
+  additionalContextUpdatedAt DateTime?
+  showMarketIcons            Boolean   @default(true)
+  status                     String    @default("active")
+  createdAt                  DateTime  @default(now())
+  updatedAt                  DateTime  @updatedAt
+  startDate                  DateTime?
+  endDate                    DateTime?
+  resolvedAt                 DateTime?
+
+  markets Market[]
+  tags    EventTag[]
+}
+
+model EventCreation {
+  id               String    @id @default(cuid())
+  createdByUserId  String
+  updatedByUserId  String?
+  title            String    @default("Untitled draft")
+  slug             String?
+  creationMode     String    @default("single")
+  status           String    @default("draft")
+  startAt          DateTime?
+  deployAt         DateTime?
+  endDate          DateTime?
+  walletAddress    String?
+  draftPayload     Json?
+  assetPayload     Json?
+  mainCategorySlug String?
+  categorySlugs    String[]  @default([])
+  marketMode       String?
+  binaryQuestion   String?
+  binaryOutcomeYes String?
+  binaryOutcomeNo  String?
+  resolutionSource String?
+  resolutionRules  String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+model Tag {
+  id             String   @id @default(cuid())
+  name           String   @unique
+  slug           String   @unique
+  isMainCategory Boolean  @default(false)
+  isHidden       Boolean  @default(false)
+  hideEvents     Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  translations TagTranslation[]
+  events       EventTag[]
+}
+
+model TagTranslation {
+  tagId      String
+  locale     String
+  name       String
+  sourceHash String
+  isManual   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  tag        Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([tagId, locale])
+}
+
+model EventTag {
+  eventId String
+  tagId   String
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  tag     Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([eventId, tagId])
+}
+
+model Affiliate {
+  id         String   @id @default(cuid())
+  code       String   @unique
+  rate       Float    @default(0)
+  isActive   Boolean  @default(true)
+  parentId   String?
+  ltv        Float    @default(0)
+  clickCount Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }

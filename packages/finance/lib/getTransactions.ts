@@ -6,6 +6,7 @@ import { TransactionWithEntries } from '../types'
 interface TransactionFilterOptions {
   marketId?: string
   userId?: string
+  accountId?: string
   transactionType?: Array<TransactionTypeType>
   isReverse?: boolean | null
 }
@@ -16,13 +17,21 @@ export async function getTransactions(filters: TransactionFilterOptions = {}, pa
     pagination: pagination ?? {},
     where: {
       marketId: filters.marketId,
-      initiatorId: filters.userId,
+      ...(filters.accountId
+        ? {
+            OR: [
+              ...(filters.userId ? [{ initiatorId: filters.userId }] : []),
+              { entries: { some: { fromAccountId: filters.accountId } } },
+              { entries: { some: { toAccountId: filters.accountId } } },
+            ],
+          }
+        : { initiatorId: filters.userId }),
       type: filters.transactionType ? { in: filters.transactionType } : undefined,
       isReverse: filters.isReverse,
     },
     include: {
       entries: true,
-      market: true,
+      market: { include: { event: true } },
       initiator: true,
       options: true,
     },

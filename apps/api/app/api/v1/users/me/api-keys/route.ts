@@ -1,4 +1,4 @@
-import { generateMnemonic } from 'bip39'
+import { createHash, randomBytes } from 'node:crypto'
 import { NextResponse } from 'next/server'
 import { SchemaResponse } from '@play-money/api-helpers'
 import { auth } from '@play-money/auth'
@@ -16,17 +16,18 @@ export async function POST(req: Request): Promise<SchemaResponse<typeof schema.p
     const body = (await req.json()) as unknown
     const { name } = schema.post.requestBody.parse(body)
 
-    const key = generateMnemonic(128)
+    const key = `pm_${randomBytes(32).toString('base64url')}`
+    const keyHash = createHash('sha256').update(key).digest('hex')
 
     const apiKey = await db.apiKey.create({
       data: {
         name,
-        key: key.replace(/\s+/g, '-'),
+        key: keyHash,
         userId: session.user.id,
       },
     })
 
-    return NextResponse.json({ data: apiKey })
+    return NextResponse.json({ data: { ...apiKey, key } } as any)
   } catch (error) {
     console.log(error) // eslint-disable-line no-console -- Log error for debugging
 
@@ -49,7 +50,7 @@ export async function GET(): Promise<SchemaResponse<typeof schema.get.responses>
       },
     })
 
-    return NextResponse.json({ data: keys })
+    return NextResponse.json({ data: keys.map(({ key: _key, ...item }) => ({ ...item, key: 'hidden' })) } as any)
   } catch (error) {
     console.log(error) // eslint-disable-line no-console -- Log error for debugging
 

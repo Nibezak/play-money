@@ -16,9 +16,8 @@ export async function updateMarketOptionProbabilities({
   const ammBalances = balances.filter((balance) => balance.accountId === market.ammAccountId)
   const probabilities = marketOptionBalancesToProbabilities(ammBalances)
 
-  await Promise.all(
-    Object.entries(probabilities).map(([optionId, probability]) => {
-      return tx.marketOption.update({
+  for (const [optionId, probability] of Object.entries(probabilities)) {
+      await tx.marketOption.update({
         where: {
           id: optionId,
         },
@@ -27,6 +26,5 @@ export async function updateMarketOptionProbabilities({
           updatedAt: new Date(),
         },
       })
-    })
-  )
+  }
 }

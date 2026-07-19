@@ -5,12 +5,14 @@ import { getMarketBalances } from '@play-money/finance/lib/getBalances'
 import { BalanceChange, calculateRealizedGainsTax, findBalanceChange } from '@play-money/finance/lib/helpers'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
 
+type PositionValueClient = Pick<TransactionClient, 'marketOptionPosition'>
+
 export async function updateMarketPositionValues({
   tx,
   balanceChanges,
   marketId,
 }: {
-  tx: TransactionClient
+  tx: PositionValueClient
   balanceChanges: Array<BalanceChange>
   marketId: string
 }) {
@@ -32,10 +34,9 @@ export async function updateMarketPositionValues({
     return { ...balance, amount: balance.total.add(change) }
   })
 
-  await Promise.all(
-    marketOptionPositions.map(async (position) => {
+  for (const position of marketOptionPositions) {
       const optionBalance = updatedMarketOptionBalances.find((b) => b.assetId === position.optionId)
-      if (!optionBalance) return position
+      if (!optionBalance) continue
 
       const newValue = await quote({
         amount: position.quantity,
@@ -45,18 +46,17 @@ export async function updateMarketPositionValues({
       })
 
       if (position.value.toDecimalPlaces(4).equals(newValue.shares.toDecimalPlaces(4))) {
-        return
+        continue
       }
 
       const tax = calculateRealizedGainsTax({ cost: position.cost, salePrice: newValue.shares })
 
-      return tx.marketOptionPosition.update({
+      await tx.marketOptionPosition.update({
         where: { id: position.id },
         data: {
           value: Decimal.max(new Decimal(newValue.shares).sub(tax), 0),
           updatedAt: new Date(),
         },
       })
-    })
-  )
+  }
 }

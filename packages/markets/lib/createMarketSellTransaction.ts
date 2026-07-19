@@ -54,7 +54,7 @@ export async function createMarketSellTransaction({
           },
           data: {
             liquidityCount: {
-              decrement: primaryChange.change,
+              decrement: new Decimal(primaryChange.change).toNumber(),
             },
             updatedAt: new Date(),
           },

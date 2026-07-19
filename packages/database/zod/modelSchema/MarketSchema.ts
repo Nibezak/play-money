@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { JsonValueSchema } from '../inputTypeSchemas/JsonValueSchema'
 
 /////////////////////////////////////////
 // MARKET SCHEMA
@@ -19,6 +20,12 @@ export const MarketSchema = z.object({
   clearingAccountId: z.string(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
+  eventId: z.string().nullable(),
+  oracle: z.string().nullable(),
+  questionId: z.string().nullable(),
+  creatorAddress: z.string().nullable(),
+  resolutionStatus: z.string().nullable(),
+  clobTokenIds: JsonValueSchema,
   commentCount: z.number().int().nullable(),
   uniqueTradersCount: z.number().int().nullable(),
   uniquePromotersCount: z.number().int().nullable(),

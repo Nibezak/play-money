@@ -14,6 +14,7 @@ export const MarketOptionSchema = z.object({
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
   probability: z.number().int().nullable(),
+  tokenId: z.string().nullable(),
 })
 
 export type MarketOption = z.infer<typeof MarketOptionSchema>

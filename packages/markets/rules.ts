@@ -1,5 +1,4 @@
 import { User, Market } from '@play-money/database'
-import { isAdmin } from '@play-money/users/rules'
 
 export function canModifyMarket({ market, user }: { market: Market; user: User }) {
   if (isMarketResolved({ market })) {
@@ -8,7 +7,7 @@ export function canModifyMarket({ market, user }: { market: Market; user: User }
   if (isMarketCanceled({ market })) {
     return false
   }
-  return market.createdBy === user.id || isAdmin({ user })
+  return user.role === 'ADMIN' || user.role === 'RESOLVER' || user.role === 'MODERATOR'
 }
 
 export function isMarketTradable({ market }: { market: Market }): boolean {

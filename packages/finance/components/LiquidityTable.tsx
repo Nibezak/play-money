@@ -41,7 +41,7 @@ export const columns: Array<ColumnDef<TransactionWithEntries>> = [
           ) : null}{' '}
           added{' '}
           <span className="font-semibold">
-            <CurrencyDisplay value={Math.abs(primaryChange?.change ?? 0)} isShort /> liquidity
+            <CurrencyDisplay value={Math.abs(Number(primaryChange?.change ?? 0))} isShort /> liquidity
           </span>
         </div>
       )

@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { JsonValueSchema } from '../inputTypeSchemas/JsonValueSchema'
 import { UserRoleSchema } from '../inputTypeSchemas/UserRoleSchema'
 
 /////////////////////////////////////////
@@ -23,6 +24,13 @@ export const UserSchema = z.object({
   updatedAt: z.coerce.date(),
   // omitted: email: z.string(),
   // omitted: emailVerified: z.coerce.date().nullable(),
+  address: z.string().nullable(),
+  depositWalletAddress: z.string().nullable(),
+  depositWalletSignature: z.string().nullable(),
+  depositWalletSignedAt: z.coerce.date().nullable(),
+  depositWalletStatus: z.string().nullable(),
+  depositWalletTxHash: z.string().nullable(),
+  settings: JsonValueSchema,
 })
 
 export type User = z.infer<typeof UserSchema>

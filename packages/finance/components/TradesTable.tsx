@@ -42,7 +42,7 @@ export const columns: Array<ColumnDef<TransactionWithEntries>> = [
           ) : null}
           {type === 'TRADE_BUY' ? 'bought' : type === 'TRADE_SELL' ? 'sold' : ''}
           <span className="font-semibold">
-            <CurrencyDisplay value={Math.abs(primaryChange?.change ?? 0)} isShort />{' '}
+            <CurrencyDisplay value={Math.abs(Number(primaryChange?.change ?? 0))} isShort />{' '}
             {_.truncate(optionName, { length: 30 })}
           </span>
         </div>

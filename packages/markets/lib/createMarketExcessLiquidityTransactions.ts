@@ -1,7 +1,6 @@
 import Decimal from 'decimal.js'
-import { Transaction } from '@play-money/database'
 import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { getMarketBalances } from '@play-money/finance/lib/getBalances'
+import { getBalance, getMarketBalances } from '@play-money/finance/lib/getBalances'
 import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
 import { getMarketClearingAccount } from './getMarketClearingAccount'
@@ -20,19 +19,30 @@ export async function createMarketExcessLiquidityTransactions({
     getMarketClearingAccount({ marketId }),
   ])
 
-  const balances = await getMarketBalances({ accountId: ammAccount.id, marketId })
+  const [balances, clearingCurrencyBalance] = await Promise.all([
+    getMarketBalances({ accountId: ammAccount.id, marketId }),
+    getBalance({ accountId: clearingAccount.id, assetType: 'CURRENCY', assetId: 'PRIMARY' }),
+  ])
   const ammOptionBalances = balances.filter(({ assetType }) => assetType === 'MARKET_OPTION')
-  const amountToDistribute = Decimal.min(...ammOptionBalances.map((b) => b.total))
+  const amountToDistribute = Decimal.max(
+    Decimal.min(clearingCurrencyBalance.total, ...ammOptionBalances.map((b) => b.total)),
+    0,
+  )
   let amountDistributed = new Decimal(0)
 
   const liquidity = await getMarketLiquidity(marketId)
-  const transactions: Array<Promise<Transaction>> = []
+  const transactions = []
 
   for (const [accountId, providedAmount] of Object.entries(liquidity.providers)) {
     if (providedAmount.isZero()) continue
 
     const proportion = providedAmount.div(liquidity.total)
-    const payout = Decimal.min(amountToDistribute.mul(proportion).toDecimalPlaces(4), providedAmount.toDecimalPlaces(4))
+    const remainingDistributable = Decimal.max(amountToDistribute.sub(amountDistributed), 0)
+    const payout = Decimal.min(
+      amountToDistribute.mul(proportion).toDecimalPlaces(2),
+      providedAmount.toDecimalPlaces(2),
+      remainingDistributable,
+    )
 
     if (payout.isZero()) continue
 
@@ -55,19 +65,17 @@ export async function createMarketExcessLiquidityTransactions({
       } as const,
     ]
 
-    transactions.push(
-      executeTransaction({
+    transactions.push(await executeTransaction({
         type: 'LIQUIDITY_RETURNED',
         entries,
         marketId,
         additionalLogic: async (txParams) => updateMarketBalances({ ...txParams, marketId }),
-      })
-    )
+      }))
 
     amountDistributed = amountDistributed.plus(payout)
   }
 
-  const amountToReturnToHouse = amountToDistribute.sub(amountDistributed).toDecimalPlaces(4)
+  const amountToReturnToHouse = Decimal.max(amountToDistribute.sub(amountDistributed), 0).toDecimalPlaces(2)
 
   if (!amountToReturnToHouse.isZero()) {
     const houseAccount = await getHouseAccount()
@@ -91,15 +99,13 @@ export async function createMarketExcessLiquidityTransactions({
       } as const,
     ]
 
-    transactions.push(
-      executeTransaction({
+    transactions.push(await executeTransaction({
         type: 'LIQUIDITY_RETURNED',
         entries,
         marketId,
         additionalLogic: async (txParams) => updateMarketBalances({ ...txParams, marketId }),
-      })
-    )
+      }))
   }
 
-  return Promise.all(transactions)
+  return transactions
 }
