@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { User } from '@prisma/client'
+import { Prisma, User } from '@prisma/client'
 import Decimal from 'decimal.js'
 import _ from 'lodash'
 import { createComment } from '@play-money/comments/lib/createComment'
@@ -30,6 +30,7 @@ async function main() {
       const user = await db.user.create({
         data: {
           ...data,
+          settings: data.settings === null ? Prisma.JsonNull : data.settings,
           referredBy: referredBy ? referredBy : undefined,
           primaryAccountId: undefined as unknown as string,
           primaryAccount: {
