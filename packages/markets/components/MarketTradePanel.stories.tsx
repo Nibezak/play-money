@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { mockExtendedMarket } from '@play-money/database/mocks'
+import { mockExtendedMarket } from '@slimefish/database/mocks'
 import { SelectedItemsProvider } from '../../ui/src/contexts/SelectedItemContext'
 import { MarketTradePanel } from './MarketTradePanel'
 import { SidebarProvider } from './SidebarContext'

@@ -1,7 +1,7 @@
 import { revalidateTag } from 'next/cache'
-import { getExtendedMarket } from '@play-money/api-helpers/client'
-import { MarketActivity } from '@play-money/markets/components/MarketActivity'
-import { MarketOverviewPage } from '@play-money/markets/components/MarketOverviewPage'
+import { getExtendedMarket } from '@slimefish/api-helpers/client'
+import { MarketActivity } from '@slimefish/markets/components/MarketActivity'
+import { MarketOverviewPage } from '@slimefish/markets/components/MarketOverviewPage'
 
 export default async function AppPostsSlugPage({ params }: { params: { marketId: string } }) {
   const { data: market } = await getExtendedMarket({ marketId: params.marketId })

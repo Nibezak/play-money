@@ -1,9 +1,9 @@
 'use client'
 
 import React, { createContext, useState, useEffect, useContext, ReactNode, useCallback } from 'react'
-import { getUserReferral } from '@play-money/api-helpers/client'
-import { User } from '@play-money/database'
-import { useUser } from '@play-money/users/context/UserContext'
+import { getUserReferral } from '@slimefish/api-helpers/client'
+import { User } from '@slimefish/database'
+import { useUser } from '@slimefish/users/context/UserContext'
 import { useSearchParam } from '../../ui/src/hooks/useSearchParam'
 
 interface ReferralContextType {

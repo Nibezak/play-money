@@ -1,12 +1,12 @@
 {
-  "name": "@play-money/search",
+  "name": "@slimefish/search",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@play-money/database": "*",
-    "@play-money/users": "*"
+    "@slimefish/database": "*",
+    "@slimefish/users": "*"
   }
 }

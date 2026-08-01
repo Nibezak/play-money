@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
-import { getUserTotalTimeSeries } from '@play-money/users/lib/getUserTotalTimeSeries'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getUserPrimaryAccount } from '@slimefish/users/lib/getUserPrimaryAccount'
+import { getUserTotalTimeSeries } from '@slimefish/users/lib/getUserTotalTimeSeries'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'

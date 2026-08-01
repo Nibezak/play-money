@@ -1,10 +1,10 @@
 import Decimal from 'decimal.js'
-import db from '@play-money/database'
-import { DAILY_TRADE_BONUS_PRIMARY } from '@play-money/finance/economy'
-import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
-import { createReferralBonusTransactions } from '@play-money/referrals/lib/createReferralBonusTransactions'
-import { isNewlyReferredUser } from '@play-money/referrals/lib/helpers'
+import db from '@slimefish/database'
+import { DAILY_TRADE_BONUS_PRIMARY } from '@slimefish/finance/economy'
+import { executeTransaction } from '@slimefish/finance/lib/executeTransaction'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
+import { createReferralBonusTransactions } from '@slimefish/referrals/lib/createReferralBonusTransactions'
+import { isNewlyReferredUser } from '@slimefish/referrals/lib/helpers'
 
 export async function createDailyTradeBonusTransaction({
   accountId,
@@ -24,6 +24,7 @@ export async function createDailyTradeBonusTransaction({
     }),
   ])
   const payout = new Decimal(DAILY_TRADE_BONUS_PRIMARY)
+  if (payout.lte(0)) return null
 
   const entries = [
     {

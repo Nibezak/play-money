@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
-import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
+import { getUserPrimaryAccount } from '@slimefish/users/lib/getUserPrimaryAccount'
 import { executeTransaction } from './executeTransaction'
 
 export async function createHouseUserGiftTransaction({

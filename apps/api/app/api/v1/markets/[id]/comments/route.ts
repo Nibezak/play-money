@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { CommentNotFoundError } from '@play-money/comments/lib/exceptions'
-import { getCommentsOnMarket } from '@play-money/markets/lib/getCommentsOnMarket'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { CommentNotFoundError } from '@slimefish/comments/lib/exceptions'
+import { getCommentsOnMarket } from '@slimefish/markets/lib/getCommentsOnMarket'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'

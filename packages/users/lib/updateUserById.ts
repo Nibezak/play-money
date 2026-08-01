@@ -1,5 +1,5 @@
 import { Prisma } from '@prisma/client'
-import db, { User } from '@play-money/database'
+import db, { User } from '@slimefish/database'
 import { checkUsername } from './checkUsername'
 import { getUserById } from './getUserById'
 

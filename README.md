@@ -1,6 +1,6 @@
-# Play Money [Temp]
+# Slimefish ledger [Temp]
 
-**Play Money** is a prediction market platform. This codebase is structured as a monorepo using Turborepo, containing multiple standalone apps and shared feature packages.
+**Slimefish ledger** is a prediction market platform. This codebase is structured as a monorepo using Turborepo, containing multiple standalone apps and shared feature packages.
 
 [Join the discord!](https://discord.gg/Q5CeSMFeBP)
 
@@ -20,7 +20,7 @@
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/casesandberg/play-money.git
+   git clone https://github.com/casesandberg/slimefish-backend.git
    ```
 2. **Install dependencies**:
    ```bash
@@ -37,7 +37,7 @@
    - Enter the password you set during installation.
    - Create a new database for local development:
      ```sql
-     CREATE DATABASE playmoney;
+     CREATE DATABASE slimefishbackend;
      ```
 
 4. **Set up environment variables**:

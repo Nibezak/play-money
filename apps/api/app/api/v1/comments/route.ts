@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import { createComment } from '@play-money/comments/lib/createComment'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import { createComment } from '@slimefish/comments/lib/createComment'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'
@@ -19,8 +19,8 @@ export async function POST(req: Request): Promise<SchemaResponse<typeof schema.p
     const comment = await createComment({ ...data, authorId: userId })
 
     return NextResponse.json({ data: comment })
-  } catch (error) {
-    console.log(error) // eslint-disable-line no-console -- Log error for debugging
-    return NextResponse.json({ error: 'Error processing request' }, { status: 500 })
+  } catch (error: any) {
+    console.error('Comment error:', error) // eslint-disable-line no-console
+    return NextResponse.json({ error: error?.message || 'Error processing request' }, { status: 500 })
   }
 }

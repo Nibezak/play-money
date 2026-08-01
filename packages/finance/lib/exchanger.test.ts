@@ -1,14 +1,14 @@
 import Decimal from 'decimal.js'
-import { mockAccount, mockBalance } from '@play-money/database/mocks'
-import { getBalance, getMarketBalances } from '@play-money/finance/lib/getBalances'
-import { getMarket } from '@play-money/markets/lib/getMarket'
-import { getMarketClearingAccount } from '@play-money/markets/lib/getMarketClearingAccount'
+import { mockAccount, mockBalance } from '@slimefish/database/mocks'
+import { getBalance, getMarketBalances } from '@slimefish/finance/lib/getBalances'
+import { getMarket } from '@slimefish/markets/lib/getMarket'
+import { getMarketClearingAccount } from '@slimefish/markets/lib/getMarketClearingAccount'
 import { convertMarketSharesToPrimary, convertPrimaryToMarketShares } from './exchanger'
 import { getHouseAccount } from './getHouseAccount'
 
-jest.mock('@play-money/finance/lib/getBalances')
-jest.mock('@play-money/finance/lib/getHouseAccount')
-jest.mock('@play-money/markets/lib/getMarketClearingAccount')
+jest.mock('@slimefish/finance/lib/getBalances')
+jest.mock('@slimefish/finance/lib/getHouseAccount')
+jest.mock('@slimefish/markets/lib/getMarketClearingAccount')
 
 describe('convertPrimaryToMarketShares', () => {
   beforeEach(() => {

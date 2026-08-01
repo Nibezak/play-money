@@ -1,6 +1,6 @@
 import { revalidateTag } from 'next/cache'
-import { getExtendedMarket } from '@play-money/api-helpers/client'
-import { MarketPageLayout } from '@play-money/markets/components/MarketPageLayout'
+import { getExtendedMarket } from '@slimefish/api-helpers/client'
+import { MarketPageLayout } from '@slimefish/markets/components/MarketPageLayout'
 
 export default async function AppQuestionsLayout({
   children,

@@ -1,4 +1,4 @@
-import db, { List } from '@play-money/database'
+import db, { List } from '@slimefish/database'
 import { ExtendedList } from '../types'
 
 export function getList(params: { id: string; extended: true }): Promise<ExtendedList>

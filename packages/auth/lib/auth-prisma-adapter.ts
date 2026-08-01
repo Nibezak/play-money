@@ -1,8 +1,8 @@
 // Copied and modified from: https://github.com/nextauthjs/next-auth/blob/main/packages/adapter-prisma/src/index.ts
 import type { Adapter, AdapterAccount, AdapterSession, AdapterUser } from '@auth/core/adapters'
 import type { PrismaClient, Prisma } from '@prisma/client'
-import { clientOptions } from '@play-money/database/prisma'
-import { createUser } from '@play-money/users/lib/createUser'
+import { clientOptions } from '@slimefish/database/prisma'
+import { createUser } from '@slimefish/users/lib/createUser'
 
 export function PrismaAdapter(
   prisma: PrismaClient<typeof clientOptions> | ReturnType<PrismaClient['$extends']>

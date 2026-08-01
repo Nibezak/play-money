@@ -4,15 +4,15 @@ import { ColumnDef, RowData } from '@tanstack/react-table'
 import { MinusIcon } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import { PageInfo } from '@play-money/api-helpers'
-import { User } from '@play-money/database'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { formatDistanceToNowShort } from '@play-money/ui'
-import { useSearchParam } from '@play-money/ui'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
-import { DataTable } from '@play-money/ui/data-table'
-import { DataTableColumnHeader } from '@play-money/ui/data-table-column-header'
-import { Progress } from '@play-money/ui/progress'
+import { PageInfo } from '@slimefish/api-helpers'
+import { User } from '@slimefish/database'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { formatDistanceToNowShort } from '@slimefish/ui'
+import { useSearchParam } from '@slimefish/ui'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
+import { DataTable } from '@slimefish/ui/data-table'
+import { DataTableColumnHeader } from '@slimefish/ui/data-table-column-header'
+import { Progress } from '@slimefish/ui/progress'
 import {
   Select,
   SelectContent,
@@ -21,7 +21,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@play-money/ui/select'
+} from '@slimefish/ui/select'
 import { ExtendedMarket } from '../types'
 import { MarketProbabilityDetail } from './MarketProbabilityDetail'
 

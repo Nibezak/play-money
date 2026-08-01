@@ -1,8 +1,8 @@
-import db, { Comment } from '@play-money/database'
-import { getList } from '@play-money/lists/lib/getList'
-import { getMarket } from '@play-money/markets/lib/getMarket'
-import { getUniqueLiquidityProviderIds } from '@play-money/markets/lib/getUniqueLiquidityProviderIds'
-import { createNotification } from '@play-money/notifications/lib/createNotification'
+import db, { Comment } from '@slimefish/database'
+import { getList } from '@slimefish/lists/lib/getList'
+import { getMarket } from '@slimefish/markets/lib/getMarket'
+import { getUniqueLiquidityProviderIds } from '@slimefish/markets/lib/getUniqueLiquidityProviderIds'
+import { createNotification } from '@slimefish/notifications/lib/createNotification'
 
 function extractUniqueMentionIds(htmlString: string): string[] {
   const mentionRegex = /<mention[^>]*data-id="([^"]*)"[^>]*>/g
@@ -56,7 +56,12 @@ export async function createComment({
     },
   })
 
-  const entity = entityType === 'MARKET' ? await getMarket({ id: entityId }) : await getList({ id: entityId })
+  let entity: any = null
+  try {
+    entity = entityType === 'MARKET' ? await getMarket({ id: entityId }) : await getList({ id: entityId })
+  } catch {
+    entity = { id: entityId, slug: entityId }
+  }
 
   const userIdsMentioned = extractUniqueMentionIds(content)
 
@@ -67,7 +72,7 @@ export async function createComment({
       await createNotification({
         type: 'COMMENT_MENTION',
         actorId: authorId,
-        ...(entityType === 'MARKET' ? { marketId: entity.id } : { list: entity.id }),
+        ...(entityType === 'MARKET' ? { marketId: entity.id } : { listId: entity.id }),
         commentId: comment.id,
         parentCommentId: parentId ?? undefined,
         groupKey: entity.id,
@@ -86,7 +91,7 @@ export async function createComment({
     await createNotification({
       type: 'COMMENT_REPLY',
       actorId: authorId,
-      ...(entityType === 'MARKET' ? { marketId: entity.id } : { list: entity.id }),
+      ...(entityType === 'MARKET' ? { marketId: entity.id } : { listId: entity.id }),
       commentId: comment.id,
       parentCommentId: parentId ?? undefined,
       groupKey: entity.id,

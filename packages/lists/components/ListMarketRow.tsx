@@ -3,13 +3,13 @@
 import { formatDistanceToNow } from 'date-fns'
 import { EllipsisVerticalIcon } from 'lucide-react'
 import React from 'react'
-import { MarketProbabilityDetail } from '@play-money/markets/components/MarketProbabilityDetail'
-import { ResolveMarketDialog } from '@play-money/markets/components/ResolveMarketDialog'
-import { canModifyMarket } from '@play-money/markets/rules'
-import { ExtendedMarket } from '@play-money/markets/types'
-import { useSearchParam } from '@play-money/ui'
-import { Button } from '@play-money/ui/button'
-import { Checkbox } from '@play-money/ui/checkbox'
+import { MarketProbabilityDetail } from '@slimefish/markets/components/MarketProbabilityDetail'
+import { ResolveMarketDialog } from '@slimefish/markets/components/ResolveMarketDialog'
+import { canModifyMarket } from '@slimefish/markets/rules'
+import { ExtendedMarket } from '@slimefish/markets/types'
+import { useSearchParam } from '@slimefish/ui'
+import { Button } from '@slimefish/ui/button'
+import { Checkbox } from '@slimefish/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,9 +18,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@play-money/ui/dropdown-menu'
-import { cn } from '@play-money/ui/utils'
-import { useUser } from '@play-money/users/context/UserContext'
+} from '@slimefish/ui/dropdown-menu'
+import { cn } from '@slimefish/ui/utils'
+import { useUser } from '@slimefish/users/context/UserContext'
 
 export function ListMarketRow({
   market,

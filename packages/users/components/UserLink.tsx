@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
-import { User } from '@play-money/database'
-import { cn } from '@play-money/ui/utils'
+import { User } from '@slimefish/database'
+import { cn } from '@slimefish/ui/utils'
 
 export function UserLink({
   user,

@@ -1,8 +1,8 @@
 import Decimal from 'decimal.js'
-import { TransactionClient } from '@play-money/database'
-import { quote } from '@play-money/finance/amms/maniswap-v1.1'
-import { getMarketBalances } from '@play-money/finance/lib/getBalances'
-import { BalanceChange, calculateRealizedGainsTax, findBalanceChange } from '@play-money/finance/lib/helpers'
+import { TransactionClient } from '@slimefish/database'
+import { quote } from '@slimefish/finance/amms/maniswap-v1.1'
+import { getMarketBalances } from '@slimefish/finance/lib/getBalances'
+import { BalanceChange, calculateRealizedGainsTax, findBalanceChange } from '@slimefish/finance/lib/helpers'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
 
 type PositionValueClient = Pick<TransactionClient, 'marketOptionPosition'>

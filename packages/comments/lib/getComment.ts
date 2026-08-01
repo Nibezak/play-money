@@ -1,4 +1,4 @@
-import db, { Comment, CommentReaction, User } from '@play-money/database'
+import db, { Comment, CommentReaction, User } from '@slimefish/database'
 import { CommentNotFoundError } from './exceptions'
 
 export type CommentWithReactions = Comment & {

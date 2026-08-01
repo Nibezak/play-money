@@ -4,9 +4,9 @@ import { Laptop, Sun, Moon } from 'lucide-react'
 import { signOut, signIn } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
-import { useTheme } from '@play-money/ui/ThemeProvider'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
-import { Button } from '@play-money/ui/button'
+import { useTheme } from '@slimefish/ui/ThemeProvider'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
+import { Button } from '@slimefish/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,9 +15,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@play-money/ui/dropdown-menu'
-import { Tabs, TabsList, TabsTrigger } from '@play-money/ui/tabs'
-import { useUser } from '@play-money/users/context/UserContext'
+} from '@slimefish/ui/dropdown-menu'
+import { Tabs, TabsList, TabsTrigger } from '@slimefish/ui/tabs'
+import { useUser } from '@slimefish/users/context/UserContext'
 import { ActiveUserBalance } from './ActiveUserBalance'
 
 export function UserNav({ initialBalance }: { initialBalance?: number }) {

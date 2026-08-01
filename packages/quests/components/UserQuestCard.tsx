@@ -1,7 +1,7 @@
 'use client'
 
-import { useUserStats } from '@play-money/api-helpers/client/hooks'
-import { useUser } from '@play-money/users/context/UserContext'
+import { useUserStats } from '@slimefish/api-helpers/client/hooks'
+import { useUser } from '@slimefish/users/context/UserContext'
 import { QuestCard } from './QuestCard'
 
 export function UserQuestCard() {

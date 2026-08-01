@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getBalance, transformMarketBalancesToNumbers } from '@play-money/finance/lib/getBalances'
-import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
+import Decimal from 'decimal.js'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getBalance, transformMarketBalancesToNumbers } from '@slimefish/finance/lib/getBalances'
+import { getUserPrimaryAccount } from '@slimefish/users/lib/getUserPrimaryAccount'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'
@@ -14,6 +15,23 @@ export async function GET(
     const { id } = schema.get.parameters.parse(params)
     const userAccount = await getUserPrimaryAccount({ userId: id })
     const balance = await getBalance({ accountId: userAccount.id, assetType: 'CURRENCY', assetId: 'PRIMARY' })
+      .catch((error) => {
+        if (error instanceof Error && error.message === 'No balance') {
+          const now = new Date()
+          return {
+            id: `zero:${userAccount.id}:PRIMARY`,
+            accountId: userAccount.id,
+            assetType: 'CURRENCY' as const,
+            assetId: 'PRIMARY',
+            total: new Decimal(0),
+            subtotals: {},
+            marketId: null,
+            createdAt: now,
+            updatedAt: now,
+          }
+        }
+        throw error
+      })
 
     return NextResponse.json({
       data: {

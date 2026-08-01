@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { mockComment, mockUser } from '@play-money/database/mocks'
+import { mockComment, mockUser } from '@slimefish/database/mocks'
 import { CommentItem } from './CommentItem'
 
 const meta = {

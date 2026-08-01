@@ -4,8 +4,8 @@ import {
   createPaginatedResponseSchema,
   paginationSchema,
   ServerErrorSchema,
-} from '@play-money/api-helpers'
-import { MarketOptionPositionSchema } from '@play-money/database'
+} from '@slimefish/api-helpers'
+import { MarketOptionPositionSchema } from '@slimefish/database'
 
 export default {
   get: {

@@ -1,8 +1,8 @@
-import { createComment } from '@play-money/comments/lib/createComment'
-import db from '@play-money/database'
-import { calculateBalanceChanges } from '@play-money/finance/lib/helpers'
-import { updateGlobalBalances } from '@play-money/finance/lib/updateGlobalBalances'
-import { createNotification } from '@play-money/notifications/lib/createNotification'
+import { createComment } from '@slimefish/comments/lib/createComment'
+import db from '@slimefish/database'
+import { calculateBalanceChanges } from '@slimefish/finance/lib/helpers'
+import { updateGlobalBalances } from '@slimefish/finance/lib/updateGlobalBalances'
+import { createNotification } from '@slimefish/notifications/lib/createNotification'
 import { isMarketResolved, isMarketCanceled } from '../rules'
 import { getMarket } from './getMarket'
 import { getUniqueTraderIds } from './getUniqueTraderIds'
@@ -102,6 +102,9 @@ export async function cancelMarket({
         updateGlobalBalances({ tx, transactionType: reverseTransaction.type, balanceChanges }),
         updateMarketBalances({ tx, transactionType: reverseTransaction.type, balanceChanges, marketId }),
       ])
+    }, {
+      maxWait: 10_000,
+      timeout: 30_000,
     })
   }
 

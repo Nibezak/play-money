@@ -1,13 +1,13 @@
 import Decimal from 'decimal.js'
-import db from '@play-money/database'
-import { mockAccount, mockMarketOptionPosition } from '@play-money/database/mocks'
-import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
+import db from '@slimefish/database'
+import { mockAccount, mockMarketOptionPosition } from '@slimefish/database/mocks'
+import { executeTransaction } from '@slimefish/finance/lib/executeTransaction'
 import { createMarketResolveLossTransactions } from './createMarketResolveLossTransactions'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
 
 jest.mock('./getMarketAmmAccount')
-jest.mock('@play-money/database')
-jest.mock('@play-money/finance/lib/executeTransaction')
+jest.mock('@slimefish/database')
+jest.mock('@slimefish/finance/lib/executeTransaction')
 
 describe('createMarketResolveLossTransactions', () => {
   beforeEach(() => {

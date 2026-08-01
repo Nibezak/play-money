@@ -1,7 +1,7 @@
 import React from 'react'
-import { MarketOption } from '@play-money/database'
-import { Progress } from '@play-money/ui/progress'
-import { cn } from '@play-money/ui/utils'
+import { MarketOption } from '@slimefish/database'
+import { Progress } from '@slimefish/ui/progress'
+import { cn } from '@slimefish/ui/utils'
 
 export function formatProbability(probability: number | null) {
   if (probability === null) {

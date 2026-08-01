@@ -3,12 +3,12 @@
 import { format } from 'date-fns'
 import { CopyIcon } from 'lucide-react'
 import React from 'react'
-import { User } from '@play-money/database'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
-import { Button } from '@play-money/ui/button'
-import { Card, CardContent } from '@play-money/ui/card'
-import { UserLink } from '@play-money/users/components/UserLink'
-import { useUser } from '@play-money/users/context/UserContext'
+import { User } from '@slimefish/database'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
+import { Button } from '@slimefish/ui/button'
+import { Card, CardContent } from '@slimefish/ui/card'
+import { UserLink } from '@slimefish/users/components/UserLink'
+import { useUser } from '@slimefish/users/context/UserContext'
 
 export function SettingsReferralPage({ referrals }: { referrals: Array<User> }) {
   const { user } = useUser()

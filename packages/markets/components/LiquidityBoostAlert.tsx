@@ -1,9 +1,9 @@
 import { DiamondPlus, ArrowRight } from 'lucide-react'
 import React from 'react'
-import { Spotlight, useSpotlight } from '@play-money/ui/Spotlight'
-import { Alert, AlertDescription, AlertTitle } from '@play-money/ui/alert'
-import { Button } from '@play-money/ui/button'
-import { cn } from '@play-money/ui/utils'
+import { Spotlight, useSpotlight } from '@slimefish/ui/Spotlight'
+import { Alert, AlertDescription, AlertTitle } from '@slimefish/ui/alert'
+import { Button } from '@slimefish/ui/button'
+import { cn } from '@slimefish/ui/utils'
 
 export function LiquidityBoostAlert({ onClick }: { onClick: () => void }) {
   const { mouseX, mouseY, handleMouseMove, classNames } = useSpotlight()

@@ -1,4 +1,4 @@
-import db from '@play-money/database';
+import db from '@slimefish/database';
 
 async function main() {
   const users = await db.user.findMany({

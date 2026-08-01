@@ -1,10 +1,10 @@
 'use client'
 
 import React, { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
-import type { User } from '@play-money/database'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
-import { Card } from '@play-money/ui/card'
-import { cn } from '@play-money/ui/utils'
+import type { User } from '@slimefish/database'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
+import { Card } from '@slimefish/ui/card'
+import { cn } from '@slimefish/ui/utils'
 
 export type MentionListRef = {
   onKeyDown: (props: { event: KeyboardEvent }) => boolean

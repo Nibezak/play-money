@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server'
-import { stripUndefined, type SchemaResponse } from '@play-money/api-helpers'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import { CommentNotFoundError } from '@play-money/comments/lib/exceptions'
-import { getMarket } from '@play-money/markets/lib/getMarket'
-import { updateMarket } from '@play-money/markets/lib/updateMarket'
-import { canModifyMarket } from '@play-money/markets/rules'
-import { getUserById } from '@play-money/users/lib/getUserById'
+import { stripUndefined, type SchemaResponse } from '@slimefish/api-helpers'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import { CommentNotFoundError } from '@slimefish/comments/lib/exceptions'
+import { getMarket } from '@slimefish/markets/lib/getMarket'
+import { updateMarket } from '@slimefish/markets/lib/updateMarket'
+import { publishFreshPublicMarketSnapshots } from '@slimefish/markets/lib/getMarketLiveSnapshot'
+import { canModifyMarket } from '@slimefish/markets/rules'
+import { getUserById } from '@slimefish/users/lib/getUserById'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'
@@ -62,6 +63,7 @@ export async function PATCH(
     }
 
     const updatedMarket = await updateMarket({ id, question, description, closeDate, tags, createdBy })
+    await publishFreshPublicMarketSnapshots([id])
 
     return NextResponse.json({ data: updatedMarket })
   } catch (error) {

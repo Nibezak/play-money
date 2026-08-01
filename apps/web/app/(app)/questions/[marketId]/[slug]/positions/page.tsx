@@ -1,6 +1,6 @@
 import React from 'react'
-import { getExtendedMarket, getMarketPositions } from '@play-money/api-helpers/client'
-import { MarketPositionsPage } from '@play-money/markets/components/MarketPositionsPage'
+import { getExtendedMarket, getMarketPositions } from '@slimefish/api-helpers/client'
+import { MarketPositionsPage } from '@slimefish/markets/components/MarketPositionsPage'
 
 export default async function AppPostsSlugPage({ params }: { params: { marketId: string } }) {
   const { data: market } = await getExtendedMarket({ marketId: params.marketId })

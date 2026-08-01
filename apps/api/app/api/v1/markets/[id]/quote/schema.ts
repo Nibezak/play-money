@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ApiEndpoints, ServerErrorSchema } from '@play-money/api-helpers'
+import { ApiEndpoints, ServerErrorSchema } from '@slimefish/api-helpers'
 
 export default {
   post: {
@@ -9,8 +9,15 @@ export default {
     responses: {
       200: z.object({
         data: z.object({
+          currentProbability: z.number(),
           newProbability: z.number(),
+          sharesPurchased: z.number(),
+          totalPayout: z.number(),
+          // Kept during the frontend transition. This is the same value as totalPayout.
           potentialReturn: z.number(),
+          feeAmount: z.number(),
+          netAmount: z.number(),
+          feeBps: z.number().int().nonnegative(),
         }),
       }),
       404: ServerErrorSchema,

@@ -1,6 +1,6 @@
-# Play Money API Server
+# Slimefish ledger API Server
 
-The **Play Money** API server is a Next.js application dedicated to serving the platform's API routes. It aims to be a standalone instrument for frontend clients and bots.
+The **Slimefish ledger** API server is a Next.js application dedicated to serving the platform's API routes. It aims to be a standalone instrument for frontend clients and bots.
 
 ## Features
 

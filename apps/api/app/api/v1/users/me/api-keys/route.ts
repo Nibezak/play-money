@@ -1,8 +1,8 @@
 import { createHash, randomBytes } from 'node:crypto'
 import { NextResponse } from 'next/server'
-import { SchemaResponse } from '@play-money/api-helpers'
-import { auth } from '@play-money/auth'
-import db from '@play-money/database'
+import { SchemaResponse } from '@slimefish/api-helpers'
+import { auth } from '@slimefish/auth'
+import db from '@slimefish/database'
 import schema from './schema'
 
 export async function POST(req: Request): Promise<SchemaResponse<typeof schema.post.responses>> {

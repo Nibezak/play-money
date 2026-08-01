@@ -1,4 +1,4 @@
-import db from '@play-money/database'
+import db from '@slimefish/database'
 
 export async function getUniqueTraderIds(marketId: string, ignoreIds: string[] = []): Promise<string[]> {
   const result = await db.transaction.findMany({

@@ -13,9 +13,9 @@ import type {
   VisibilityOptions,
 } from '@tanstack/react-table'
 import React, { useState, Fragment } from 'react'
-import { DataTablePagination } from '@play-money/ui/data-table-pagination'
-import { DataTableViewOptions } from '@play-money/ui/data-table-view-options'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@play-money/ui/table'
+import { DataTablePagination } from '@slimefish/ui/data-table-pagination'
+import { DataTableViewOptions } from '@slimefish/ui/data-table-view-options'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@slimefish/ui/table'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useSearchParam } from '../../hooks/useSearchParam'
 

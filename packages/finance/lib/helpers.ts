@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js'
-import { TransactionClient } from '@play-money/database'
-import { AssetTypeType } from '@play-money/database/zod/inputTypeSchemas/AssetTypeSchema'
+import { TransactionClient } from '@slimefish/database'
+import { AssetTypeType } from '@slimefish/database/zod/inputTypeSchemas/AssetTypeSchema'
 import { calculateProbability } from '../amms/maniswap-v1.1'
 import { REALIZED_GAINS_TAX } from '../economy'
 import { TransactionEntryInput } from '../types'

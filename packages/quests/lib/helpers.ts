@@ -1,7 +1,7 @@
 import { startOfDay, endOfDay } from 'date-fns'
 import { fromZonedTime, toZonedTime } from 'date-fns-tz'
-import db from '@play-money/database'
-import { getUserById } from '@play-money/users/lib/getUserById'
+import db from '@slimefish/database'
+import { getUserById } from '@slimefish/users/lib/getUserById'
 
 export async function hasPlacedMarketTradeToday({ userId }: { userId: string }) {
   const { timezone } = await getUserById({ id: userId })

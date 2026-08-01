@@ -1,5 +1,5 @@
-import { Separator } from '@play-money/ui/separator'
-import { SettingsSidebarNav } from '@play-money/users/components/SettingsSidebarNav'
+import { Separator } from '@slimefish/ui/separator'
+import { SettingsSidebarNav } from '@slimefish/users/components/SettingsSidebarNav'
 
 const sidebarNavItems = [
   {

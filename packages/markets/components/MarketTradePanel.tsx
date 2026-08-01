@@ -8,12 +8,12 @@ import {
   MARKET_GRAPH_PATH,
   MY_BALANCE_PATH,
   useMarketBalance,
-} from '@play-money/api-helpers/client/hooks'
-import { useSelectedItems } from '@play-money/ui'
-import { Card, CardContent, CardHeader } from '@play-money/ui/card'
-import { Combobox } from '@play-money/ui/combobox'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@play-money/ui/tabs'
-import { cn } from '@play-money/ui/utils'
+} from '@slimefish/api-helpers/client/hooks'
+import { useSelectedItems } from '@slimefish/ui'
+import { Card, CardContent, CardHeader } from '@slimefish/ui/card'
+import { Combobox } from '@slimefish/ui/combobox'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@slimefish/ui/tabs'
+import { cn } from '@slimefish/ui/utils'
 import { ExtendedMarket } from '../types'
 import { MarketBalanceBreakdown } from './MarketBalanceBreakdown'
 import { MarketBuyForm } from './MarketBuyForm'

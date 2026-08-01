@@ -4,14 +4,14 @@ import {
   createPaginatedResponseSchema,
   paginationSchema,
   ServerErrorSchema,
-} from '@play-money/api-helpers'
+} from '@slimefish/api-helpers'
 import {
   MarketSchema,
   TransactionEntrySchema,
   TransactionSchema,
   TransactionTypeSchema,
   UserSchema,
-} from '@play-money/database'
+} from '@slimefish/database'
 
 const ExtendedTransactionSchema = TransactionSchema.extend({
   entries: z.array(TransactionEntrySchema),

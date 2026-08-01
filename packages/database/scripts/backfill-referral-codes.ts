@@ -1,4 +1,4 @@
-import { generateReferralCode } from '@play-money/referrals/lib/helpers'
+import { generateReferralCode } from '@slimefish/referrals/lib/helpers'
 import db from '../prisma'
 
 async function backfillReferralCodes() {

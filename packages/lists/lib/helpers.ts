@@ -1,4 +1,4 @@
-import { INITIAL_MARKET_LIQUIDITY_PRIMARY, LOWEST_MARKET_LIQUIDITY_PRIMARY } from '@play-money/finance/economy'
+import { INITIAL_MARKET_LIQUIDITY_PRIMARY, LOWEST_MARKET_LIQUIDITY_PRIMARY } from '@slimefish/finance/economy'
 
 export function calculateTotalCost(numItems: number): number {
   let totalCost = 0

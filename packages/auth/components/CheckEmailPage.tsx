@@ -3,7 +3,7 @@
 import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import React from 'react'
-import { Card, CardDescription, CardHeader, CardTitle } from '@play-money/ui/card'
+import { Card, CardDescription, CardHeader, CardTitle } from '@slimefish/ui/card'
 
 export function CheckEmailPage() {
   const { data: session } = useSession()

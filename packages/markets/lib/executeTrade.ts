@@ -1,52 +1,66 @@
 import Decimal from 'decimal.js'
-import { trade, quote } from '@play-money/finance/amms/maniswap-v1.1'
-import { getBalance, getMarketBalances } from '@play-money/finance/lib/getBalances'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
-import { calculateRealizedGainsTax } from '@play-money/finance/lib/helpers'
-import { TransactionEntryInput } from '@play-money/finance/types'
-import { getMarketOptionPosition } from '@play-money/users/lib/getMarketOptionPosition'
+import db from '@slimefish/database'
+import { trade } from '@slimefish/finance/amms/maniswap-v1.1'
+import { getBalance, getMarketBalances } from '@slimefish/finance/lib/getBalances'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
+import { TransactionEntryInput } from '@slimefish/finance/types'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
 import { getMarketClearingAccount } from './getMarketClearingAccount'
 
 export async function executeTrade({
   accountId,
   amount,
+  minShares,
   marketId,
   optionId,
   isBuy,
+  feeAmount = new Decimal(0),
+  ammAccountId,
+  clearingAccountId,
 }: {
   accountId: string
   amount: Decimal
+  minShares?: Decimal
   marketId: string
   optionId: string
   isBuy: boolean
-}): Promise<Array<TransactionEntryInput>> {
+  feeAmount?: Decimal
+  ammAccountId?: string
+  clearingAccountId?: string
+}): Promise<Array<TransactionEntryInput> & {
+  balanceAfter: Decimal
+  receivedShares: Decimal
+}> {
+  if (!isBuy) {
+    throw new Error('Selling is disabled for AMM markets')
+  }
   const [ammAccount, clearingAccount] = await Promise.all([
-    getMarketAmmAccount({ marketId }),
-    getMarketClearingAccount({ marketId }),
+    ammAccountId ? { id: ammAccountId } : getMarketAmmAccount({ marketId }),
+    clearingAccountId ? { id: clearingAccountId } : getMarketClearingAccount({ marketId }),
   ])
 
-  const [balanceToTrade, ammBalances] = await Promise.all([
-    isBuy
-      ? getBalance({ accountId, assetType: 'CURRENCY', assetId: 'PRIMARY' })
-      : getBalance({ accountId, assetType: 'MARKET_OPTION', assetId: optionId, marketId }),
+  const [balanceToTrade, ammBalances, marketOption] = await Promise.all([
+    getBalance({ accountId, assetType: 'CURRENCY', assetId: 'PRIMARY' }),
     getMarketBalances({ accountId: ammAccount.id, marketId }),
+    db.marketOption.findUnique({
+      where: { id: optionId },
+      select: { marketId: true, probability: true },
+    }),
   ])
 
-  if (!balanceToTrade.total.gte(amount)) {
-    throw new Error(
-      isBuy ? 'User does not have enough balance to purchase' : 'User does not have enough option shares to sell'
-    )
+  const requiredBalance = amount.add(feeAmount)
+  if (!balanceToTrade.total.gte(requiredBalance)) {
+    throw new Error('User does not have enough balance to purchase')
   }
   const ammAssetBalances = ammBalances.filter(({ assetType }) => assetType === 'MARKET_OPTION')
 
   const marketOptionBalance = ammAssetBalances.find((balance) => balance.assetId === optionId)
-  if (!marketOptionBalance) {
+  if (!marketOptionBalance || !marketOption || marketOption.marketId !== marketId) {
     throw new Error('Cannot find option to trade')
   }
+  const targetIndex = ammAssetBalances.findIndex((balance) => balance.assetId === optionId)
 
-  const entries: Array<TransactionEntryInput> = isBuy
-    ? [
+  const entries: Array<TransactionEntryInput> = [
         {
           amount,
           assetType: 'CURRENCY',
@@ -64,98 +78,56 @@ export async function executeTrade({
           } as const
         }),
       ]
-    : []
 
-  // When buying shares, the other options' shares will decrease when filling amm/limit orders.
-  // Any amount of other shares left means the entire amount has not yet been been filled.
-  let outstandingShares = amount
-  let receivedShares = new Decimal(0)
-  let maximumSaneLoops = 100
-  while (outstandingShares.toDecimalPlaces(4).greaterThan(0) && maximumSaneLoops > 0) {
-    let closestLimitOrder = {} as any // TODO: Implement limit order matching
-
-    const amountToTrade = closestLimitOrder?.probability
-      ? (
-          await quote({
-            amount: outstandingShares,
-            probability: closestLimitOrder?.probability ?? (isBuy ? 0.99 : 0.01),
-            targetShare: marketOptionBalance.total,
-            shares: ammAssetBalances.map((balance) => balance.total),
-          })
-        ).cost
-      : outstandingShares
-
-    const returnedShares = await trade({
-      isBuy,
-      amount: amountToTrade,
-      targetShare: marketOptionBalance.total,
-      shares: ammAssetBalances.map((balance) => balance.total),
+  if (feeAmount.gt(0)) {
+    const houseAccount = await getHouseAccount()
+    entries.push({
+      amount: feeAmount,
+      assetType: 'CURRENCY',
+      assetId: 'PRIMARY',
+      fromAccountId: accountId,
+      toAccountId: houseAccount.id,
     })
-
-    entries.push(
-      isBuy
-        ? {
-            amount: returnedShares,
-            assetType: 'MARKET_OPTION',
-            assetId: optionId,
-            fromAccountId: ammAccount.id,
-            toAccountId: accountId,
-          }
-        : {
-            amount: amountToTrade,
-            assetType: 'MARKET_OPTION',
-            assetId: optionId,
-            fromAccountId: accountId,
-            toAccountId: ammAccount.id,
-          }
-    )
-
-    outstandingShares = outstandingShares.sub(amountToTrade)
-    receivedShares = receivedShares.add(returnedShares)
-    maximumSaneLoops -= 1
   }
 
-  if (!isBuy) {
-    const [position, houseAccount] = await Promise.all([
-      getMarketOptionPosition({ accountId, optionId }),
-      getHouseAccount(),
-    ])
+  // Keep the AMM inventory curve in sync, but price user shares from the
+  // canonical option probability used everywhere in the product UI.
+  await trade({
+    isBuy: true,
+    amount,
+    targetShare: marketOptionBalance.total,
+    shares: ammAssetBalances.map((balance) => balance.total),
+    targetIndex,
+  })
+  // A market can temporarily round to 0 or 100 at storage/display precision.
+  // Never issue zero-cost shares or a zero payout; execution uses the same
+  // bounded probability as the quote endpoint.
+  const storedProbability = new Decimal((marketOption.probability ?? 0.5).toString())
+  const normalizedProbability = storedProbability.gt(1)
+    ? storedProbability.div(100)
+    : storedProbability
+  const optionProbability = Decimal.min(
+    0.999,
+    Decimal.max(0.001, normalizedProbability),
+  )
+  const receivedShares = amount.div(optionProbability)
+  if (marketOptionBalance.total.lt(receivedShares)) {
+    throw new Error('Not enough market liquidity to fill this trade')
+  }
+  entries.push({
+    amount: receivedShares,
+    assetType: 'MARKET_OPTION',
+    assetId: optionId,
+    fromAccountId: ammAccount.id,
+    toAccountId: accountId,
+  })
 
-    if (!position) {
-      throw new Error('User does not have position in market')
-    }
-
-    const tax = calculateRealizedGainsTax({ cost: position.cost, salePrice: receivedShares })
-
-    entries.push(
-      ...ammAssetBalances.map((balance) => {
-        return {
-          amount: receivedShares,
-          assetType: 'MARKET_OPTION',
-          assetId: balance.assetId,
-          fromAccountId: ammAccount.id,
-          toAccountId: clearingAccount.id,
-        } as const
-      }),
-      {
-        amount: tax.gt(0) ? receivedShares.sub(tax) : receivedShares,
-        assetType: 'CURRENCY',
-        assetId: 'PRIMARY',
-        fromAccountId: clearingAccount.id,
-        toAccountId: accountId,
-      }
-    )
-
-    if (tax.gt(0)) {
-      entries.push({
-        amount: tax,
-        assetType: 'CURRENCY',
-        assetId: 'PRIMARY',
-        fromAccountId: clearingAccount.id,
-        toAccountId: houseAccount.id,
-      })
-    }
+  if (minShares && receivedShares.lt(minShares)) {
+    throw new Error('Price moved beyond the allowed slippage tolerance')
   }
 
-  return entries
+  return Object.assign(entries, {
+    balanceAfter: balanceToTrade.total.minus(requiredBalance).toDecimalPlaces(2),
+    receivedShares,
+  })
 }

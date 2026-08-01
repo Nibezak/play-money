@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import { cancelMarket } from '@play-money/markets/lib/cancelMarket'
-import { getMarket } from '@play-money/markets/lib/getMarket'
-import { canModifyMarket } from '@play-money/markets/rules'
-import { getUserById } from '@play-money/users/lib/getUserById'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import { cancelMarket } from '@slimefish/markets/lib/cancelMarket'
+import { publishFreshPublicMarketSnapshots } from '@slimefish/markets/lib/getMarketLiveSnapshot'
+import { getMarket } from '@slimefish/markets/lib/getMarket'
+import { canModifyMarket } from '@slimefish/markets/rules'
+import { getUserById } from '@slimefish/users/lib/getUserById'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'
@@ -36,6 +37,7 @@ export async function POST(
       marketId: id,
       reason,
     })
+    await publishFreshPublicMarketSnapshots([id])
 
     return NextResponse.json({ data: { success: true } })
   } catch (error) {

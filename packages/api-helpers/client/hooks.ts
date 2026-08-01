@@ -1,10 +1,10 @@
 import useSWR from 'swr'
-import { User } from '@play-money/database'
-import { MarketOptionPositionAsNumbers, NetBalanceAsNumbers } from '@play-money/finance/lib/getBalances'
-import { TransactionWithEntries } from '@play-money/finance/types'
-import { ExtendedMarket, MarketActivity } from '@play-money/markets/types'
-import { NotificationGroupWithLastNotification } from '@play-money/notifications/lib/getNotifications'
-import { Quest } from '@play-money/quests/components/QuestCard'
+import { User } from '@slimefish/database'
+import { MarketOptionPositionAsNumbers, NetBalanceAsNumbers } from '@slimefish/finance/lib/getBalances'
+import { TransactionWithEntries } from '@slimefish/finance/types'
+import { ExtendedMarket, MarketActivity } from '@slimefish/markets/types'
+import { NotificationGroupWithLastNotification } from '@slimefish/notifications/lib/getNotifications'
+import { Quest } from '@slimefish/quests/components/QuestCard'
 
 // TODO: @casesandberg Generate this from OpenAPI schema
 

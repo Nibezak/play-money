@@ -1,14 +1,14 @@
 import Decimal from 'decimal.js'
 import { toBeDeepCloseTo, toMatchCloseTo } from 'jest-matcher-deep-close-to'
-import '@play-money/config/jest/jest-setup'
-import { mockMarketOption } from '@play-money/database/mocks'
-import { getMarketOption } from '@play-money/markets/lib/getMarketOption'
+import '@slimefish/config/jest/jest-setup'
+import { mockMarketOption } from '@slimefish/database/mocks'
+import { getMarketOption } from '@slimefish/markets/lib/getMarketOption'
 import { getAccountBalance, addLiquidity, buy, costToHitProbability, sell } from './maniswap-v1'
 
 expect.extend({ toBeDeepCloseTo, toMatchCloseTo })
 
 jest.mock('./maniswap-v1', () => ({ ...jest.requireActual('./maniswap-v1'), getAccountBalance: jest.fn() }))
-jest.mock('@play-money/markets/lib/getMarketOption', () => ({ getMarketOption: jest.fn() }))
+jest.mock('@slimefish/markets/lib/getMarketOption', () => ({ getMarketOption: jest.fn() }))
 
 describe('maniswap-v1', () => {
   it('deprecated', async () => {

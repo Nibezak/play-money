@@ -1,6 +1,6 @@
 import React from 'react'
-import { getMarkets } from '@play-money/api-helpers/client'
-import { MarketsTable } from '@play-money/markets/components/MarketsTable'
+import { getMarkets } from '@slimefish/api-helpers/client'
+import { MarketsTable } from '@slimefish/markets/components/MarketsTable'
 
 export default async function AppQuestionsPage({
   searchParams,

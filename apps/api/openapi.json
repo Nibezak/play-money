@@ -1,9 +1,9 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "PlayMoney API",
+    "title": "SlimefishBackend API",
     "version": "1.0",
-    "description": "[Discord](https://discord.gg/Q5CeSMFeBP) · [API key](https://playmoney.dev/settings/api) · [OpenAPI spec](https://github.com/casesandberg/play-money/blob/main/apps/api/openapi.json) · [Trading bot](https://github.com/casesandberg/playmoney-bot-trading) · [Mirror bot](https://github.com/casesandberg/playmoney-bot-manifold-mirror)\n\n Include `x-api-key: {{key}}` in the header of your requests."
+    "description": "[Discord](https://discord.gg/Q5CeSMFeBP) · [API key](https://slimefishbackend.dev/settings/api) · [OpenAPI spec](https://github.com/casesandberg/slimefish-backend/blob/main/apps/api/openapi.json) · [Trading bot](https://github.com/casesandberg/slimefishbackend-bot-trading) · [Mirror bot](https://github.com/casesandberg/slimefishbackend-bot-manifold-mirror)\n\n Include `x-api-key: {{key}}` in the header of your requests."
   },
   "components": {
     "securitySchemes": {

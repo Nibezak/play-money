@@ -1,4 +1,4 @@
-import db, { List, Market, User } from '@play-money/database'
+import db, { List, Market, User } from '@slimefish/database'
 
 interface SearchResults {
   users: Array<User>

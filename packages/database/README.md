@@ -1,6 +1,6 @@
-# Play Money Database Package
+# Slimefish ledger Database Package
 
-The **Play Money** database package manages the platform's database interactions using Prisma. This setup facilitates easy development and maintenance of the database schema and migrations.
+The **Slimefish ledger** database package manages the platform's database interactions using Prisma. This setup facilitates easy development and maintenance of the database schema and migrations.
 
 ## Features
 
@@ -30,7 +30,7 @@ The **Play Money** database package manages the platform's database interactions
    - Enter the password you set during installation.
    - Create a new database for local development:
      ```sql
-     CREATE DATABASE playmoney;
+     CREATE DATABASE slimefishbackend;
      ```
 
 ### Configure Prisma
@@ -39,7 +39,7 @@ The **Play Money** database package manages the platform's database interactions
 
    - Ensure your `.env` file includes the correct database connection string, typically:
      ```
-     DATABASE_URL="postgresql://postgres:yourpassword@localhost:5432/playmoney"
+     DATABASE_URL="postgresql://postgres:yourpassword@localhost:5432/slimefishbackend"
      ```
 
 2. **Run Migrations**:

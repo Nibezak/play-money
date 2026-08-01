@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import db from '@play-money/database'
-import { getUserById } from '@play-money/users/lib/getUserById'
-import { isAdmin } from '@play-money/users/rules'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import db from '@slimefish/database'
+import { isAdmin } from '@slimefish/users/rules'
+import { getStaffUser, hasStaffRole } from '../auth'
 
 export const dynamic = 'force-dynamic'
 
@@ -13,8 +13,11 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const user = await getUserById({ id: userId })
-    if (user.role === 'USER') {
+    const user = await getStaffUser(req, userId)
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+    if (!hasStaffRole(user)) {
       return NextResponse.json({ error: 'Unauthorized: Staff access required' }, { status: 403 })
     }
 
@@ -72,7 +75,10 @@ export async function PATCH(req: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const admin = await getUserById({ id: adminId })
+    const admin = await getStaffUser(req, adminId)
+    if (!admin) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
     if (!isAdmin({ user: admin })) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
     }

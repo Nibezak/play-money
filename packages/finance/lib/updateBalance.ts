@@ -1,7 +1,74 @@
 import Decimal from 'decimal.js'
-import { TransactionClient } from '@play-money/database'
-import { AssetTypeType } from '@play-money/database/zod/inputTypeSchemas/AssetTypeSchema'
+import { TransactionClient } from '@slimefish/database'
+import { Prisma } from '@prisma/client'
+import { randomUUID } from 'node:crypto'
+import { AssetTypeType } from '@slimefish/database/zod/inputTypeSchemas/AssetTypeSchema'
 import { NetBalance } from './getBalances'
+
+type BalanceUpdate = {
+  accountId: string
+  assetType: AssetTypeType
+  assetId: string
+  change: Decimal
+  marketId?: string
+}
+
+/** Apply the hot-path balance changes with one preload instead of rereading every row. */
+export async function updateBalancesWithoutSubtotals({
+  tx,
+  changes,
+  allowNegativeMarketOptionBalances = false,
+}: {
+  tx: TransactionClient
+  changes: Array<BalanceUpdate>
+  allowNegativeMarketOptionBalances?: boolean
+}) {
+  if (changes.length === 0) return
+
+  const rows = changes.map(({ accountId, assetType, assetId, change, marketId }) => Prisma.sql`(
+    ${randomUUID()}, ${accountId}, ${assetType}, ${assetId}, ${marketId ?? null},
+    ${change.toString()}::numeric,
+    ${allowNegativeMarketOptionBalances && assetType === 'MARKET_OPTION'}::boolean
+  )`)
+
+  const result = await tx.$queryRaw<Array<{ applied: bigint }>>(Prisma.sql`
+    WITH changes(id, account_id, asset_type, asset_id, market_id, delta, allow_negative) AS (
+      VALUES ${Prisma.join(rows)}
+    ), updated AS (
+      UPDATE "Balance" AS balance
+      SET total = balance.total + changes.delta,
+          "updatedAt" = NOW()
+      FROM changes
+      WHERE balance."accountId" = changes.account_id
+        AND balance."assetType"::text = changes.asset_type
+        AND balance."assetId" = changes.asset_id
+        AND balance."marketId" IS NOT DISTINCT FROM changes.market_id
+        AND (changes.delta >= 0 OR changes.allow_negative OR balance.total >= ABS(changes.delta))
+      RETURNING balance.id
+    ), inserted AS (
+      INSERT INTO "Balance" (id, "accountId", "assetType", "assetId", total, subtotals, "marketId", "createdAt", "updatedAt")
+      SELECT changes.id, changes.account_id, changes.asset_type::"AssetType", changes.asset_id,
+             changes.delta, '{}'::jsonb, changes.market_id, NOW(), NOW()
+      FROM changes
+      WHERE (changes.delta >= 0 OR changes.allow_negative)
+        AND NOT EXISTS (
+          SELECT 1 FROM "Balance" AS balance
+          WHERE balance."accountId" = changes.account_id
+            AND balance."assetType"::text = changes.asset_type
+            AND balance."assetId" = changes.asset_id
+            AND balance."marketId" IS NOT DISTINCT FROM changes.market_id
+        )
+      RETURNING id
+    )
+    SELECT (SELECT COUNT(*) FROM updated) + (SELECT COUNT(*) FROM inserted) AS applied
+  `)
+
+  if (Number(result[0]?.applied ?? 0) !== changes.length) {
+    throw new Error(changes.some(({ assetType, change }) => assetType === 'CURRENCY' && change.isNegative())
+      ? 'Insufficient balance'
+      : 'Insufficient market liquidity')
+  }
+}
 
 export async function updateBalance({
   tx,

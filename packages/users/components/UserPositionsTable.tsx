@@ -5,13 +5,13 @@ import Decimal from 'decimal.js'
 import _ from 'lodash'
 import Link from 'next/link'
 import React from 'react'
-import { PageInfo } from '@play-money/api-helpers/types'
-import { Market, MarketOption, MarketOptionPosition } from '@play-money/database'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { ExtendedMarketPosition } from '@play-money/markets/types'
-import { useSearchParam } from '@play-money/ui'
-import { DataTable } from '@play-money/ui/data-table'
-import { DataTableColumnHeader } from '@play-money/ui/data-table-column-header'
+import { PageInfo } from '@slimefish/api-helpers/types'
+import { Market, MarketOption, MarketOptionPosition } from '@slimefish/database'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { ExtendedMarketPosition } from '@slimefish/markets/types'
+import { useSearchParam } from '@slimefish/ui'
+import { DataTable } from '@slimefish/ui/data-table'
+import { DataTableColumnHeader } from '@slimefish/ui/data-table-column-header'
 import {
   Select,
   SelectContent,
@@ -20,7 +20,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '@play-money/ui/select'
+} from '@slimefish/ui/select'
 
 export const columns: Array<ColumnDef<ExtendedMarketPosition>> = [
   {

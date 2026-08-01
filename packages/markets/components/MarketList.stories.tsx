@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 import type { Meta, StoryObj } from '@storybook/react'
 import Decimal from 'decimal.js'
-import { mockExtendedMarket, mockMarketOption, mockMarketResolution, mockUser } from '@play-money/database/mocks'
+import { mockExtendedMarket, mockMarketOption, mockMarketResolution, mockUser } from '@slimefish/database/mocks'
 import { MarketList } from './MarketList'
 
 const meta = {

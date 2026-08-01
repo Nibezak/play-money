@@ -3,20 +3,20 @@
 import { ArrowRight, UserPlusIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
 import {
   DAILY_COMMENT_BONUS_PRIMARY,
   DAILY_LIQUIDITY_BONUS_PRIMARY,
   DAILY_MARKET_BONUS_PRIMARY,
   DAILY_TRADE_BONUS_PRIMARY,
-} from '@play-money/finance/economy'
-import { Spotlight, useSpotlight } from '@play-money/ui/Spotlight'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
-import { Alert, AlertDescription, AlertTitle } from '@play-money/ui/alert'
-import { Button } from '@play-money/ui/button'
-import { cn } from '@play-money/ui/utils'
-import { UserLink } from '@play-money/users/components/UserLink'
-import { useUser } from '@play-money/users/context/UserContext'
+} from '@slimefish/finance/economy'
+import { Spotlight, useSpotlight } from '@slimefish/ui/Spotlight'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
+import { Alert, AlertDescription, AlertTitle } from '@slimefish/ui/alert'
+import { Button } from '@slimefish/ui/button'
+import { cn } from '@slimefish/ui/utils'
+import { UserLink } from '@slimefish/users/components/UserLink'
+import { useUser } from '@slimefish/users/context/UserContext'
 import { useReferral } from './ReferralContext'
 
 const BONUS =

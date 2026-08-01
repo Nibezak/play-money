@@ -2,9 +2,9 @@ import { format } from 'date-fns'
 import _ from 'lodash'
 import React from 'react'
 import { LineChart, Line, ResponsiveContainer, YAxis, XAxis, CartesianGrid, Tooltip as ChartTooltip } from 'recharts'
-import { useListGraph, useMarketGraph } from '@play-money/api-helpers/client/hooks'
-import { formatProbability } from '@play-money/markets/components/MarketProbabilityDetail'
-import { Card } from '@play-money/ui/card'
+import { useListGraph, useMarketGraph } from '@slimefish/api-helpers/client/hooks'
+import { formatProbability } from '@slimefish/markets/components/MarketProbabilityDetail'
+import { Card } from '@slimefish/ui/card'
 import { ExtendedList } from '../types'
 
 function CustomizedXAxisTick({ x, y, payload }: { x: number; y: number; payload: { value: string } }) {

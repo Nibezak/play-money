@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getMarketPositions } from '@play-money/markets/lib/getMarketPositions'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getMarketPositions } from '@slimefish/markets/lib/getMarketPositions'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'

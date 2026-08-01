@@ -1,12 +1,12 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { createComment, createCommentReaction, deleteComment, updateComment } from '@play-money/api-helpers/client'
-import { CommentWithReactions } from '@play-money/comments/lib/getComment'
-import { CommentEntityType } from '@play-money/database'
-import { Card } from '@play-money/ui/card'
-import { toast } from '@play-money/ui/use-toast'
-import { useUser } from '@play-money/users/context/UserContext'
+import { createComment, createCommentReaction, deleteComment, updateComment } from '@slimefish/api-helpers/client'
+import { CommentWithReactions } from '@slimefish/comments/lib/getComment'
+import { CommentEntityType } from '@slimefish/database'
+import { Card } from '@slimefish/ui/card'
+import { toast } from '@slimefish/ui/use-toast'
+import { useUser } from '@slimefish/users/context/UserContext'
 import { CommentItem } from './CommentItem'
 
 export function CommentItemCard({

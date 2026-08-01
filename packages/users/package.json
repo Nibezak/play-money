@@ -1,12 +1,12 @@
 {
-  "name": "@play-money/users",
+  "name": "@slimefish/users",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@play-money/database": "*",
+    "@slimefish/database": "*",
     "lodash": "^4.17.21",
     "resend": "^4.0.0",
     "zod": "^3.23.5"

@@ -1,7 +1,8 @@
 {
+  "name": "slimefish-backend",
   "private": true,
   "scripts": {
-    "build": "dotenv -- turbo build",
+    "build": "dotenv -- cross-env NODE_ENV=production turbo build",
     "dev": "dotenv -- turbo dev --filter=api",
     "lint": "dotenv -- turbo lint",
     "format": "dotenv -- turbo format",
@@ -10,13 +11,13 @@
     "format:fix": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db:push": "dotenv -- turbo db:push",
     "db:generate": "dotenv -- turbo db:generate",
-    "db:script": "dotenv -- npm run script -w @play-money/database",
+    "db:script": "dotenv -- npm run script -w @slimefish/database",
     "db:reset": "dotenv -- turbo db:reset",
     "test": "turbo run test",
     "test:watch": "turbo run test:watch"
   },
   "devDependencies": {
-    "@play-money/config": "*",
+    "@slimefish/config": "*",
     "@types/jest": "^29.5.12",
     "cross-env": "^7.0.3",
     "dotenv-cli": "^7.4.1",
@@ -39,5 +40,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "ioredis": "^5.11.1"
+  }
 }

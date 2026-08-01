@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import { type SchemaResponse } from '@play-money/api-helpers'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import { getMonthlyLeaderboard } from '@play-money/finance/lib/getMonthlyLeaderboard'
+import { type SchemaResponse } from '@slimefish/api-helpers'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import { getMonthlyLeaderboard } from '@slimefish/finance/lib/getMonthlyLeaderboard'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'

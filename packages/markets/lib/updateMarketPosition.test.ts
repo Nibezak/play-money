@@ -1,10 +1,10 @@
 import { Decimal } from 'decimal.js'
-import { TransactionClient } from '@play-money/database'
-import { BalanceChange, findBalanceChange } from '@play-money/finance/lib/helpers'
+import { TransactionClient } from '@slimefish/database'
+import { BalanceChange, findBalanceChange } from '@slimefish/finance/lib/helpers'
 import { updateMarketPosition } from './updateMarketPosition'
 
-jest.mock('@play-money/database')
-jest.mock('@play-money/finance/lib/helpers')
+jest.mock('@slimefish/database')
+jest.mock('@slimefish/finance/lib/helpers')
 
 describe('updateMarketPosition', () => {
   let mockTx: jest.Mocked<TransactionClient>

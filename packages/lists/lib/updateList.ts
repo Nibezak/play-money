@@ -1,4 +1,4 @@
-import db, { List } from '@play-money/database'
+import db, { List } from '@slimefish/database'
 
 export async function updateList({
   id,

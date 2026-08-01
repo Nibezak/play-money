@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import Resend from 'next-auth/providers/resend'
-import db from '@play-money/database'
-import { updateUserById } from '@play-money/users/lib/updateUserById'
+import db from '@slimefish/database'
+import { updateUserById } from '@slimefish/users/lib/updateUserById'
 import { PrismaAdapter } from './auth-prisma-adapter'
 
 if (!process.env.NEXTAUTH_URL) {

@@ -1,9 +1,9 @@
 // @ts-nocheck
 import Decimal from 'decimal.js'
-import db, { MarketOption } from '@play-money/database'
-import { CurrencyCodeType } from '@play-money/database/zod/inputTypeSchemas/CurrencyCodeSchema'
-import { TransactionItemInput } from '@play-money/finance/lib/createTransaction'
-import { getMarketOption } from '@play-money/markets/lib/getMarketOption'
+import db, { MarketOption } from '@slimefish/database'
+import { CurrencyCodeType } from '@slimefish/database/zod/inputTypeSchemas/CurrencyCodeSchema'
+import { TransactionItemInput } from '@slimefish/finance/lib/createTransaction'
+import { getMarketOption } from '@slimefish/markets/lib/getMarketOption'
 
 export async function getAccountBalance({
   accountId,

@@ -1,9 +1,9 @@
 import Decimal from 'decimal.js'
-import db from '@play-money/database'
-import { TransactionTypeType } from '@play-money/database/zod/inputTypeSchemas/TransactionTypeSchema'
-import { calculateProbability } from '@play-money/finance/amms/maniswap-v1.1'
-import { distributeRemainder } from '@play-money/finance/lib/helpers'
-import { getMarket } from '@play-money/markets/lib/getMarket'
+import db from '@slimefish/database'
+import { TransactionTypeType } from '@slimefish/database/zod/inputTypeSchemas/TransactionTypeSchema'
+import { calculateProbability } from '@slimefish/finance/amms/maniswap-v1.1'
+import { distributeRemainder } from '@slimefish/finance/lib/helpers'
+import { getMarket } from '@slimefish/markets/lib/getMarket'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
 import { MarketTransaction } from './getMarketTransactions'
 
@@ -38,8 +38,12 @@ export async function getMarketTransactionsTimeSeries({
     startAt = market.createdAt
   }
 
-  const tickIntervalMs = tickInterval * 60 * 60 * 1000
-  const numBuckets = Math.ceil((endAt.getTime() - startAt.getTime()) / tickIntervalMs)
+  let tickIntervalMs = tickInterval * 60 * 60 * 1000
+  const requestedBuckets = Math.max(1, Math.ceil((endAt.getTime() - startAt.getTime()) / tickIntervalMs))
+  const numBuckets = Math.min(requestedBuckets, 1_500)
+  if (requestedBuckets > numBuckets) {
+    tickIntervalMs = (endAt.getTime() - startAt.getTime()) / numBuckets
+  }
 
   const buckets = Array.from(
     { length: numBuckets },

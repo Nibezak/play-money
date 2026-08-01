@@ -1,5 +1,5 @@
 {
-  "name": "@play-money/storybook",
+  "name": "@slimefish/storybook",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.0",
-    "@play-money/ui": "*",
+    "@slimefish/ui": "*",
     "@storybook/addon-essentials": "^8.1.11",
     "@storybook/addon-interactions": "^8.1.11",
     "@storybook/addon-links": "^8.1.11",

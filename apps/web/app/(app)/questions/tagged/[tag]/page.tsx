@@ -1,6 +1,6 @@
 import React from 'react'
-import { getMarkets } from '@play-money/api-helpers/client'
-import { MarketList } from '@play-money/markets/components/MarketList'
+import { getMarkets } from '@slimefish/api-helpers/client'
+import { MarketList } from '@slimefish/markets/components/MarketList'
 
 export default async function AppQuestionsPage({ params }: { params: { tag: string } }) {
   const { data: markets } = await getMarkets({ tags: [params.tag] })

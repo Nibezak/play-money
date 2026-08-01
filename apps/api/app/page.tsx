@@ -1,9 +1,7 @@
-import { SwaggerUI } from './SwaggerUI'
-
 export default function IndexPage() {
   return (
     <section className="container">
-      <SwaggerUI />
+      <h1>Slimefish ledger API</h1>
     </section>
   )
 }

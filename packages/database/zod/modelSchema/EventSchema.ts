@@ -16,6 +16,7 @@ export const EventSchema = z.object({
   additionalContextUpdatedAt: z.coerce.date().nullable(),
   showMarketIcons: z.boolean(),
   status: z.string(),
+  marketMode: z.string(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
   startDate: z.coerce.date().nullable(),

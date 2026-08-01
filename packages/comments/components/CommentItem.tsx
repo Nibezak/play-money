@@ -3,8 +3,8 @@
 import { formatDistance } from 'date-fns'
 import { Ellipsis, Reply } from 'lucide-react'
 import React, { useState } from 'react'
-import { CommentWithReactions } from '@play-money/comments/lib/getComment'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
+import { CommentWithReactions } from '@slimefish/comments/lib/getComment'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
 import {
   AlertDialog,
   AlertDialogTrigger,
@@ -15,21 +15,21 @@ import {
   AlertDialogFooter,
   AlertDialogCancel,
   AlertDialogAction,
-} from '@play-money/ui/alert-dialog'
-import { Button } from '@play-money/ui/button'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@play-money/ui/collapsible'
+} from '@slimefish/ui/alert-dialog'
+import { Button } from '@slimefish/ui/button'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@slimefish/ui/collapsible'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@play-money/ui/dropdown-menu'
-import { Editor } from '@play-money/ui/editor'
-import { EmojiPicker, EmojiReactionList } from '@play-money/ui/emoji'
-import { toast } from '@play-money/ui/use-toast'
-import { cn } from '@play-money/ui/utils'
-import { UserLink } from '@play-money/users/components/UserLink'
+} from '@slimefish/ui/dropdown-menu'
+import { Editor } from '@slimefish/ui/editor'
+import { EmojiPicker, EmojiReactionList } from '@slimefish/ui/emoji'
+import { toast } from '@slimefish/ui/use-toast'
+import { cn } from '@slimefish/ui/utils'
+import { UserLink } from '@slimefish/users/components/UserLink'
 import { formatDistanceToNowShort } from '../../ui/src/helpers'
 import { CreateCommentForm } from './CreateCommentForm'
 

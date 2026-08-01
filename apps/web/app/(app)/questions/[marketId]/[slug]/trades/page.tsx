@@ -1,5 +1,5 @@
-import { getExtendedMarket, getMarketTransactions } from '@play-money/api-helpers/client'
-import { MarketTradesPage } from '@play-money/markets/components/MarketTradesPage'
+import { getExtendedMarket, getMarketTransactions } from '@slimefish/api-helpers/client'
+import { MarketTradesPage } from '@slimefish/markets/components/MarketTradesPage'
 
 export default async function AppPostsSlugPage({
   params,

@@ -146,6 +146,8 @@ model Market {
   uniqueTradersCount   Int?
   uniquePromotersCount Int?
   liquidityCount       Int?
+  volume               Decimal              @default(0) @db.Decimal(20, 2)
+  volumeBuckets        MarketVolumeBucket[]
 
   // Unnecessary reverse relations
   notifications Notification[] @relation()
@@ -154,6 +156,22 @@ model Market {
 
   parentListId String?
   parentList   List?   @relation("ParentListMarkets", fields: [parentListId], references: [id])
+
+  @@index(fields: [eventId])
+  @@index(fields: [closeDate, resolvedAt, canceledAt])
+}
+
+model MarketVolumeBucket {
+  id          String   @id @default(cuid())
+  marketId    String
+  market      Market   @relation(fields: [marketId], references: [id], onDelete: Cascade)
+  bucketStart DateTime
+  volume      Decimal  @default(0) @db.Decimal(20, 2)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([marketId, bucketStart])
+  @@index([bucketStart, marketId])
 }
 
 model MarketResolution {
@@ -193,6 +211,8 @@ model MarketOption {
 
   // Tellwise additions
   tokenId String?
+
+  @@index(fields: [marketId, createdAt])
 }
 
 model VerificationToken {
@@ -286,6 +306,9 @@ model Transaction {
 
   // Unnecessary reverse relations
   notifications Notification[] @relation()
+
+  @@index(fields: [marketId, type, isReverse, createdAt])
+  @@index(fields: [initiatorId, createdAt])
 }
 
 model TransactionBatch {
@@ -312,6 +335,10 @@ model TransactionEntry {
   transactionId String
   transaction   Transaction @relation(fields: [transactionId], references: [id])
   createdAt     DateTime    @default(now())
+
+  @@index(fields: [transactionId])
+  @@index(fields: [toAccountId, assetType, assetId])
+  @@index(fields: [fromAccountId, assetType, assetId])
 }
 
 enum AccountType {
@@ -372,6 +399,7 @@ model MarketOptionPosition {
 
   @@unique(fields: [accountId, optionId])
   @@index(fields: [accountId, optionId])
+  @@index(fields: [marketId, accountId])
 }
 
 enum NotificationType {
@@ -533,6 +561,7 @@ model Event {
   additionalContextUpdatedAt DateTime?
   showMarketIcons            Boolean   @default(true)
   status                     String    @default("active")
+  marketMode                 String    @default("binary")
   createdAt                  DateTime  @default(now())
   updatedAt                  DateTime  @updatedAt
   startDate                  DateTime?

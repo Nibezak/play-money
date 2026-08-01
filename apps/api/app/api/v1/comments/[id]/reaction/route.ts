@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import { reactToComment } from '@play-money/comments/lib/reactToComment'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import { reactToComment } from '@slimefish/comments/lib/reactToComment'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'

@@ -1,8 +1,8 @@
 import Decimal from 'decimal.js'
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import { marketSell } from '@play-money/markets/lib/marketSell'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import { marketSell } from '@slimefish/markets/lib/marketSell'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'

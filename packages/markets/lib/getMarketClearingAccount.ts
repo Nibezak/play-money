@@ -1,4 +1,4 @@
-import db from '@play-money/database'
+import db from '@slimefish/database'
 
 export async function getMarketClearingAccount({ marketId }: { marketId: string }) {
   const account = await db.account.findFirst({

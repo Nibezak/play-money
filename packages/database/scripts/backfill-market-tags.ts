@@ -1,4 +1,4 @@
-import { updateMarket } from '@play-money/markets/lib/updateMarket'
+import { updateMarket } from '@slimefish/markets/lib/updateMarket'
 import db from '../prisma'
 
 async function main() {

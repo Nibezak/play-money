@@ -1,5 +1,5 @@
-import { List, User } from '@play-money/database'
-import { ExtendedMarket } from '@play-money/markets/types'
+import { List, User } from '@slimefish/database'
+import { ExtendedMarket } from '@slimefish/markets/types'
 
 export type ExtendedList = List & {
   owner: User

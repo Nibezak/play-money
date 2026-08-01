@@ -1,4 +1,4 @@
-import db, { Market } from '@play-money/database'
+import db, { Market } from '@slimefish/database'
 import { ExtendedMarket } from '../types'
 
 export function getMarket(params: { id: string; extended: true }): Promise<ExtendedMarket>

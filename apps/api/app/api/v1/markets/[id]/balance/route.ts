@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import db from '@play-money/database'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import db from '@slimefish/database'
 import {
   getMarketBalances,
   transformMarketBalancesToNumbers,
   transformMarketOptionPositionToNumbers,
-} from '@play-money/finance/lib/getBalances'
-import { getMarketAmmAccount } from '@play-money/markets/lib/getMarketAmmAccount'
-import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
+} from '@slimefish/finance/lib/getBalances'
+import { getMarketAmmAccount } from '@slimefish/markets/lib/getMarketAmmAccount'
+import { getUserPrimaryAccount } from '@slimefish/users/lib/getUserPrimaryAccount'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'

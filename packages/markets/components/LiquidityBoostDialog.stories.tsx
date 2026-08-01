@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { mockMarket } from '@play-money/database/mocks'
+import { mockMarket } from '@slimefish/database/mocks'
 import { LiquidityBoostDialog } from './LiquidityBoostDialog'
 
 const meta = {

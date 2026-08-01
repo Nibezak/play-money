@@ -1,12 +1,12 @@
 import Decimal from 'decimal.js'
-import db from '@play-money/database'
+import db from '@slimefish/database'
 import {
   hasPlacedMarketTradeToday,
   hasCreatedMarketToday,
   hasCommentedToday,
   hasBoostedLiquidityToday,
   calculateActiveDayCount,
-} from '@play-money/quests/lib/helpers'
+} from '@slimefish/quests/lib/helpers'
 import { getUserPrimaryAccount } from './getUserPrimaryAccount'
 
 async function getMarketsCountByUser(userId: string) {

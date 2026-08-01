@@ -1,9 +1,9 @@
 import { Decimal } from 'decimal.js'
-import { TransactionClient } from '@play-money/database'
-import { mockAccount, mockBalance, mockMarketOptionPosition } from '@play-money/database/mocks'
-import * as ECONOMY from '@play-money/finance/economy'
-import { getMarketBalances } from '@play-money/finance/lib/getBalances'
-import { BalanceChange, calculateRealizedGainsTax, findBalanceChange } from '@play-money/finance/lib/helpers'
+import { TransactionClient } from '@slimefish/database'
+import { mockAccount, mockBalance, mockMarketOptionPosition } from '@slimefish/database/mocks'
+import * as ECONOMY from '@slimefish/finance/economy'
+import { getMarketBalances } from '@slimefish/finance/lib/getBalances'
+import { BalanceChange, calculateRealizedGainsTax, findBalanceChange } from '@slimefish/finance/lib/helpers'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
 import { updateMarketPositionValues } from './updateMarketPositionValues'
 
@@ -22,9 +22,9 @@ declare global {
   }
 }
 
-jest.mock('@play-money/database')
-jest.mock('@play-money/finance/lib/getBalances')
-jest.mock('@play-money/finance/lib/helpers')
+jest.mock('@slimefish/database')
+jest.mock('@slimefish/finance/lib/getBalances')
+jest.mock('@slimefish/finance/lib/helpers')
 jest.mock('./getMarketAmmAccount')
 
 describe('updateMarketPositionValues', () => {

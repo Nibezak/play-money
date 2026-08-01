@@ -1,19 +1,19 @@
 import Decimal from 'decimal.js'
-import '@play-money/config/jest/jest-setup'
-import { mockAccount, mockBalance, mockMarket, mockMarketOption } from '@play-money/database/mocks'
-import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { getBalance, getMarketBalances, NetBalance } from '@play-money/finance/lib/getBalances'
+import '@slimefish/config/jest/jest-setup'
+import { mockAccount, mockBalance, mockMarket, mockMarketOption } from '@slimefish/database/mocks'
+import { executeTransaction } from '@slimefish/finance/lib/executeTransaction'
+import { getBalance, getMarketBalances, NetBalance } from '@slimefish/finance/lib/getBalances'
 import { createMarketLiquidityTransaction } from './createMarketLiquidityTransaction'
 import { getMarket } from './getMarket'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
 import { getMarketClearingAccount } from './getMarketClearingAccount'
 
-jest.mock('@play-money/finance/lib/getHouseAccount')
+jest.mock('@slimefish/finance/lib/getHouseAccount')
 jest.mock('./getMarketAmmAccount')
 jest.mock('./getMarketClearingAccount')
 jest.mock('./getMarket')
-jest.mock('@play-money/finance/lib/getBalances')
-jest.mock('@play-money/finance/lib/executeTransaction')
+jest.mock('@slimefish/finance/lib/getBalances')
+jest.mock('@slimefish/finance/lib/executeTransaction')
 
 describe('createMarketLiquidityTransaction', () => {
   beforeEach(() => {

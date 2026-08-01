@@ -1,5 +1,5 @@
 {
-  "extends": "@play-money/config/typescript/react-library.json",
+  "extends": "@slimefish/config/typescript/react-library.json",
   "include": ["."],
   "compilerOptions": {
     "baseUrl": ".",

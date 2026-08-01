@@ -1,5 +1,5 @@
-import db from '@play-money/database'
-import { UserNotFoundError } from '@play-money/users/lib/exceptions'
+import db from '@slimefish/database'
+import { UserNotFoundError } from '@slimefish/users/lib/exceptions'
 
 export async function getUserPrimaryAccount({ userId }: { userId: string }) {
   const user = await db.user.findUnique({

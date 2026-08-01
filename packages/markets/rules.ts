@@ -1,4 +1,4 @@
-import { User, Market } from '@play-money/database'
+import { User, Market } from '@slimefish/database'
 
 export function canModifyMarket({ market, user }: { market: Market; user: User }) {
   if (isMarketResolved({ market })) {

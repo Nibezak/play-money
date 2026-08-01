@@ -11,14 +11,14 @@ import {
   getUserPositions,
   getUserTransactions,
   getUserUsername,
-} from '@play-money/api-helpers/client'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { calculateBalanceChanges, findBalanceChange } from '@play-money/finance/lib/helpers'
-import { MarketProbabilityDetail } from '@play-money/markets/components/MarketProbabilityDetail'
-import { Card, CardContent } from '@play-money/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@play-money/ui/table'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@play-money/ui/tabs'
-import { cn } from '@play-money/ui/utils'
+} from '@slimefish/api-helpers/client'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { calculateBalanceChanges, findBalanceChange } from '@slimefish/finance/lib/helpers'
+import { MarketProbabilityDetail } from '@slimefish/markets/components/MarketProbabilityDetail'
+import { Card, CardContent } from '@slimefish/ui/card'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@slimefish/ui/table'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@slimefish/ui/tabs'
+import { cn } from '@slimefish/ui/utils'
 import { useSearchParam } from '../../ui/src/hooks/useSearchParam'
 import { UserGraph } from './UserGraph'
 import { UserPositionsTable } from './UserPositionsTable'
@@ -74,7 +74,7 @@ export async function UserTradesTable({ userId }: { userId: string }) {
                       {_.truncate(optionName, { length: 30 })}
                     </div>
                     <div>
-                      <CurrencyDisplay value={Math.abs(primaryChange?.change ?? 0)} isShort />
+                      <CurrencyDisplay value={Math.abs(Number(primaryChange?.change ?? 0))} isShort />
                     </div>
                   </TableCell>
                   <TableCell>

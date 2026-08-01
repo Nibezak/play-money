@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'PlayMoney API',
+  title: 'SlimefishBackend API',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

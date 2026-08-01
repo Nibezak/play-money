@@ -2,12 +2,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { CommentSchema } from '@play-money/database'
-import { Button } from '@play-money/ui/button'
-import { Card } from '@play-money/ui/card'
-import { Editor } from '@play-money/ui/editor'
-import { Form, FormControl, FormField, FormItem, FormMessage } from '@play-money/ui/form'
-import { cn } from '@play-money/ui/utils'
+import { CommentSchema } from '@slimefish/database'
+import { Button } from '@slimefish/ui/button'
+import { Card } from '@slimefish/ui/card'
+import { Editor } from '@slimefish/ui/editor'
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@slimefish/ui/form'
+import { cn } from '@slimefish/ui/utils'
 
 const FormSchema = CommentSchema.pick({ content: true })
 

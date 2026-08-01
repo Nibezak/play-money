@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ApiEndpoints, ServerErrorSchema } from '@play-money/api-helpers'
+import { ApiEndpoints, ServerErrorSchema } from '@slimefish/api-helpers'
 
 export default {
   get: {

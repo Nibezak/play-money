@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import { createUser } from '@play-money/users/lib/createUser'
-import db from '@play-money/database'
+import { createUser } from '@slimefish/users/lib/createUser'
+import db from '@slimefish/database'
 
 export async function POST(req: Request) {
   const secret = req.headers.get('x-tellwise-secret')
@@ -15,8 +15,15 @@ export async function POST(req: Request) {
   }
 
   try {
-    const body = await req.json()
+    const rawBody = await req.text()
+    if (!rawBody.trim()) {
+      return NextResponse.json({ error: 'Missing user sync payload' }, { status: 400 })
+    }
+    const body = JSON.parse(rawBody)
     const { id, username, email, isAdmin, role } = body
+    if (typeof id !== 'string' || !id.trim()) {
+      return NextResponse.json({ error: 'Missing user id' }, { status: 400 })
+    }
     const allowedRoles = ['USER', 'EDITOR', 'MODERATOR', 'RESOLVER', 'SUPPORT', 'FINANCE', 'ADMIN'] as const
     const resolvedRole = isAdmin === true
       ? 'ADMIN'
@@ -24,8 +31,8 @@ export async function POST(req: Request) {
         ? role
         : undefined
 
-    // A Tellwise database can be restored independently from Play Money. In that
-    // case the same person may have a different Tellwise id, but their Play Money
+    // A Tellwise database can be restored independently from Slimefish ledger. In that
+    // case the same person may have a different Tellwise id, but their Slimefish ledger
     // account (and its ledger history) must remain canonical.
     let user = await db.user.findUnique({ where: { id } })
 
@@ -51,6 +58,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true, user, userId: user.id })
   } catch (error: any) {
     console.error('Error syncing user:', error)
-    return NextResponse.json({ error: error.message }, { status: 500 })
+    return NextResponse.json({ error: 'Could not sync user right now.' }, { status: 500 })
   }
 }

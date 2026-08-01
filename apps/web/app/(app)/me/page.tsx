@@ -3,7 +3,7 @@
 import { LoaderCircleIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
-import { useUser } from '@play-money/users/context/UserContext'
+import { useUser } from '@slimefish/users/context/UserContext'
 
 export default function AppSetupPage() {
   const router = useRouter()

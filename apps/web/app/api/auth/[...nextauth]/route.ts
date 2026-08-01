@@ -1,3 +1,3 @@
-import { handlers } from '@play-money/auth'
+import { handlers } from '@slimefish/auth'
 
 export const { GET, POST } = handlers

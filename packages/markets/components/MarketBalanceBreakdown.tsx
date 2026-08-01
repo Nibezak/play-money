@@ -1,9 +1,9 @@
 import Decimal from 'decimal.js'
 import React from 'react'
-import { MarketOption } from '@play-money/database'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { MarketOptionPositionAsNumbers, NetBalanceAsNumbers } from '@play-money/finance/lib/getBalances'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@play-money/ui/tooltip'
+import { MarketOption } from '@slimefish/database'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { MarketOptionPositionAsNumbers, NetBalanceAsNumbers } from '@slimefish/finance/lib/getBalances'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@slimefish/ui/tooltip'
 import { ExtendedMarket } from '../types'
 
 const transactionLabels: Record<string, string> = {

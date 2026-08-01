@@ -1,13 +1,13 @@
 import Decimal from 'decimal.js'
 import { NextResponse } from 'next/server'
-import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
-import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
+import { executeTransaction } from '@slimefish/finance/lib/executeTransaction'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
+import { getUserPrimaryAccount } from '@slimefish/users/lib/getUserPrimaryAccount'
 
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    if (req.headers.get('x-tellwise-internal-operation') !== 'settlement-credit') {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    if (!process.env.TELLWISE_SECRET || req.headers.get('x-tellwise-secret') !== process.env.TELLWISE_SECRET || req.headers.get('x-tellwise-internal-operation') !== 'settlement-credit') {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
     const { id: userId } = await params
     const body = await req.json() as { amount?: unknown, paymentIntentId?: unknown }
@@ -26,6 +26,10 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   }
   catch (error) {
     const message = error instanceof Error ? error.message : 'Settlement credit failed'
-    return NextResponse.json({ error: message }, { status: /insufficient/i.test(message) ? 409 : 500 })
+    if (/insufficient|below zero/i.test(message)) {
+      return NextResponse.json({ error: 'Insufficient available balance' }, { status: 409 })
+    }
+    console.error('Settlement credit failed', error)
+    return NextResponse.json({ error: 'Could not credit this settlement right now.' }, { status: 500 })
   }
 }

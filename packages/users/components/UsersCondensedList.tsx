@@ -1,6 +1,6 @@
 import React from 'react'
-import { User } from '@play-money/database'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@play-money/ui/tooltip'
+import { User } from '@slimefish/database'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@slimefish/ui/tooltip'
 import { UserLink } from './UserLink'
 
 export function UsersCondensedList({ users }: { users: Array<User> }) {

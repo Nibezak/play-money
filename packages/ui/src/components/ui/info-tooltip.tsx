@@ -1,7 +1,7 @@
 import { InfoIcon } from 'lucide-react'
 import React, { useState } from 'react'
-import { Button } from '@play-money/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '@play-money/ui/popover'
+import { Button } from '@slimefish/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@slimefish/ui/popover'
 
 export function InfoTooltip({ description }: { description: string }) {
   const [open, setOpen] = useState(false)

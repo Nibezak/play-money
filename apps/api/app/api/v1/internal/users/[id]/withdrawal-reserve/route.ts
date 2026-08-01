@@ -1,8 +1,8 @@
 import Decimal from 'decimal.js'
 import { NextResponse } from 'next/server'
-import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
-import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
+import { executeTransaction } from '@slimefish/finance/lib/executeTransaction'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
+import { getUserPrimaryAccount } from '@slimefish/users/lib/getUserPrimaryAccount'
 
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
@@ -29,6 +29,10 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   }
   catch (error) {
     const message = error instanceof Error ? error.message : 'Withdrawal reservation failed'
-    return NextResponse.json({ error: /insufficient/i.test(message) ? 'Insufficient available balance' : message }, { status: /insufficient/i.test(message) ? 409 : 500 })
+    if (/insufficient|below zero/i.test(message)) {
+      return NextResponse.json({ error: 'Insufficient available balance' }, { status: 409 })
+    }
+    console.error('Withdrawal reservation failed', error)
+    return NextResponse.json({ error: 'Could not reserve withdrawal funds right now.' }, { status: 500 })
   }
 }

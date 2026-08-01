@@ -1,4 +1,4 @@
-import { UserProfilePage } from '@play-money/users/components/UserProfilePage'
+import { UserProfilePage } from '@slimefish/users/components/UserProfilePage'
 
 export default function AppUsernamePage({
   params,

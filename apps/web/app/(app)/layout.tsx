@@ -1,13 +1,13 @@
 import { MenuIcon } from 'lucide-react'
 import Link from 'next/link'
-import { getMyBalance } from '@play-money/api-helpers/client'
-import { NotificationDropdown } from '@play-money/notifications/components/NotificationDropdown'
-import { UserQuestCard } from '@play-money/quests/components/UserQuestCard'
-import { GlobalSearchTriggerLink } from '@play-money/search/components/GlobalSearchTriggerLink'
-import { Button } from '@play-money/ui/button'
-import { Sheet, SheetTrigger, SheetContent, SheetClose } from '@play-money/ui/sheet'
-import { cn } from '@play-money/ui/utils'
-import { UserNav } from '@play-money/users/components/UserNav'
+import { getMyBalance } from '@slimefish/api-helpers/client'
+import { NotificationDropdown } from '@slimefish/notifications/components/NotificationDropdown'
+import { UserQuestCard } from '@slimefish/quests/components/UserQuestCard'
+import { GlobalSearchTriggerLink } from '@slimefish/search/components/GlobalSearchTriggerLink'
+import { Button } from '@slimefish/ui/button'
+import { Sheet, SheetTrigger, SheetContent, SheetClose } from '@slimefish/ui/sheet'
+import { cn } from '@slimefish/ui/utils'
+import { UserNav } from '@slimefish/users/components/UserNav'
 
 function MainNav({
   className,
@@ -62,7 +62,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             </SheetTrigger>
             <SheetContent className="flex flex-col" side="left">
               <div className="flex flex-1 flex-col gap-4">
-                <span className="text-lg font-bold tracking-tight text-muted-foreground">PlayMoney</span>
+                <span className="text-lg font-bold tracking-tight text-muted-foreground">SlimefishBackend</span>
                 <MainNav
                   className="flex flex-col items-start space-y-4 text-lg"
                   renderItemWrap={(child) => <SheetClose asChild>{child}</SheetClose>}
@@ -72,7 +72,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             </SheetContent>
           </Sheet>
           <Link className="flex items-center gap-2" href="/">
-            <span className="text-lg font-bold tracking-tight text-muted-foreground">PlayMoney</span>
+            <span className="text-lg font-bold tracking-tight text-muted-foreground">SlimefishBackend</span>
           </Link>
           <MainNav className="hidden gap-6 md:flex" />
 
@@ -92,7 +92,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         —
         <a
           className="hover:underline"
-          href="https://github.com/casesandberg/play-money"
+          href="https://github.com/casesandberg/slimefish-backend"
           rel="noreferrer"
           target="_blank"
         >

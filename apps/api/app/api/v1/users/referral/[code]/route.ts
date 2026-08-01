@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { UserNotFoundError } from '@play-money/users/lib/exceptions'
-import { getUserByReferralCode } from '@play-money/users/lib/getUserByReferralCode'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { UserNotFoundError } from '@slimefish/users/lib/exceptions'
+import { getUserByReferralCode } from '@slimefish/users/lib/getUserByReferralCode'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'

@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { ApiEndpoints, ServerErrorSchema } from '@play-money/api-helpers'
-import { MarketOptionSchema, MarketSchema } from '@play-money/database'
+import { ApiEndpoints, ServerErrorSchema } from '@slimefish/api-helpers'
+import { MarketOptionSchema, MarketSchema } from '@slimefish/database'
 
 export default {
   post: {

@@ -1,11 +1,11 @@
 import Decimal from 'decimal.js'
-import db from '@play-money/database'
-import { TransactionTypeType } from '@play-money/database/zod/inputTypeSchemas/TransactionTypeSchema'
-import { calculateProbability } from '@play-money/finance/amms/maniswap-v1.1'
-import { distributeRemainder } from '@play-money/finance/lib/helpers'
-import { getList } from '@play-money/lists/lib/getList'
-import { getMarketAmmAccount } from '@play-money/markets/lib/getMarketAmmAccount'
-import { MarketTransaction } from '@play-money/markets/lib/getMarketTransactions'
+import db from '@slimefish/database'
+import { TransactionTypeType } from '@slimefish/database/zod/inputTypeSchemas/TransactionTypeSchema'
+import { calculateProbability } from '@slimefish/finance/amms/maniswap-v1.1'
+import { distributeRemainder } from '@slimefish/finance/lib/helpers'
+import { getList } from '@slimefish/lists/lib/getList'
+import { getMarketAmmAccount } from '@slimefish/markets/lib/getMarketAmmAccount'
+import { MarketTransaction } from '@slimefish/markets/lib/getMarketTransactions'
 
 type Bucket = {
   startAt: Date

@@ -1,6 +1,6 @@
-import { List } from '@play-money/database'
-import { User } from '@play-money/database'
-import { isAdmin } from '@play-money/users/rules'
+import { List } from '@slimefish/database'
+import { User } from '@slimefish/database'
+import { isAdmin } from '@slimefish/users/rules'
 
 export function canAddToList({ list, userId }: { list: List; userId?: string }) {
   return list.contributionPolicy === 'PUBLIC' || (list.contributionPolicy === 'OWNERS_ONLY' && list.ownerId === userId)

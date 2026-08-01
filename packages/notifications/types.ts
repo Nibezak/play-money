@@ -7,8 +7,8 @@ import {
   User,
   Comment,
   List,
-} from '@play-money/database'
-import { NotificationTypeType } from '@play-money/database/zod/inputTypeSchemas/NotificationTypeSchema'
+} from '@slimefish/database'
+import { NotificationTypeType } from '@slimefish/database/zod/inputTypeSchemas/NotificationTypeSchema'
 
 interface CreateNotificationBase {
   type: NotificationTypeType

@@ -1,4 +1,4 @@
-import { User } from '@play-money/database'
+import { User } from '@slimefish/database'
 
 export function generateReferralCode(): string {
   const chars = 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789'

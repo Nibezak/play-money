@@ -1,6 +1,6 @@
-import { getPaginatedItems, PaginationRequest } from '@play-money/api-helpers'
-import db from '@play-money/database'
-import { TransactionTypeType } from '@play-money/database/zod/inputTypeSchemas/TransactionTypeSchema'
+import { getPaginatedItems, PaginationRequest } from '@slimefish/api-helpers'
+import db from '@slimefish/database'
+import { TransactionTypeType } from '@slimefish/database/zod/inputTypeSchemas/TransactionTypeSchema'
 import { TransactionWithEntries } from '../types'
 
 interface TransactionFilterOptions {

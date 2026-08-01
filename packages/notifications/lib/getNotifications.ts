@@ -1,4 +1,4 @@
-import db, { NotificationGroup, Notification } from '@play-money/database'
+import db, { NotificationGroup, Notification } from '@slimefish/database'
 import { NotificationContent } from '../types'
 
 export type NotificationGroupWithLastNotification = NotificationGroup & {

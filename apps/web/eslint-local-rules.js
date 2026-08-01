@@ -1,1 +1,1 @@
-module.exports = require('@play-money/config/eslint/eslint-local-rules')
+module.exports = require('@slimefish/config/eslint/eslint-local-rules')

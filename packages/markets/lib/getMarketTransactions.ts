@@ -1,4 +1,4 @@
-import db, { Transaction, TransactionEntry } from '@play-money/database'
+import db, { Transaction, TransactionEntry } from '@slimefish/database'
 
 export type MarketTransaction = Transaction & {
   entries: Array<TransactionEntry>

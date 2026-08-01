@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { JsonValueSchema } from '../inputTypeSchemas/JsonValueSchema'
+import { Prisma } from '@prisma/client'
 
 /////////////////////////////////////////
 // MARKET SCHEMA
@@ -30,6 +31,7 @@ export const MarketSchema = z.object({
   uniqueTradersCount: z.number().int().nullable(),
   uniquePromotersCount: z.number().int().nullable(),
   liquidityCount: z.number().int().nullable(),
+  volume: z.instanceof(Prisma.Decimal, { message: "Field 'volume' must be a Decimal. Location: ['Models', 'Market']"}),
   parentListId: z.string().nullable(),
 })
 

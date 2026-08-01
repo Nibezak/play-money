@@ -1,10 +1,10 @@
 import _ from 'lodash'
-import { CommentWithReactions } from '@play-money/comments/lib/getComment'
-import { ApiKey, CommentEntityType, List, Market, MarketOption, MarketOptionPosition, User } from '@play-money/database'
-import { NetBalanceAsNumbers } from '@play-money/finance/lib/getBalances'
-import { TransactionWithEntries, LeaderboardUser, ExtendedMarketOptionPosition } from '@play-money/finance/types'
-import { ExtendedList } from '@play-money/lists/types'
-import { ExtendedMarket, ExtendedMarketPosition, MarketActivity } from '@play-money/markets/types'
+import { CommentWithReactions } from '@slimefish/comments/lib/getComment'
+import { ApiKey, CommentEntityType, List, Market, MarketOption, MarketOptionPosition, User } from '@slimefish/database'
+import { NetBalanceAsNumbers } from '@slimefish/finance/lib/getBalances'
+import { TransactionWithEntries, LeaderboardUser, ExtendedMarketOptionPosition } from '@slimefish/finance/types'
+import { ExtendedList } from '@slimefish/lists/types'
+import { ExtendedMarket, ExtendedMarketPosition, MarketActivity } from '@slimefish/markets/types'
 import { PaginatedResponse, PaginationRequest } from '../types'
 
 // TODO: @casesandberg Generate this from OpenAPI schema
@@ -328,7 +328,7 @@ export async function getMarketQuote({
   amount: number
   isBuy?: boolean
 }) {
-  return apiHandler<{ data: { newProbability: number; potentialReturn: number } }>(
+  return apiHandler<{ data: { currentProbability: number; newProbability: number; sharesPurchased: number; totalPayout: number; potentialReturn: number; feeAmount: number; netAmount: number; feeBps: number } }>(
     `${process.env.NEXT_PUBLIC_API_URL}/v1/markets/${marketId}/quote`,
     {
       method: 'POST',

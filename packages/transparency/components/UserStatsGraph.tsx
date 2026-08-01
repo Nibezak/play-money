@@ -3,9 +3,9 @@
 import { format } from 'date-fns'
 import React from 'react'
 import { LineChart, ResponsiveContainer, YAxis, XAxis, Tooltip as ChartTooltip, Line } from 'recharts'
-import { useTransparencyStatsUsers, useUserGraph } from '@play-money/api-helpers/client/hooks'
-import { formatNumber } from '@play-money/finance/lib/formatCurrency'
-import { Card } from '@play-money/ui/card'
+import { useTransparencyStatsUsers, useUserGraph } from '@slimefish/api-helpers/client/hooks'
+import { formatNumber } from '@slimefish/finance/lib/formatCurrency'
+import { Card } from '@slimefish/ui/card'
 
 function CustomizedXAxisTick({ x, y, payload }: { x: number; y: number; payload: { value: string } }) {
   return (

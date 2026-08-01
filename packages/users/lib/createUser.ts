@@ -1,10 +1,9 @@
 import { Resend } from 'resend'
 import { generateFromEmail } from 'unique-username-generator'
-import db from '@play-money/database'
-import { User } from '@play-money/database'
-import { OmittedUserFields } from '@play-money/database/prisma'
-import { createHouseSingupBonusTransaction } from '@play-money/finance/lib/createHouseSingupBonusTransaction'
-import { generateReferralCode } from '@play-money/referrals/lib/helpers'
+import db from '@slimefish/database'
+import { User } from '@slimefish/database'
+import { OmittedUserFields } from '@slimefish/database/prisma'
+import { generateReferralCode } from '@slimefish/referrals/lib/helpers'
 import { UserExistsError } from './exceptions'
 
 export async function createUser({ email, id, username }: { email: string; id?: string; username?: string }): Promise<User & OmittedUserFields> {
@@ -53,10 +52,6 @@ export async function createUser({ email, id, username }: { email: string; id?: 
     data: {
       userId: user.id,
     },
-  })
-
-  await createHouseSingupBonusTransaction({
-    userId: user.id,
   })
 
   // Subscribe user to audience if it exists

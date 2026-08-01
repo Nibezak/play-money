@@ -1,4 +1,4 @@
-import db from '@play-money/database'
+import db from '@slimefish/database'
 
 export async function checkUsername({ username }: { username: string }) {
   const user = await db.user.findFirst({

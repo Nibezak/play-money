@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import { buttonVariants } from '@play-money/ui/button'
-import { cn } from '@play-money/ui/utils'
+import { buttonVariants } from '@slimefish/ui/button'
+import { cn } from '@slimefish/ui/utils'
 
 interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   items: {

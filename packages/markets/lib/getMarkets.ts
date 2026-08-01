@@ -1,5 +1,5 @@
-import { getPaginatedItems, PaginationRequest } from '@play-money/api-helpers'
-import db, { Market } from '@play-money/database'
+import { getPaginatedItems, PaginationRequest } from '@slimefish/api-helpers'
+import db, { Market } from '@slimefish/database'
 import { ExtendedMarket } from '../types'
 
 interface MarketFilterOptions {

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import db from '@play-money/database'
+import db from '@slimefish/database'
 import { CreateNotificationData } from '../types'
 
 export async function createNotification({

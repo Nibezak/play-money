@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js'
-import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { findBalanceChange } from '@play-money/finance/lib/helpers'
+import { executeTransaction } from '@slimefish/finance/lib/executeTransaction'
+import { findBalanceChange } from '@slimefish/finance/lib/helpers'
 import { executeTrade } from './executeTrade'
 import { updateMarketBalances } from './updateMarketBalances'
 import { updateMarketOptionProbabilities } from './updateMarketOptionProbabilities'

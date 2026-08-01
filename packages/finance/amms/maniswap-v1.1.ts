@@ -75,8 +75,9 @@ export function calculateProbability({ index, shares }: { index: number; shares:
   // The probability for the given index is one minus the share count at the index times the number of dimensions divided by the sum of all shares
   const prob = new Decimal(1).sub(new Decimal(indexShares).mul(shares.length - 1).div(sum))
 
-  // TODO: write tests around this going below 0
-  return Decimal.max(prob, 0)
+  const MIN_PROB = new Decimal('0.001')
+  const MAX_PROB = new Decimal('0.999')
+  return Decimal.max(MIN_PROB, Decimal.min(MAX_PROB, prob))
 }
 
 function binarySearch(
@@ -116,13 +117,19 @@ export function trade({
   targetShare,
   shares,
   isBuy,
+  targetIndex,
 }: {
   amount: Decimal
   targetShare: Decimal
   shares: Array<Decimal>
   isBuy: boolean
+  /** Required when two outcomes have the same reserve balance. */
+  targetIndex?: number
 }) {
-  const targetShareIndex = findShareIndex(shares, targetShare)
+  const targetShareIndex = targetIndex ?? findShareIndex(shares, targetShare)
+  if (targetShareIndex < 0 || targetShareIndex >= shares.length) {
+    throw new Error('Target share is not part of this market')
+  }
 
   // (num shares of buying) + (amount of currency buying) - (product of all share nums)/(product of for each option, sum of option and the amount of currency buying)
   // When buying x: returnAmount = x + a - xyz/((y+a)(z+a))

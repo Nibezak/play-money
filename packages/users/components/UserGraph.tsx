@@ -3,11 +3,11 @@
 import { format } from 'date-fns'
 import React from 'react'
 import { AreaChart, ResponsiveContainer, YAxis, XAxis, Tooltip as ChartTooltip, Area } from 'recharts'
-import { useUserGraph } from '@play-money/api-helpers/client/hooks'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { formatNumber } from '@play-money/finance/lib/formatCurrency'
-import { Card } from '@play-money/ui/card'
-import { cn } from '@play-money/ui/utils'
+import { useUserGraph } from '@slimefish/api-helpers/client/hooks'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { formatNumber } from '@slimefish/finance/lib/formatCurrency'
+import { Card } from '@slimefish/ui/card'
+import { cn } from '@slimefish/ui/utils'
 
 function CustomizedXAxisTick({ x, y, payload }: { x: number; y: number; payload: { value: string } }) {
   return (

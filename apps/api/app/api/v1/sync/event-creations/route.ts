@@ -1,14 +1,16 @@
 import { NextResponse } from 'next/server'
 import Decimal from 'decimal.js'
-import db from '@play-money/database'
-import { createMarket } from '@play-money/markets/lib/createMarket'
+import db from '@slimefish/database'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
+import { createMarket } from '@slimefish/markets/lib/createMarket'
+import { publishFreshPublicMarketSnapshots } from '@slimefish/markets/lib/getMarketLiveSnapshot'
 
 export const dynamic = 'force-dynamic'
 
 export async function POST(req: Request) {
   try {
     const secret = req.headers.get('x-tellwise-secret')
-    if (secret !== process.env.TELLWISE_SECRET && secret !== 'tellwise_super_secret_bypass_key_123') {
+    if (!process.env.TELLWISE_SECRET || secret !== process.env.TELLWISE_SECRET) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
@@ -39,34 +41,63 @@ export async function POST(req: Request) {
           slug: body.slug,
           title: body.title,
           creator: userId,
-          iconUrl: '/images/branding/slimefish.png',
+          iconUrl: typeof body.eventImageUrl === 'string' && body.eventImageUrl ? body.eventImageUrl : '/images/branding/slimefish.png',
           status: 'active',
+          marketMode: typeof body.marketMode === 'string' ? body.marketMode : 'binary',
           startDate: new Date(),
           endDate: body.endDateIso ? new Date(body.endDateIso) : null,
         },
       })
 
       try {
-        const optionNames = body.marketMode === 'binary'
-          ? [body.binaryOutcomeYes || 'Yes', body.binaryOutcomeNo || 'No']
-          : (Array.isArray(body.options) ? body.options.map((option: any) => option.title || option.shortName) : [])
-        const colors = ['#22C55E', '#F43F5E', '#3B82F6', '#F59E0B', '#A855F7', '#06B6D4']
-        const market = await createMarket({
-          question: body.binaryQuestion || body.title,
-          description: body.resolutionRules || 'No resolution rules provided.',
-          closeDate: body.endDateIso ? new Date(body.endDateIso) : null,
-          createdBy: userId,
-          eventId: event.id,
-          tags: Array.isArray(body.categories)
-            ? body.categories.map((category: any) => category.slug).filter(Boolean).slice(0, 5)
-            : [],
-          options: optionNames.map((name: string, index: number) => ({
-            name,
-            color: colors[index % colors.length],
-          })),
-          subsidyAmount: new Decimal(initialLiquidity),
-        })
-        return NextResponse.json({ success: true, event, market })
+        const tags = Array.isArray(body.categories)
+          ? body.categories.map((category: any) => category.slug).filter(Boolean).slice(0, 5)
+          : []
+        const closeDate = body.endDateIso ? new Date(body.endDateIso) : null
+        const candidates = body.marketMode === 'binary' ? [] : (Array.isArray(body.options) ? body.options : [])
+        const perMarketLiquidity = candidates.length > 0
+          ? new Decimal(initialLiquidity).div(candidates.length)
+          : new Decimal(initialLiquidity)
+        const treasuryAccount = await getHouseAccount()
+        const markets = []
+        if (candidates.length > 0) {
+          for (const [index, candidate] of candidates.entries()) {
+            const yesProbability = new Decimal(1).div(candidates.length).toNumber()
+            const market = await createMarket({
+                question: candidate.question || `${candidate.title || candidate.shortName}: ${body.title}`,
+                description: body.resolutionRules || 'No resolution rules provided.',
+                closeDate,
+                createdBy: userId,
+                eventId: event.id,
+                tags,
+                options: [
+                  { name: candidate.outcomeYes || 'Yes', color: '#22C55E', probability: yesProbability },
+                  { name: candidate.outcomeNo || 'No', color: '#F43F5E', probability: 1 - yesProbability },
+                ],
+              subsidyAmount: perMarketLiquidity,
+              liquidityAccountId: treasuryAccount.id,
+            })
+            markets.push({ ...market, candidateIndex: index, candidate: candidate.title || candidate.shortName })
+          }
+        }
+        else {
+          markets.push(await createMarket({
+              question: body.binaryQuestion || body.title,
+              description: body.resolutionRules || 'No resolution rules provided.',
+              closeDate,
+              createdBy: userId,
+              eventId: event.id,
+              tags,
+              options: [
+                { name: body.binaryOutcomeYes || 'Yes', color: '#22C55E', probability: 0.5 },
+                { name: body.binaryOutcomeNo || 'No', color: '#F43F5E', probability: 0.5 },
+            ],
+            subsidyAmount: perMarketLiquidity,
+            liquidityAccountId: treasuryAccount.id,
+          }))
+        }
+        await publishFreshPublicMarketSnapshots(markets.map(market => market.id))
+        return NextResponse.json({ success: true, event, market: markets[0], markets })
       }
       catch (error) {
         await db.event.delete({ where: { id: event.id } }).catch(() => undefined)
@@ -103,6 +134,7 @@ export async function POST(req: Request) {
             title: question,
             creator: draft.createdByUserId,
             status: 'active',
+            marketMode: draft.marketMode || 'binary',
             startDate: draft.startAt,
             endDate: draft.endDate,
           }

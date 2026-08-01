@@ -2,17 +2,17 @@
 
 import { MoreVertical, Link, Pencil } from 'lucide-react'
 import React from 'react'
-import { Button } from '@play-money/ui/button'
+import { Button } from '@slimefish/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@play-money/ui/dropdown-menu'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@play-money/ui/tooltip'
-import { toast } from '@play-money/ui/use-toast'
-import { useUser } from '@play-money/users/context/UserContext'
+} from '@slimefish/ui/dropdown-menu'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@slimefish/ui/tooltip'
+import { toast } from '@slimefish/ui/use-toast'
+import { useUser } from '@slimefish/users/context/UserContext'
 import { ExtendedList } from '../types'
 
 export function ListToolbar({

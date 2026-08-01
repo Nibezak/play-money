@@ -1,4 +1,4 @@
-import db, { MarketOption } from '@play-money/database'
+import db, { MarketOption } from '@slimefish/database'
 
 export async function updateMarketOption({ id, name, color }: { id: string; name?: string; color?: string }) {
   const updatedData: Partial<MarketOption> = {}

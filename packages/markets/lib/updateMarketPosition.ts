@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js'
-import { TransactionClient } from '@play-money/database'
-import { BalanceChange, findBalanceChange } from '@play-money/finance/lib/helpers'
+import { TransactionClient } from '@slimefish/database'
+import { BalanceChange, findBalanceChange } from '@slimefish/finance/lib/helpers'
 
 export async function updateMarketPosition({
   tx,

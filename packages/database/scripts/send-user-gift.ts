@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js'
-import { createHouseUserGiftTransaction } from '@play-money/finance/lib/createHouseUserGiftTransaction'
-import { getUserById } from '@play-money/users/lib/getUserById'
+import { createHouseUserGiftTransaction } from '@slimefish/finance/lib/createHouseUserGiftTransaction'
+import { getUserById } from '@slimefish/users/lib/getUserById'
 import db from '../prisma'
 
 const userId = 'cm0ioq1nl0000v2k9p427yejq'

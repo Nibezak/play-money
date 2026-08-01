@@ -1,5 +1,5 @@
-import { CommentWithReactions } from '@play-money/comments/lib/getComment'
-import db from '@play-money/database'
+import { CommentWithReactions } from '@slimefish/comments/lib/getComment'
+import db from '@slimefish/database'
 
 export async function getCommentsOnMarket({ marketId }: { marketId: string }): Promise<Array<CommentWithReactions>> {
   const comments = await db.comment.findMany({

@@ -1,11 +1,11 @@
 import { EllipsisIcon } from 'lucide-react'
 import React from 'react'
-import { getLeaderboard } from '@play-money/api-helpers/client'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import type { LeaderboardUser } from '@play-money/finance/types'
-import { Badge } from '@play-money/ui/badge'
-import { cn } from '@play-money/ui/utils'
-import { UserLink } from '@play-money/users/components/UserLink'
+import { getLeaderboard } from '@slimefish/api-helpers/client'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import type { LeaderboardUser } from '@slimefish/finance/types'
+import { Badge } from '@slimefish/ui/badge'
+import { cn } from '@slimefish/ui/utils'
+import { UserLink } from '@slimefish/users/components/UserLink'
 import { LeaderboardTitle } from '../../LeaderboardTitle'
 
 function LeaderboardUserTable({

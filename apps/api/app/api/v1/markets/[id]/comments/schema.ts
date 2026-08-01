@@ -1,6 +1,6 @@
 import zod from 'zod'
-import { ApiEndpoints, ServerErrorSchema } from '@play-money/api-helpers'
-import { CommentSchema } from '@play-money/database'
+import { ApiEndpoints, ServerErrorSchema } from '@slimefish/api-helpers'
+import { CommentSchema } from '@slimefish/database'
 
 export default {
   get: {

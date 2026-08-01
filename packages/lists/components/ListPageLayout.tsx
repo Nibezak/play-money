@@ -1,9 +1,9 @@
 'use client'
 
 import React from 'react'
-import { SidebarProvider } from '@play-money/markets/components/SidebarContext'
-import { useTrackResourceViewed } from '@play-money/notifications/hooks/useTrackResourceViewed'
-import { SidebarReferralAlert } from '@play-money/referrals/components/SidebarReferralAlert'
+import { SidebarProvider } from '@slimefish/markets/components/SidebarContext'
+import { useTrackResourceViewed } from '@slimefish/notifications/hooks/useTrackResourceViewed'
+import { SidebarReferralAlert } from '@slimefish/referrals/components/SidebarReferralAlert'
 import { SelectedItemsProvider } from '../../ui/src/contexts/SelectedItemContext'
 import { ExtendedList } from '../types'
 import { ListTradePanel } from './ListTradePanel'

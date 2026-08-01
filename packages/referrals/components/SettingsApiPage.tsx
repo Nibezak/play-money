@@ -3,10 +3,10 @@
 import { format } from 'date-fns'
 import { CopyIcon } from 'lucide-react'
 import React from 'react'
-import { ApiKey } from '@play-money/database'
-import { Button } from '@play-money/ui/button'
-import { Card, CardContent } from '@play-money/ui/card'
-import { toast } from '@play-money/ui/use-toast'
+import { ApiKey } from '@slimefish/database'
+import { Button } from '@slimefish/ui/button'
+import { Card, CardContent } from '@slimefish/ui/card'
+import { toast } from '@slimefish/ui/use-toast'
 
 export function SettingsApiPage({ keys, onCreateKey }: { keys: Array<ApiKey>; onCreateKey: () => Promise<void> }) {
   return (

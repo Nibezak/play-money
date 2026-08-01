@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import { getUserReferrals } from '@play-money/referrals/lib/getUserReferrals'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import { getUserReferrals } from '@slimefish/referrals/lib/getUserReferrals'
 import type schema from './schema'
 
 export const dynamic = 'force-dynamic'

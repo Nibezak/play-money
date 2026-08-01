@@ -5,8 +5,8 @@ import {
   paginationSchema,
   ServerErrorSchema,
   zodCoerceCSVToArray,
-} from '@play-money/api-helpers'
-import { ListSchema, MarketOptionSchema, MarketSchema, QuestionContributionPolicySchema } from '@play-money/database'
+} from '@slimefish/api-helpers'
+import { ListSchema, MarketOptionSchema, MarketSchema, QuestionContributionPolicySchema } from '@slimefish/database'
 
 export default {
   get: {

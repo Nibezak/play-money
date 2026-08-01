@@ -1,9 +1,9 @@
 import { formatDistanceToNow } from 'date-fns'
 import { EllipsisVerticalIcon } from 'lucide-react'
 import React from 'react'
-import { MarketOption } from '@play-money/database'
-import { Button } from '@play-money/ui/button'
-import { Checkbox } from '@play-money/ui/checkbox'
+import { MarketOption } from '@slimefish/database'
+import { Button } from '@slimefish/ui/button'
+import { Checkbox } from '@slimefish/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,8 +12,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@play-money/ui/dropdown-menu'
-import { cn } from '@play-money/ui/utils'
+} from '@slimefish/ui/dropdown-menu'
+import { cn } from '@slimefish/ui/utils'
 import { MarketProbabilityDetail } from './MarketProbabilityDetail'
 
 export function MarketOptionRow({

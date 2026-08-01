@@ -1,5 +1,5 @@
-import { getMarketBalances } from '@play-money/finance/lib/getBalances'
-import { updateMarketOptionProbabilities } from '@play-money/markets/lib/updateMarketOptionProbabilities'
+import { getMarketBalances } from '@slimefish/finance/lib/getBalances'
+import { updateMarketOptionProbabilities } from '@slimefish/markets/lib/updateMarketOptionProbabilities'
 import db from '../prisma'
 
 async function main() {

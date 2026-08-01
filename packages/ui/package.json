@@ -1,5 +1,5 @@
 {
-  "name": "@play-money/ui",
+  "name": "@slimefish/ui",
   "version": "0.0.0",
   "sideEffects": [
     "**/*.css"
@@ -61,7 +61,7 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@play-money/config": "*",
+    "@slimefish/config": "*",
     "@types/emoji-mart": "^3.0.14",
     "@types/react": "^18.2.61",
     "autoprefixer": "^10.4.18",

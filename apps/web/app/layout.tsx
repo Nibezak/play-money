@@ -1,23 +1,23 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
-import { SWRProvider } from '@play-money/api-helpers/components/SWRProvider'
-import { auth } from '@play-money/auth'
-import { SessionProvider } from '@play-money/auth/components/SessionProvider'
-import { EditorExtensions } from '@play-money/comments/components/EditorExtensions'
-import { ReferralProvider } from '@play-money/referrals/components/ReferralContext'
-import { ThemeProvider } from '@play-money/ui/ThemeProvider'
-import '@play-money/ui/emoji'
-import '@play-money/ui/styles.css'
-import { Toaster } from '@play-money/ui/toaster'
-import { TooltipProvider } from '@play-money/ui/tooltip'
-import { UserProvider } from '@play-money/users/context/UserContext'
-import { getUserById } from '@play-money/users/lib/getUserById'
+import { SWRProvider } from '@slimefish/api-helpers/components/SWRProvider'
+import { auth } from '@slimefish/auth'
+import { SessionProvider } from '@slimefish/auth/components/SessionProvider'
+import { EditorExtensions } from '@slimefish/comments/components/EditorExtensions'
+import { ReferralProvider } from '@slimefish/referrals/components/ReferralContext'
+import { ThemeProvider } from '@slimefish/ui/ThemeProvider'
+import '@slimefish/ui/emoji'
+import '@slimefish/ui/styles.css'
+import { Toaster } from '@slimefish/ui/toaster'
+import { TooltipProvider } from '@slimefish/ui/tooltip'
+import { UserProvider } from '@slimefish/users/context/UserContext'
+import { getUserById } from '@slimefish/users/lib/getUserById'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Play Money',
+  title: 'Slimefish ledger',
   description: 'Prediction market platform',
 }
 

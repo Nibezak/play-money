@@ -1,7 +1,7 @@
 import React from 'react'
-import { getExtendedMarket } from '@play-money/api-helpers/client'
-import { MarketComments } from '@play-money/markets/components/MarketComments'
-import { MarketCommentsPage } from '@play-money/markets/components/MarketCommentsPage'
+import { getExtendedMarket } from '@slimefish/api-helpers/client'
+import { MarketComments } from '@slimefish/markets/components/MarketComments'
+import { MarketCommentsPage } from '@slimefish/markets/components/MarketCommentsPage'
 
 export default async function AppPostsSlugPage({ params }: { params: { marketId: string } }) {
   const { data: market } = await getExtendedMarket({ marketId: params.marketId })

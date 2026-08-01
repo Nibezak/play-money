@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { CommentWithReactions } from '@play-money/comments/lib/getComment'
+import { CommentWithReactions } from '@slimefish/comments/lib/getComment'
 import {
   Account,
   Comment,
@@ -15,8 +15,8 @@ import {
   MarketSchema,
   TransactionSchema,
   User,
-} from '@play-money/database'
-import { TransactionWithEntries } from '@play-money/finance/types'
+} from '@slimefish/database'
+import { TransactionWithEntries } from '@slimefish/finance/types'
 
 export type ExtendedMarket = Market & {
   user: User

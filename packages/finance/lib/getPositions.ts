@@ -1,4 +1,4 @@
-import db from '@play-money/database'
+import db from '@slimefish/database'
 import { ExtendedMarketOptionPosition } from '../types'
 
 interface PositionsFilterOptions {

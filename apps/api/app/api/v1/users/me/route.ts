@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
-import { stripUndefined, type SchemaResponse } from '@play-money/api-helpers'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import { getUserById } from '@play-money/users/lib/getUserById'
-import { updateUserById } from '@play-money/users/lib/updateUserById'
+import { stripUndefined, type SchemaResponse } from '@slimefish/api-helpers'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import { getUserById } from '@slimefish/users/lib/getUserById'
+import { updateUserById } from '@slimefish/users/lib/updateUserById'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'

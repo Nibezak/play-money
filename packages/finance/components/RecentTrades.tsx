@@ -2,11 +2,11 @@
 
 import _ from 'lodash'
 import Link from 'next/link'
-import { useRecentTrades } from '@play-money/api-helpers/client/hooks'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { calculateBalanceChanges, findBalanceChange } from '@play-money/finance/lib/helpers'
-import { formatDistanceToNowShort } from '@play-money/ui'
-import { UserLink } from '@play-money/users/components/UserLink'
+import { useRecentTrades } from '@slimefish/api-helpers/client/hooks'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { calculateBalanceChanges, findBalanceChange } from '@slimefish/finance/lib/helpers'
+import { formatDistanceToNowShort } from '@slimefish/ui'
+import { UserLink } from '@slimefish/users/components/UserLink'
 
 export function RecentTrades() {
   const { data: transactionsData } = useRecentTrades()

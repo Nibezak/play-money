@@ -1,4 +1,4 @@
-import { Comment } from '@play-money/database'
+import { Comment } from '@slimefish/database'
 import { createComment } from './createComment'
 import { getComment } from './getComment'
 

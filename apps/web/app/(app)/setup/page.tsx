@@ -3,10 +3,10 @@
 import { LoaderCircleIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
-import { updateMe } from '@play-money/api-helpers/client'
-import { useReferral } from '@play-money/referrals/components/ReferralContext'
-import { toast } from '@play-money/ui/use-toast'
-import { useUser } from '@play-money/users/context/UserContext'
+import { updateMe } from '@slimefish/api-helpers/client'
+import { useReferral } from '@slimefish/referrals/components/ReferralContext'
+import { toast } from '@slimefish/ui/use-toast'
+import { useUser } from '@slimefish/users/context/UserContext'
 
 export default function AppSetupPage() {
   const router = useRouter()

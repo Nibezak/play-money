@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import sharedConfig from '@play-money/config/tailwind/tailwind.config'
+import sharedConfig from '@slimefish/config/tailwind/tailwind.config'
 
 const config = {
   content: ['./src/**/*.tsx'],

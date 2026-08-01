@@ -3,8 +3,8 @@
 import { MoreVertical } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import { Button } from '@play-money/ui/button'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@play-money/ui/dropdown-menu'
+import { Button } from '@slimefish/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@slimefish/ui/dropdown-menu'
 import { useUser } from '../context/UserContext'
 
 export function EditOrFollowUserButton({ userId }: { userId: string }) {

@@ -1,8 +1,8 @@
 import { MessageSquareIcon, UsersIcon, DiamondIcon } from 'lucide-react'
 import Link from 'next/link'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@play-money/ui/tooltip'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@slimefish/ui/tooltip'
 import { ExtendedMarket } from '../types'
 
 export function MarketList({ markets }: { markets: Array<ExtendedMarket> }) {

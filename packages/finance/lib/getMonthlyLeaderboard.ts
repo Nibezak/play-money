@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client'
 import Decimal from 'decimal.js'
-import db from '@play-money/database'
+import db from '@slimefish/database'
 import { LeaderboardUser } from '../types'
 
 function transformUserOutput(input: LeaderboardUser): LeaderboardUser {
@@ -22,7 +22,8 @@ export async function getMonthlyLeaderboard(startDate: Date, endDate: Date, user
             WHEN te."fromAccountId" = a.id THEN -te.amount
             WHEN te."toAccountId" = a.id THEN te.amount
             ELSE 0
-        END) as net_amount
+        END) as net_amount,
+        SUM(ABS(te.amount)) as trade_volume
         FROM "Transaction" t
         JOIN "TransactionEntry" te ON t.id = te."transactionId"
         JOIN "Account" a ON a.id IN (te."fromAccountId", te."toAccountId")
@@ -74,8 +75,9 @@ export async function getMonthlyLeaderboard(startDate: Date, endDate: Date, user
         u."avatarUrl",
         COALESCE(tt.net_amount, 0) as total
         FROM "User" u
-        LEFT JOIN trader_transactions tt ON u."primaryAccountId" = tt."accountId"
+        JOIN trader_transactions tt ON u."primaryAccountId" = tt."accountId"
         WHERE u."username" NOT IN (${Prisma.join(usernamesToIgnore)})
+        AND COALESCE(tt.trade_volume, 0) > 0
         GROUP BY u.id, u."displayName", tt.net_amount
     )
     SELECT 

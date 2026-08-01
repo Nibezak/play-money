@@ -1,6 +1,6 @@
 import { addDays, isWithinInterval } from 'date-fns'
-import db, { Transaction } from '@play-money/database'
-import { MarketActivity } from '@play-money/markets/types'
+import db, { Transaction } from '@slimefish/database'
+import { MarketActivity } from '@slimefish/markets/types'
 import { TransactionWithEntries } from '../types'
 
 type ActivityInput = {

@@ -1,7 +1,7 @@
 import Decimal from 'decimal.js'
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getMarketQuote } from '@play-money/markets/lib/getMarketQuote'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getMarketQuote } from '@slimefish/markets/lib/getMarketQuote'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'
@@ -16,7 +16,7 @@ export async function POST(
     const body = (await req.json()) as unknown
     const { optionId, amount, isBuy = true } = schema.post.requestBody.parse(body)
 
-    const { probability, shares } = await getMarketQuote({
+    const { currentProbability, probability, shares, feeAmount, netAmount, feeBps } = await getMarketQuote({
       marketId: id,
       optionId,
       amount: new Decimal(amount),
@@ -25,8 +25,14 @@ export async function POST(
 
     return NextResponse.json({
       data: {
+        currentProbability: currentProbability.toNumber(),
         newProbability: probability.toNumber(),
+        sharesPurchased: shares.toNumber(),
+        totalPayout: shares.toNumber(),
         potentialReturn: shares.toNumber(),
+        feeAmount: feeAmount.toNumber(),
+        netAmount: netAmount.toNumber(),
+        feeBps,
       },
     })
   } catch (error) {

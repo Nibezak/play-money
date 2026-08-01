@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
+import type { SchemaResponse } from '@slimefish/api-helpers'
 import {
   DAILY_COMMENT_BONUS_PRIMARY,
   DAILY_LIQUIDITY_BONUS_PRIMARY,
   DAILY_MARKET_BONUS_PRIMARY,
   DAILY_TRADE_BONUS_PRIMARY,
-} from '@play-money/finance/economy'
-import { UserNotFoundError } from '@play-money/users/lib/exceptions'
-import { getUserById } from '@play-money/users/lib/getUserById'
-import { getUserStats } from '@play-money/users/lib/getUserStats'
+} from '@slimefish/finance/economy'
+import { UserNotFoundError } from '@slimefish/users/lib/exceptions'
+import { getUserById } from '@slimefish/users/lib/getUserById'
+import { getUserStats } from '@slimefish/users/lib/getUserStats'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'

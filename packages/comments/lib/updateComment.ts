@@ -1,4 +1,4 @@
-import db, { Comment } from '@play-money/database'
+import db, { Comment } from '@slimefish/database'
 import { sanitizeCommentContent } from './createComment'
 
 export async function updateComment({ id, content }: { id: string; content?: string }) {

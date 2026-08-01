@@ -1,12 +1,12 @@
 {
-  "name": "@play-money/transparency",
+  "name": "@slimefish/transparency",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@play-money/database": "*",
+    "@slimefish/database": "*",
     "decimal.js": "^10.4.3",
     "next": "^14.1.1",
     "react": "^18.2.0",

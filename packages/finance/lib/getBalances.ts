@@ -1,7 +1,6 @@
 import Decimal from 'decimal.js'
-import db, { Balance, MarketOptionPosition } from '@play-money/database'
-import { AssetTypeType } from '@play-money/database/zod/inputTypeSchemas/AssetTypeSchema'
-import { getMarket } from '@play-money/markets/lib/getMarket'
+import db, { Balance, MarketOptionPosition } from '@slimefish/database'
+import { AssetTypeType } from '@slimefish/database/zod/inputTypeSchemas/AssetTypeSchema'
 
 export type NetBalance = Omit<Balance, 'subtotals'> & { subtotals: Record<string, number> }
 export type NetBalanceAsNumbers = Omit<Balance, 'total' | 'subtotals'> & {
@@ -49,15 +48,19 @@ export async function getMarketBalances({
   accountId: string
   marketId: string
 }): Promise<Array<NetBalance>> {
-  const market = marketId ? await getMarket({ id: marketId, extended: true }) : undefined
-  const balances = await Promise.all([
-    ...(market?.options || []).map((option) => {
-      return getBalance({ accountId, assetType: 'MARKET_OPTION', assetId: option.id, marketId }).catch(() => null)
-    }),
-    getBalance({ accountId, assetType: 'CURRENCY', assetId: 'PRIMARY', marketId }).catch(() => null),
-  ])
+  const balances = await db.balance.findMany({
+    where: {
+      accountId,
+      marketId,
+      OR: [
+        { assetType: 'MARKET_OPTION' },
+        { assetType: 'CURRENCY', assetId: 'PRIMARY' },
+      ],
+    },
+    orderBy: { createdAt: 'asc' },
+  })
 
-  return balances.filter((x): x is NetBalance => x !== null)
+  return balances as unknown as Array<NetBalance>
 }
 
 export async function getListBalances({

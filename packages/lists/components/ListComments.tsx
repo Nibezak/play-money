@@ -1,7 +1,7 @@
 import { revalidateTag } from 'next/cache'
 import React from 'react'
-import { getListComments } from '@play-money/api-helpers/client'
-import { CommentsList } from '@play-money/comments/components/CommentsList'
+import { getListComments } from '@slimefish/api-helpers/client'
+import { CommentsList } from '@slimefish/comments/components/CommentsList'
 
 export async function ListComments({ listId }: { listId: string }) {
   const { data: comments } = await getListComments({ listId })

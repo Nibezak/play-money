@@ -1,4 +1,4 @@
-import { TransparencyStatsPage } from '@play-money/transparency/components/TransparencyStatsPage'
+import { TransparencyStatsPage } from '@slimefish/transparency/components/TransparencyStatsPage'
 
 export default function AppTransparencyStatsPage() {
   return <TransparencyStatsPage />

@@ -1,7 +1,7 @@
 import Decimal from 'decimal.js'
-import { INITIAL_USER_BALANCE_PRIMARY } from '@play-money/finance/economy'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
-import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
+import { INITIAL_USER_BALANCE_PRIMARY } from '@slimefish/finance/economy'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
+import { getUserPrimaryAccount } from '@slimefish/users/lib/getUserPrimaryAccount'
 import { executeTransaction } from './executeTransaction'
 
 export async function createHouseSingupBonusTransaction({ userId }: { userId: string }) {

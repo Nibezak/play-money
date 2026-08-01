@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import db from '@play-money/database'
-import { getUserById } from '@play-money/users/lib/getUserById'
-import { isAdmin } from '@play-money/users/rules'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import db from '@slimefish/database'
+import { getUserById } from '@slimefish/users/lib/getUserById'
+import { isAdmin } from '@slimefish/users/rules'
 
 export const dynamic = 'force-dynamic'
 

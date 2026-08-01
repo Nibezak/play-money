@@ -2,9 +2,9 @@
 
 import { useRouter } from 'next/navigation'
 import React, { useState, useEffect } from 'react'
-import { getSearch } from '@play-money/api-helpers/client'
-import { List, Market, User } from '@play-money/database'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
+import { getSearch } from '@slimefish/api-helpers/client'
+import { List, Market, User } from '@slimefish/database'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
 import {
   CommandDialog,
   CommandInput,
@@ -12,8 +12,8 @@ import {
   CommandEmpty,
   CommandGroup,
   CommandItem,
-} from '@play-money/ui/command'
-import { DialogDescription, DialogTitle } from '@play-money/ui/dialog'
+} from '@slimefish/ui/command'
+import { DialogDescription, DialogTitle } from '@slimefish/ui/dialog'
 
 export function GlobalSearchMenu({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   const router = useRouter()

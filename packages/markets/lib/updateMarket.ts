@@ -1,5 +1,5 @@
 import { Prisma } from '@prisma/client'
-import db, { Market } from '@play-money/database'
+import db, { Market } from '@slimefish/database'
 import { slugifyTitle } from './helpers'
 
 export async function updateMarket({

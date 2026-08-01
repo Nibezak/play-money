@@ -1,7 +1,7 @@
-import { createMarketExcessLiquidityTransactions } from '@play-money/markets/lib/createMarketExcessLiquidityTransactions'
-import { createMarketResolveLossTransactions } from '@play-money/markets/lib/createMarketResolveLossTransactions'
-import { createMarketResolveWinTransactions } from '@play-money/markets/lib/createMarketResolveWinTransactions'
-import { getMarket } from '@play-money/markets/lib/getMarket'
+import { createMarketExcessLiquidityTransactions } from '@slimefish/markets/lib/createMarketExcessLiquidityTransactions'
+import { createMarketResolveLossTransactions } from '@slimefish/markets/lib/createMarketResolveLossTransactions'
+import { createMarketResolveWinTransactions } from '@slimefish/markets/lib/createMarketResolveWinTransactions'
+import { getMarket } from '@slimefish/markets/lib/getMarket'
 import db from '../prisma'
 
 const marketId = 'cm5od3mim075xt20i1ummyi2u'

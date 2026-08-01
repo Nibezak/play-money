@@ -1,7 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useState } from 'react'
-import { User } from '@play-money/database'
+import { User } from '@slimefish/database'
 
 interface UserContextType {
   user: User | null

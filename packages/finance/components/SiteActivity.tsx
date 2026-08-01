@@ -3,12 +3,12 @@
 import _ from 'lodash'
 import { DiamondPlusIcon, CoinsIcon } from 'lucide-react'
 import Link from 'next/link'
-import { useSiteActivity } from '@play-money/api-helpers/client/hooks'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { TransactionWithEntries } from '@play-money/finance/types'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
-import { UserLink } from '@play-money/users/components/UserLink'
-import { UsersCondensedList } from '@play-money/users/components/UsersCondensedList'
+import { useSiteActivity } from '@slimefish/api-helpers/client/hooks'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { TransactionWithEntries } from '@slimefish/finance/types'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
+import { UserLink } from '@slimefish/users/components/UserLink'
+import { UsersCondensedList } from '@slimefish/users/components/UsersCondensedList'
 import { SiteActivityItem } from './SiteActivityItem'
 
 function isNotNull<T>(value: T | null): value is T {

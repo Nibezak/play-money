@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import React from 'react'
-import { mockNotification } from '@play-money/database/mocks'
+import { mockNotification } from '@slimefish/database/mocks'
 import { NotificationItem } from './NotificationItem'
 
 const meta = {

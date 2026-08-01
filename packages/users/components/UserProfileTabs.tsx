@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { useSearchParam } from '@play-money/ui'
-import { Tabs } from '@play-money/ui/tabs'
+import { useSearchParam } from '@slimefish/ui'
+import { Tabs } from '@slimefish/ui/tabs'
 
 export function UserProfileTabs({ children }: { children: React.ReactNode }) {
   const [tab, setTab] = useSearchParam('tab')

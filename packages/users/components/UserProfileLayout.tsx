@@ -1,12 +1,12 @@
 import { format } from 'date-fns'
 import { redirect } from 'next/navigation'
 import React from 'react'
-import { getUserBalance, getUserStats, getUserUsername } from '@play-money/api-helpers/client'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { formatNumber } from '@play-money/finance/lib/formatCurrency'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@play-money/ui/card'
-import { Separator } from '@play-money/ui/separator'
+import { getUserBalance, getUserStats, getUserUsername } from '@slimefish/api-helpers/client'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { formatNumber } from '@slimefish/finance/lib/formatCurrency'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@slimefish/ui/card'
+import { Separator } from '@slimefish/ui/separator'
 import { UserPlaystyleChart } from './UserPlaystyleChart'
 
 const DiscordIcon = ({ className }: { className: string }) => (

@@ -1,9 +1,9 @@
 import Decimal from 'decimal.js'
-import db, { User } from '@play-money/database'
-import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
-import { createNotification } from '@play-money/notifications/lib/createNotification'
-import { getUserById } from '@play-money/users/lib/getUserById'
+import db, { User } from '@slimefish/database'
+import { executeTransaction } from '@slimefish/finance/lib/executeTransaction'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
+import { createNotification } from '@slimefish/notifications/lib/createNotification'
+import { getUserById } from '@slimefish/users/lib/getUserById'
 
 export async function createReferralBonusTransactions({
   user,
@@ -16,6 +16,8 @@ export async function createReferralBonusTransactions({
   marketId?: string
   payout: Decimal
 }) {
+  if (payout.lte(0)) return
+
   const referringUser = user.referredBy ? await getUserById({ id: user.referredBy }) : null
   const houseAccount = await getHouseAccount()
 

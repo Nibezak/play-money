@@ -1,8 +1,8 @@
 import Decimal from 'decimal.js'
-import { Transaction } from '@play-money/database'
-import { LIQUIDITY_VOLUME_BONUS_PERCENT } from '@play-money/finance/economy'
-import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
+import { Transaction } from '@slimefish/database'
+import { LIQUIDITY_VOLUME_BONUS_PERCENT } from '@slimefish/finance/economy'
+import { executeTransaction } from '@slimefish/finance/lib/executeTransaction'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
 import { getMarketLiquidity } from './getMarketLiquidity'
 import { updateMarketBalances } from './updateMarketBalances'
 

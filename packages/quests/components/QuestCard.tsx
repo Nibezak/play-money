@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { ReferralQuestBonusRow } from '@play-money/referrals/components/ReferralQuestBonusRow'
-import { Badge } from '@play-money/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@play-money/ui/card'
-import { cn } from '@play-money/ui/utils'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { ReferralQuestBonusRow } from '@slimefish/referrals/components/ReferralQuestBonusRow'
+import { Badge } from '@slimefish/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from '@slimefish/ui/card'
+import { cn } from '@slimefish/ui/utils'
 
 export type Quest = {
   title: string

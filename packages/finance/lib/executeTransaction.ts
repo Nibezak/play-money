@@ -1,9 +1,11 @@
-import db, { TransactionClient } from '@play-money/database'
+import db, { TransactionClient } from '@slimefish/database'
+import { Prisma } from '@prisma/client'
 import Decimal from 'decimal.js'
-import { TransactionTypeType } from '@play-money/database/zod/inputTypeSchemas/TransactionTypeSchema'
-import { BalanceChange, calculateBalanceChanges } from '@play-money/finance/lib/helpers'
+import { TransactionTypeType } from '@slimefish/database/zod/inputTypeSchemas/TransactionTypeSchema'
+import { BalanceChange, calculateBalanceChanges } from '@slimefish/finance/lib/helpers'
 import { TransactionEntryInput } from '../types'
 import { updateGlobalBalances } from './updateGlobalBalances'
+import { updateBalancesWithoutSubtotals } from './updateBalance'
 
 const TRANSACTION_MAX_WAIT_MS = 15000
 const TRANSACTION_TIMEOUT_MS = 120000
@@ -46,13 +48,9 @@ export async function executeTransaction({
   }
   const balanceChanges = calculateBalanceChanges({ entries: normalizedEntries })
 
-  return db.$transaction(
-    async (tx) => {
-      if (idempotencyKey) {
-        await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${idempotencyKey}))`
-        const existing = await tx.transaction.findUnique({ where: { externalId: idempotencyKey } })
-        if (existing) return { ...existing, replayed: true as const }
-      }
+  try {
+    return await db.$transaction(
+      async (tx) => {
       const transaction = await tx.transaction.create({
         data: {
           type,
@@ -66,19 +64,39 @@ export async function executeTransaction({
         },
       })
 
-      await updateGlobalBalances({
-        tx,
-        transactionType: type,
-        balanceChanges,
-        updateSubtotals: !deferBalanceSubtotals,
-      })
+      if (deferBalanceSubtotals) {
+        await updateBalancesWithoutSubtotals({
+          tx,
+          allowNegativeMarketOptionBalances: true,
+          changes: balanceChanges.map(({ accountId, assetType, assetId, change }) => ({
+            accountId,
+            assetType,
+            assetId,
+            change: new Decimal(change),
+            marketId: assetType === 'MARKET_OPTION' ? marketId : undefined,
+          })),
+        })
+      } else {
+        await updateGlobalBalances({
+          tx,
+          transactionType: type,
+          balanceChanges,
+        })
+      }
       await additionalLogic?.({ tx, balanceChanges, transactionType: type, transactionId: transaction.id })
 
       return { ...transaction, replayed: false as const }
-    },
-    {
-      maxWait: TRANSACTION_MAX_WAIT_MS,
-      timeout: TRANSACTION_TIMEOUT_MS,
+      },
+      {
+        maxWait: TRANSACTION_MAX_WAIT_MS,
+        timeout: TRANSACTION_TIMEOUT_MS,
+      }
+    )
+  } catch (error) {
+    if (idempotencyKey && error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
+      const existing = await db.transaction.findUnique({ where: { externalId: idempotencyKey } })
+      if (existing) return { ...existing, replayed: true as const }
     }
-  )
+    throw error
+  }
 }

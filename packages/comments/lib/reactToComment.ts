@@ -1,7 +1,7 @@
-import db, { CommentReaction } from '@play-money/database'
-import { getList } from '@play-money/lists/lib/getList'
-import { getMarket } from '@play-money/markets/lib/getMarket'
-import { createNotification } from '@play-money/notifications/lib/createNotification'
+import db, { CommentReaction } from '@slimefish/database'
+import { getList } from '@slimefish/lists/lib/getList'
+import { getMarket } from '@slimefish/markets/lib/getMarket'
+import { createNotification } from '@slimefish/notifications/lib/createNotification'
 
 export async function reactToComment({
   emoji,
@@ -46,7 +46,7 @@ export async function reactToComment({
     await createNotification({
       type: 'COMMENT_REACTION',
       actorId: userId,
-      ...(reaction.comment.entityType === 'MARKET' ? { marketId: entity.id } : { list: entity.id }),
+      ...(reaction.comment.entityType === 'MARKET' ? { marketId: entity.id } : { listId: entity.id }),
       commentId: reaction.comment.id,
       commentReactionId: reaction.id,
       groupKey: entity.id,

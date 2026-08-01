@@ -1,8 +1,8 @@
 import Decimal from 'decimal.js'
-import { INITIAL_MARKET_LIQUIDITY_PRIMARY } from '@play-money/finance/economy'
-import { createHouseSingupBonusTransaction } from '@play-money/finance/lib/createHouseSingupBonusTransaction'
-import { createMarketLiquidityTransaction } from '@play-money/markets/lib/createMarketLiquidityTransaction'
-import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
+import { INITIAL_MARKET_LIQUIDITY_PRIMARY } from '@slimefish/finance/economy'
+import { createHouseSingupBonusTransaction } from '@slimefish/finance/lib/createHouseSingupBonusTransaction'
+import { createMarketLiquidityTransaction } from '@slimefish/markets/lib/createMarketLiquidityTransaction'
+import { getUserPrimaryAccount } from '@slimefish/users/lib/getUserPrimaryAccount'
 import db from '../prisma'
 
 async function main() {

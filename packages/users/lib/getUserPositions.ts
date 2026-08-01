@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js'
-import { getPaginatedItems, PaginationRequest } from '@play-money/api-helpers'
-import db, { MarketOptionPosition } from '@play-money/database'
+import { getPaginatedItems, PaginationRequest } from '@slimefish/api-helpers'
+import db, { MarketOptionPosition } from '@slimefish/database'
 
 interface MarketPositionFilterOptions {
   status?: 'active' | 'closed' | 'all'

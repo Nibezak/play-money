@@ -2,9 +2,9 @@ import { faker } from '@faker-js/faker'
 import cuid from 'cuid'
 import Decimal from 'decimal.js'
 import _ from 'lodash'
-import { NetBalance } from '@play-money/finance/lib/getBalances'
-import { TransactionWithEntries } from '@play-money/finance/types'
-import { ExtendedMarket } from '@play-money/markets/types'
+import { NetBalance } from '@slimefish/finance/lib/getBalances'
+import { TransactionWithEntries } from '@slimefish/finance/types'
+import { ExtendedMarket } from '@slimefish/markets/types'
 import {
   Market,
   User,
@@ -87,6 +87,7 @@ export function mockMarket(overrides?: Partial<Market>): Market {
     commentCount: parseInt(faker.string.numeric({ length: { min: 0, max: 1 } })),
     uniqueTradersCount: parseInt(faker.string.numeric({ length: { min: 0, max: 1 } })),
     uniquePromotersCount: parseInt(faker.string.numeric({ length: { min: 0, max: 1 } })),
+    volume: new Decimal(0),
     ...overrides,
     eventId: overrides?.eventId ?? null,
     oracle: overrides?.oracle ?? null,

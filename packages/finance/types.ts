@@ -6,7 +6,7 @@ import {
   TransactionEntry,
   User,
   Account,
-} from '@play-money/database'
+} from '@slimefish/database'
 
 export type TransactionEntryInput = Pick<
   TransactionEntry,

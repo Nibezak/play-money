@@ -1,8 +1,9 @@
 import Decimal from 'decimal.js'
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import { addLiquidity } from '@play-money/markets/lib/addLiquidity'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import { addLiquidity } from '@slimefish/markets/lib/addLiquidity'
+import { publishFreshPublicMarketSnapshots } from '@slimefish/markets/lib/getMarketLiveSnapshot'
 import schema from './schema'
 
 export const dynamic = 'force-dynamic'
@@ -27,6 +28,7 @@ export async function POST(
       amount: new Decimal(amount),
       marketId: id,
     })
+    await publishFreshPublicMarketSnapshots([id])
 
     return NextResponse.json({
       data: {

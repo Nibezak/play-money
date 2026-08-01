@@ -1,5 +1,5 @@
 {
-  "name": "@play-money/markets",
+  "name": "@slimefish/markets",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,12 +8,13 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@play-money/database": "*",
-    "@play-money/finance": "*",
-    "@play-money/notifications": "*",
-    "@play-money/quests": "*",
+    "@slimefish/database": "*",
+    "@slimefish/finance": "*",
+    "@slimefish/notifications": "*",
+    "@slimefish/quests": "*",
     "chrono-node": "^2.7.7",
     "decimal.js": "^10.4.3",
+    "ioredis": "^5.11.1",
     "next": "^14.1.1",
     "openai": "^4.56.1",
     "react": "^18.2.0",

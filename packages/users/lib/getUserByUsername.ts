@@ -1,4 +1,4 @@
-import db from '@play-money/database'
+import db from '@slimefish/database'
 import { UserNotFoundError } from './exceptions'
 
 export async function getUserByUsername({ username }: { username: string }) {

@@ -1,14 +1,8 @@
-import { auth } from '@play-money/auth'
 import { createHash, timingSafeEqual } from 'node:crypto'
-import db from '@play-money/database'
-import { createUser } from '@play-money/users/lib/createUser'
+import db from '@slimefish/database'
+import { createUser } from '@slimefish/users/lib/createUser'
 
 export async function getAuthUser(request: Request): Promise<string | null> {
-  const session = await auth()
-  if (session?.user?.id) {
-    return session.user.id
-  }
-
   const tellwiseSecret = request.headers.get('x-tellwise-secret')
   const tellwiseUserId = request.headers.get('x-tellwise-user-id')
   const configuredSecret = process.env.TELLWISE_SERVICE_SECRET?.trim()
@@ -29,23 +23,33 @@ export async function getAuthUser(request: Request): Promise<string | null> {
       : allowedRoles.includes(requestedRole as typeof allowedRoles[number])
         ? requestedRole as typeof allowedRoles[number]
         : undefined
+    const forwardedEmail = request.headers.get('x-tellwise-user-email')?.trim().toLowerCase()
     let existing = await db.user.findUnique({ where: { id: tellwiseUserId } })
+    if (!existing && forwardedEmail) {
+      existing = await db.user.findUnique({ where: { email: forwardedEmail } })
+    }
     if (!existing) {
       const usernameSuffix = createHash('sha256').update(tellwiseUserId).digest('hex').slice(0, 16)
       existing = await createUser({
         id: tellwiseUserId,
-        email: `${tellwiseUserId}@tellwise.local`,
+        email: forwardedEmail || `${tellwiseUserId}@tellwise.local`,
         username: `tellwise_${usernameSuffix}`,
       })
     }
     
     if (resolvedRole && existing.role !== resolvedRole) {
       await db.user.update({
-        where: { id: tellwiseUserId },
+        where: { id: existing.id },
         data: { role: resolvedRole }
       })
     }
-    return tellwiseUserId
+    return existing.id
+  }
+
+  const { auth } = await import('@slimefish/auth')
+  const session = await auth()
+  if (session?.user?.id) {
+    return session.user.id
   }
 
   const apiKey = request.headers.get('x-api-key')

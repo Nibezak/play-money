@@ -4,7 +4,7 @@ import * as fs from 'node:fs'
 import path from 'node:path'
 import { OpenAPI } from 'openapi-types'
 import { z, ZodType } from 'zod'
-import { ApiEndpoints } from '@play-money/api-helpers'
+import { ApiEndpoints } from '@slimefish/api-helpers'
 
 extendZodWithOpenApi(z)
 
@@ -105,9 +105,9 @@ async function getDocument() {
   const document = generator.generateDocument({
     openapi: '3.1.0',
     info: {
-      title: 'PlayMoney API',
+      title: 'SlimefishBackend API',
       version: '1.0',
-      description: `[Discord](https://discord.gg/Q5CeSMFeBP) · [API key](https://playmoney.dev/settings/api) · [OpenAPI spec](https://github.com/casesandberg/play-money/blob/main/apps/api/openapi.json) · [Trading bot](https://github.com/casesandberg/playmoney-bot-trading) · [Mirror bot](https://github.com/casesandberg/playmoney-bot-manifold-mirror)\n\n Include \`x-api-key: {{key}}\` in the header of your requests.`,
+      description: `[Discord](https://discord.gg/Q5CeSMFeBP) · [API key](https://slimefishbackend.dev/settings/api) · [OpenAPI spec](https://github.com/casesandberg/slimefish-backend/blob/main/apps/api/openapi.json) · [Trading bot](https://github.com/casesandberg/slimefishbackend-bot-trading) · [Mirror bot](https://github.com/casesandberg/slimefishbackend-bot-manifold-mirror)\n\n Include \`x-api-key: {{key}}\` in the header of your requests.`,
     },
     servers: process.env.NEXT_PUBLIC_API_URL
       ? [

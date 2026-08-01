@@ -1,10 +1,10 @@
 import { formatDistanceToNow } from 'date-fns'
 import Link from 'next/link'
 import React from 'react'
-import { formatNumber } from '@play-money/finance/lib/formatCurrency'
-import { calculateBalanceChanges, findBalanceChange } from '@play-money/finance/lib/helpers'
-import { UserAvatar } from '@play-money/ui/UserAvatar'
-import { cn } from '@play-money/ui/utils'
+import { formatNumber } from '@slimefish/finance/lib/formatCurrency'
+import { calculateBalanceChanges, findBalanceChange } from '@slimefish/finance/lib/helpers'
+import { UserAvatar } from '@slimefish/ui/UserAvatar'
+import { cn } from '@slimefish/ui/utils'
 import { formatDistanceToNowShort } from '../../ui/src/helpers'
 import { NotificationGroupWithLastNotification } from '../lib/getNotifications'
 
@@ -74,7 +74,7 @@ export function NotificationItem({
       })
 
       topLine = notification.market.question
-      bottomLine = `${notification.actor.displayName} bet: ¤${formatNumber(Math.abs(primaryChange?.change ?? 0))} ${notification.marketOption.name}${othersCount}`
+      bottomLine = `${notification.actor.displayName} bet: ¤${formatNumber(Math.abs(Number(primaryChange?.change ?? 0)))} ${notification.marketOption.name}${othersCount}`
       break
     }
     case 'MARKET_LIQUIDITY_ADDED': {
@@ -93,7 +93,7 @@ export function NotificationItem({
       })
 
       topLine = notification.market.question
-      bottomLine = `¤${formatNumber(Math.abs(primaryChange?.change ?? 0))} liquidity added by ${notification.actor.displayName}${othersCount}`
+      bottomLine = `¤${formatNumber(Math.abs(Number(primaryChange?.change ?? 0)))} liquidity added by ${notification.actor.displayName}${othersCount}`
       break
     }
     case 'MARKET_COMMENT': {
@@ -143,7 +143,7 @@ export function NotificationItem({
     }
     case 'REFERRER_BONUS': {
       const balanceChanges = calculateBalanceChanges(notification.transaction)
-      const amount = Math.abs(balanceChanges[0].change)
+      const amount = Math.abs(Number(balanceChanges[0].change))
 
       topLine = 'You recieved a referral bonus'
       bottomLine = `¤${formatNumber(amount)} from ${notification.actor.displayName}${othersCount}`

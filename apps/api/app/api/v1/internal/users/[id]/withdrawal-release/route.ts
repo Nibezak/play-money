@@ -1,8 +1,8 @@
 import Decimal from 'decimal.js'
 import { NextResponse } from 'next/server'
-import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
-import { getUserPrimaryAccount } from '@play-money/users/lib/getUserPrimaryAccount'
+import { executeTransaction } from '@slimefish/finance/lib/executeTransaction'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
+import { getUserPrimaryAccount } from '@slimefish/users/lib/getUserPrimaryAccount'
 
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
@@ -18,6 +18,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     return NextResponse.json({ data: { transactionId: transaction.id } })
   }
   catch (error) {
-    return NextResponse.json({ error: error instanceof Error ? error.message : 'Release failed' }, { status: 500 })
+    console.error('Withdrawal release failed', error)
+    return NextResponse.json({ error: 'Could not release withdrawal funds right now.' }, { status: 500 })
   }
 }

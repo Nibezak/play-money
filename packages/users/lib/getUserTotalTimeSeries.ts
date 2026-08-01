@@ -1,6 +1,6 @@
 import { Decimal } from 'decimal.js'
-import db, { Transaction, TransactionEntry } from '@play-money/database'
-import { TransactionTypeType } from '@play-money/database/zod/inputTypeSchemas/TransactionTypeSchema'
+import db, { Transaction, TransactionEntry } from '@slimefish/database'
+import { TransactionTypeType } from '@slimefish/database/zod/inputTypeSchemas/TransactionTypeSchema'
 
 type Bucket = {
   startAt: Date

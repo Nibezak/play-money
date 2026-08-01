@@ -1,4 +1,4 @@
-import db from '@play-money/database'
+import db from '@slimefish/database'
 
 export async function getMarketOption({ id, marketId }: { id: string; marketId?: string }) {
   const marketOption = await db.marketOption.findUnique({ where: { id, marketId } })

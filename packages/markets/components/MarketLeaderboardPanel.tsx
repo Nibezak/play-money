@@ -1,10 +1,10 @@
 import React from 'react'
-import { useMarketBalances } from '@play-money/api-helpers/client/hooks'
-import { CurrencyDisplay } from '@play-money/finance/components/CurrencyDisplay'
-import { Badge } from '@play-money/ui/badge'
-import { Card, CardContent } from '@play-money/ui/card'
-import { cn } from '@play-money/ui/utils'
-import { UserLink } from '@play-money/users/components/UserLink'
+import { useMarketBalances } from '@slimefish/api-helpers/client/hooks'
+import { CurrencyDisplay } from '@slimefish/finance/components/CurrencyDisplay'
+import { Badge } from '@slimefish/ui/badge'
+import { Card, CardContent } from '@slimefish/ui/card'
+import { cn } from '@slimefish/ui/utils'
+import { UserLink } from '@slimefish/users/components/UserLink'
 import { ExtendedMarket } from '../types'
 
 export function MarketLeaderboardPanel({ market }: { market: ExtendedMarket }) {

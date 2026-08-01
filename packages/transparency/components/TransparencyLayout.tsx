@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { buttonVariants } from '@play-money/ui/button'
-import { cn } from '@play-money/ui/utils'
+import { buttonVariants } from '@slimefish/ui/button'
+import { cn } from '@slimefish/ui/utils'
 
 export function TransparencyLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()

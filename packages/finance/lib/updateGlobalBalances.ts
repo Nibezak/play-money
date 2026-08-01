@@ -1,8 +1,8 @@
 import Decimal from 'decimal.js'
-import { TransactionClient } from '@play-money/database'
-import { TransactionTypeType } from '@play-money/database/zod/inputTypeSchemas/TransactionTypeSchema'
+import { TransactionClient } from '@slimefish/database'
+import { TransactionTypeType } from '@slimefish/database/zod/inputTypeSchemas/TransactionTypeSchema'
 import { BalanceChange, calculateBalanceSubtotals } from './helpers'
-import { updateBalance } from './updateBalance'
+import { updateBalance, updateBalancesWithoutSubtotals } from './updateBalance'
 
 export async function updateGlobalBalances({
   tx,
@@ -15,6 +15,21 @@ export async function updateGlobalBalances({
   balanceChanges: Array<BalanceChange>
   updateSubtotals?: boolean
 }) {
+  if (!updateSubtotals) {
+    await updateBalancesWithoutSubtotals({
+      tx,
+      changes: balanceChanges
+        .filter(({ assetType }) => assetType === 'CURRENCY')
+        .map(({ accountId, assetType, assetId, change }) => ({
+          accountId,
+          assetType,
+          assetId,
+          change: new Decimal(change),
+        })),
+    })
+    return
+  }
+
   for (const { accountId, assetType, assetId, change } of balanceChanges) {
     if (assetType !== 'CURRENCY') {
       continue

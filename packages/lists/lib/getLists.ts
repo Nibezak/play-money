@@ -1,5 +1,5 @@
-import { getPaginatedItems, PaginationRequest } from '@play-money/api-helpers'
-import db, { List } from '@play-money/database'
+import { getPaginatedItems, PaginationRequest } from '@slimefish/api-helpers'
+import db, { List } from '@slimefish/database'
 
 interface ListFilterOptions {
   ownerId?: string

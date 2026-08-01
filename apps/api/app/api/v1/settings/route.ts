@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
-import { getAuthUser } from '@play-money/auth/lib/getAuthUser'
-import db from '@play-money/database'
-import { getUserById } from '@play-money/users/lib/getUserById'
-import { isAdmin } from '@play-money/users/rules'
+import { getAuthUser } from '@slimefish/auth/lib/getAuthUser'
+import db from '@slimefish/database'
+import { getUserById } from '@slimefish/users/lib/getUserById'
+import { isAdmin } from '@slimefish/users/rules'
 
 export const dynamic = 'force-dynamic'
 
@@ -40,6 +40,15 @@ export async function POST(req: Request) {
     const results = []
     for (const setting of settings) {
       const { group, key, value } = setting
+      if (typeof group !== 'string' || typeof key !== 'string' || typeof value !== 'string') {
+        return NextResponse.json({ error: 'Invalid setting payload' }, { status: 400 })
+      }
+      if (group === 'fees' && key === 'amm_trade_fee_bps') {
+        const feeBps = Number.parseInt(value, 10)
+        if (!Number.isInteger(feeBps) || feeBps < 0 || feeBps > 900) {
+          return NextResponse.json({ error: 'AMM trade fee must be between 0 and 900 basis points' }, { status: 400 })
+        }
+      }
       const result = await db.setting.upsert({
         where: { group_key: { group, key } },
         create: { group, key, value },

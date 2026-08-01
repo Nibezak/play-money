@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import { Button } from '@play-money/ui/button'
-import { cn } from '@play-money/ui/utils'
+import { Button } from '@slimefish/ui/button'
+import { cn } from '@slimefish/ui/utils'
 import { GlobalSearchMenu } from './GlobalSearchMenu'
 
 export function GlobalSearchTrigger({ className }: { className?: string }) {

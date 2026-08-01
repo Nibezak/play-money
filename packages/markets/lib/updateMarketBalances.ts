@@ -1,8 +1,8 @@
 import Decimal from 'decimal.js'
-import { TransactionClient } from '@play-money/database'
-import { TransactionTypeType } from '@play-money/database/zod/inputTypeSchemas/TransactionTypeSchema'
-import { BalanceChange, calculateBalanceSubtotals } from '@play-money/finance/lib/helpers'
-import { updateBalance } from '@play-money/finance/lib/updateBalance'
+import { TransactionClient } from '@slimefish/database'
+import { TransactionTypeType } from '@slimefish/database/zod/inputTypeSchemas/TransactionTypeSchema'
+import { BalanceChange, calculateBalanceSubtotals } from '@slimefish/finance/lib/helpers'
+import { updateBalance, updateBalancesWithoutSubtotals } from '@slimefish/finance/lib/updateBalance'
 
 export async function updateMarketBalances({
   tx,
@@ -17,6 +17,22 @@ export async function updateMarketBalances({
   marketId: string
   updateSubtotals?: boolean
 }) {
+  if (!updateSubtotals) {
+    await updateBalancesWithoutSubtotals({
+      tx,
+      changes: balanceChanges
+        .filter(({ assetType }) => assetType === 'MARKET_OPTION')
+        .map(({ accountId, assetType, assetId, change }) => ({
+          accountId,
+          assetType,
+          assetId,
+          change: new Decimal(change),
+          marketId,
+        })),
+    })
+    return []
+  }
+
   const balances = []
   for (const { accountId, assetType, assetId, change } of balanceChanges) {
     if (assetType !== 'MARKET_OPTION') continue

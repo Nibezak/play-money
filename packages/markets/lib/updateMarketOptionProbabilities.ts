@@ -1,6 +1,6 @@
-import { TransactionClient } from '@play-money/database'
-import { NetBalance } from '@play-money/finance/lib/getBalances'
-import { marketOptionBalancesToProbabilities } from '@play-money/finance/lib/helpers'
+import { TransactionClient } from '@slimefish/database'
+import { NetBalance } from '@slimefish/finance/lib/getBalances'
+import { marketOptionBalancesToProbabilities } from '@slimefish/finance/lib/helpers'
 import { getMarket } from './getMarket'
 
 export async function updateMarketOptionProbabilities({
@@ -16,8 +16,9 @@ export async function updateMarketOptionProbabilities({
   const ammBalances = balances.filter((balance) => balance.accountId === market.ammAccountId)
   const probabilities = marketOptionBalancesToProbabilities(ammBalances)
 
-  for (const [optionId, probability] of Object.entries(probabilities)) {
-      await tx.marketOption.update({
+  await Promise.all(
+    Object.entries(probabilities).map(([optionId, probability]) =>
+      tx.marketOption.update({
         where: {
           id: optionId,
         },
@@ -26,5 +27,6 @@ export async function updateMarketOptionProbabilities({
           updatedAt: new Date(),
         },
       })
-  }
+    )
+  )
 }

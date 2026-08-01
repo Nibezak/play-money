@@ -1,7 +1,7 @@
 import React from 'react'
-import { Badge } from '@play-money/ui/badge'
-import { InfoTooltip } from '@play-money/ui/info-tooltip'
-import { useUser } from '@play-money/users/context/UserContext'
+import { Badge } from '@slimefish/ui/badge'
+import { InfoTooltip } from '@slimefish/ui/info-tooltip'
+import { useUser } from '@slimefish/users/context/UserContext'
 import { isNewlyReferredUser } from '../lib/helpers'
 
 export function ReferralQuestBonusRow() {

@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js'
-import { mockBalance } from '@play-money/database/mocks'
-import * as ECONOMY from '@play-money/finance/economy'
+import { mockBalance } from '@slimefish/database/mocks'
+import * as ECONOMY from '@slimefish/finance/economy'
 import { calculateBalanceSubtotals, calculateRealizedGainsTax, marketOptionBalancesToProbabilities } from './helpers'
 
 Object.defineProperty(ECONOMY, 'REALIZED_GAINS_TAX', { value: 0.05 })

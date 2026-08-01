@@ -2,12 +2,11 @@ import { faker } from '@faker-js/faker'
 import { Prisma, User } from '@prisma/client'
 import Decimal from 'decimal.js'
 import _ from 'lodash'
-import { createComment } from '@play-money/comments/lib/createComment'
-import db from '@play-money/database'
-import { createHouseSingupBonusTransaction } from '@play-money/finance/lib/createHouseSingupBonusTransaction'
-import { createMarket } from '@play-money/markets/lib/createMarket'
-import { marketBuy } from '@play-money/markets/lib/marketBuy'
-import { resolveMarket } from '@play-money/markets/lib/resolveMarket'
+import { createComment } from '@slimefish/comments/lib/createComment'
+import db from '@slimefish/database'
+import { createMarket } from '@slimefish/markets/lib/createMarket'
+import { marketBuy } from '@slimefish/markets/lib/marketBuy'
+import { resolveMarket } from '@slimefish/markets/lib/resolveMarket'
 import { mockUser } from './mocks'
 import { OmittedUserFields } from './prisma'
 
@@ -39,10 +38,6 @@ async function main() {
             },
           } as unknown as undefined,
         },
-      })
-
-      await createHouseSingupBonusTransaction({
-        userId: user.id,
       })
 
       return data.id

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import type { SchemaResponse } from '@play-money/api-helpers'
-import { getStatsUsersTimeSeries } from '@play-money/transparency/lib/getStatsUsersTimeSeries'
+import type { SchemaResponse } from '@slimefish/api-helpers'
+import { getStatsUsersTimeSeries } from '@slimefish/transparency/lib/getStatsUsersTimeSeries'
 import type schema from './schema'
 
 export const dynamic = 'force-dynamic'

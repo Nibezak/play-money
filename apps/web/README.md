@@ -1,6 +1,6 @@
-# Play Money Web App
+# Slimefish ledger Web App
 
-The **Play Money** web app is a lightweight Next.js application built with React and TailwindCSS.
+The **Slimefish ledger** web app is a lightweight Next.js application built with React and TailwindCSS.
 
 ## Features
 

@@ -1,7 +1,7 @@
 import Decimal from 'decimal.js'
-import { getBalance, getMarketBalances } from '@play-money/finance/lib/getBalances'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
-import { getMarketClearingAccount } from '@play-money/markets/lib/getMarketClearingAccount'
+import { getBalance, getMarketBalances } from '@slimefish/finance/lib/getBalances'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
+import { getMarketClearingAccount } from '@slimefish/markets/lib/getMarketClearingAccount'
 
 type TransactionItemInput = { accountId: string; currencyCode: string; amount: Decimal }
 

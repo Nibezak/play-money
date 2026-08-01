@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client'
 import { z } from 'zod'
-import db from '@play-money/database'
+import db from '@slimefish/database'
 import { PaginationRequest, PaginatedResponse } from '../types'
 
 const MAX_LIMIT = 100

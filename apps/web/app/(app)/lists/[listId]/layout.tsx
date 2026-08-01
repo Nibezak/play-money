@@ -1,6 +1,6 @@
 import { revalidateTag } from 'next/cache'
-import { getExtendedList } from '@play-money/api-helpers/client'
-import { ListPageLayout } from '@play-money/lists/components/ListPageLayout'
+import { getExtendedList } from '@slimefish/api-helpers/client'
+import { ListPageLayout } from '@slimefish/lists/components/ListPageLayout'
 
 export default async function AppListsLayout({
   children,

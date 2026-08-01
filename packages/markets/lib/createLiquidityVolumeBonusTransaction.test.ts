@@ -1,15 +1,15 @@
 import Decimal from 'decimal.js'
-import db from '@play-money/database'
+import db from '@slimefish/database'
 import {
   mockAccount,
   mockMarket,
   mockMarketOption,
   mockTransactionEntry,
   mockTransactionWithEntries,
-} from '@play-money/database/mocks'
-import { LIQUIDITY_VOLUME_BONUS_PERCENT } from '@play-money/finance/economy'
-import { executeTransaction } from '@play-money/finance/lib/executeTransaction'
-import { getHouseAccount } from '@play-money/finance/lib/getHouseAccount'
+} from '@slimefish/database/mocks'
+import { LIQUIDITY_VOLUME_BONUS_PERCENT } from '@slimefish/finance/economy'
+import { executeTransaction } from '@slimefish/finance/lib/executeTransaction'
+import { getHouseAccount } from '@slimefish/finance/lib/getHouseAccount'
 import { createLiquidityVolumeBonusTransaction } from './createLiquidityVolumeBonusTransaction'
 import { getMarket } from './getMarket'
 import { getMarketAmmAccount } from './getMarketAmmAccount'
@@ -18,9 +18,9 @@ import { getMarketClearingAccount } from './getMarketClearingAccount'
 jest.mock('./getMarket')
 jest.mock('./getMarketClearingAccount')
 jest.mock('./getMarketAmmAccount')
-jest.mock('@play-money/finance/lib/getHouseAccount')
-jest.mock('@play-money/finance/lib/executeTransaction')
-jest.mock('@play-money/database')
+jest.mock('@slimefish/finance/lib/getHouseAccount')
+jest.mock('@slimefish/finance/lib/executeTransaction')
+jest.mock('@slimefish/database')
 
 describe('createLiquidityVolumeBonusTransaction', () => {
   beforeEach(() => {

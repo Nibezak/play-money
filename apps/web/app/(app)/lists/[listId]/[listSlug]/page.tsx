@@ -1,7 +1,7 @@
 import { revalidateTag } from 'next/cache'
-import { getExtendedList } from '@play-money/api-helpers/client'
-import { ListComments } from '@play-money/lists/components/ListComments'
-import { ListPage } from '@play-money/lists/components/ListPage'
+import { getExtendedList } from '@slimefish/api-helpers/client'
+import { ListComments } from '@slimefish/lists/components/ListComments'
+import { ListPage } from '@slimefish/lists/components/ListPage'
 
 export default async function AppListsSlugPage({ params }: { params: { listId: string } }) {
   const { data: list } = await getExtendedList({ listId: params.listId })

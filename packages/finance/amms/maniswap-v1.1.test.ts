@@ -1,11 +1,11 @@
 import Decimal from 'decimal.js'
 import { toBeDeepCloseTo, toMatchCloseTo } from 'jest-matcher-deep-close-to'
-import '@play-money/config/jest/jest-setup'
+import '@slimefish/config/jest/jest-setup'
 import { addLiquidity, trade, quote, calculateProbability } from './maniswap-v1.1'
 
 expect.extend({ toBeDeepCloseTo, toMatchCloseTo })
 
-jest.mock('@play-money/markets/lib/getMarketOption', () => ({ getMarketOption: jest.fn() }))
+jest.mock('@slimefish/markets/lib/getMarketOption', () => ({ getMarketOption: jest.fn() }))
 
 describe('maniswap-v1.1', () => {
   describe('trade', () => {
