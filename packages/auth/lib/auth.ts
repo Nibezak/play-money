@@ -4,17 +4,16 @@ import db from '@slimefish/database'
 import { updateUserById } from '@slimefish/users/lib/updateUserById'
 import { PrismaAdapter } from './auth-prisma-adapter'
 
-if (!process.env.NEXTAUTH_URL) {
-  throw new Error('NEXTAUTH_URL is not set')
-}
+const nextAuthUrl = process.env.NEXTAUTH_URL || (process.env.NODE_ENV === 'production' ? 'https://api.slimefish.com' : 'http://localhost:3000')
+const resendEmail = process.env.AUTH_RESEND_EMAIL || 'noreply@slimefish.com'
 
-if (!process.env.AUTH_RESEND_EMAIL) {
-  throw new Error('AUTH_RESEND_EMAIL is not set')
-}
-
-const useSecureCookies = process.env.NEXTAUTH_URL.startsWith('https://')
+const useSecureCookies = nextAuthUrl.startsWith('https://')
 const cookiePrefix = useSecureCookies ? '__Secure-' : ''
-const hostName = new URL(process.env.NEXTAUTH_URL).hostname
+let hostName = 'slimefish.com'
+try {
+  hostName = new URL(nextAuthUrl).hostname
+}
+catch {}
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(db),
