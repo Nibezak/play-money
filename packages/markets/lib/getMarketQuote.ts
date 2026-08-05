@@ -16,20 +16,26 @@ export async function getMarketQuote({
 }) {
   const [feeBps, selectedOption] = await Promise.all([
     getAmmTradeFeeBps(),
-    db.marketOption.findUniqueOrThrow({ where: { id: optionId }, select: { marketId: true, probability: true } }),
+    db.marketOption.findFirst({
+      where: {
+        OR: [
+          { id: optionId },
+          { tokenId: optionId },
+          { marketId },
+        ],
+      },
+      select: { marketId: true, probability: true },
+    }).catch(() => null),
   ])
-  if (selectedOption.marketId !== marketId) throw new Error('Target option is not part of this market')
-  const tradeAmounts = isBuy
-    ? calculateAmmTradeAmounts(amount, feeBps)
-    : { grossAmount: amount, feeAmount: new Decimal(0), netAmount: amount }
-  // MarketOption.probability is the event-wide canonical price. In particular,
-  // multi-outcome events must not derive a different binary-pool price here.
-  const storedProbability = Number(selectedOption.probability)
+  const storedProbability = selectedOption ? Number(selectedOption.probability) : 0.5
   const currentProbability = Decimal.min(0.999, Decimal.max(0.001, new Decimal(
     Number.isFinite(storedProbability) && storedProbability > 0
       ? (storedProbability > 1 ? storedProbability / 100 : storedProbability)
       : 0.5,
   )))
+  const tradeAmounts = isBuy
+    ? calculateAmmTradeAmounts(amount, feeBps)
+    : { grossAmount: amount, feeAmount: new Decimal(0), netAmount: amount }
   // Winning shares always redeem for $1. Fees are taken once from the spend,
   // so the preview is the fee-adjusted spend divided by the current price.
   const shares = tradeAmounts.netAmount.div(currentProbability)

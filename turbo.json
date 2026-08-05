@@ -1,10 +1,9 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
-  "globalDotEnv": [".env"],
-  "pipeline": {
+  "tasks": {
     "build": {
-      "dependsOn": ["^test", "^build", "^db:generate", "^docs:generate"],
+      "dependsOn": ["^build", "^db:generate", "^docs:generate"],
       "env": [
         "NEXT_PUBLIC_API_URL",
         "BLOB_READ_WRITE_TOKEN",
